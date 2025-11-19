@@ -1,0 +1,25 @@
+.no-sidebar {
+
+	.site {
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+	}
+}
+
+.site-header {
+	grid-area: header;
+}
+
+.site-main {
+	grid-area: main;
+	overflow: hidden;
+	/* Resolves issue with <pre> elements forcing full width. */
+}
+
+.site-footer {
+	grid-area: footer;
+}

@@ -1,0 +1,31 @@
+html{
+    //base-colors
+    --black: #111;
+    --true-black: 000;
+    --main-color: red;
+    --dark-gray: #525151;
+    --medium-gray: #c9d3dd;
+    --light-gray: #F3F7FB;
+
+    --color__link: black;
+    --color__link-visited: blue;
+    --color__link-hover: red;
+
+    --color__border-button: red;
+    --color__background-button: green;
+    --color__border-button-hover: blue;
+    --color__border-button-focus: yellow;
+
+    --color__text-input: red;
+    --color__border-input: red;
+    --color__text-input-focus: red;
+
+    --ease: cubic-bezier(.12, .845, .305,1);
+
+    --ratio-square: 1;
+    --ratio-landscape: 4/3;
+    --ratio-portrait: 3/4;
+    --ratio-widescreen: 16/9;
+    --ratio-ultrawide: 18/5;
+    --ratio-golden: 1.6180/1;
+}

@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Zodiak';
+    src: url('../fonts/Zodiak-Variable.eot');
+    src: url('../fonts/Zodiak-Variable.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Zodiak-Variable.woff2') format('woff2'),
+        url('../fonts/Zodiak-Variable.ttf') format('truetype'),
+        url('../fonts/Zodiak-Variable.svg#font-name') format('svg');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GeneralSans';
+    src: url('../fonts/GeneralSans-Variable.eot');
+    src: url('../fonts/GeneralSans-Variable.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GeneralSans-Variable.woff2') format('woff2'),
+        url('../fonts/GeneralSans-Variable.ttf') format('truetype'),
+        url('../fonts/GeneralSans-Variable.svg#font-name') format('svg');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+html {
+	// FONTSTACKS
+	--font-serif: "Zodiak", "Garamond", "Times New Roman", serif;
+	--font-sans: "GeneralSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

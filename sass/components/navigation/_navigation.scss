@@ -1,0 +1,143 @@
+
+
+.main-navigation ul {
+	list-style: none;
+	border: 0;
+	display: flex;
+	justify-content: flex-end;
+
+	&:after,
+	&:before {
+		display: none; // remove from flex alignment! 
+	}
+
+
+	li {
+
+		&>a {
+			display: block;
+			margin: 0;
+			padding: 12px;
+			text-decoration: none;
+			position: relative;
+
+			&:hover{
+				color: #444;
+				text-decoration: none;
+
+				&::after {
+					width: 100%;
+				}
+			}
+
+			&:focus {
+				background-color: teal;
+				color: white;
+				text-decoration: underline;
+
+			}
+		}
+
+		//	SUBMENU
+
+		ul,
+		ul {
+			margin: 0;
+			padding: 0;
+			margin-top: -1px;
+			border-top: 0;
+			position: absolute;
+			display: none;
+			z-index: 2;
+			min-width: 200px;
+
+
+			background: white;
+
+			li {
+				text-align: left;
+
+				a {
+					padding: 12px 10px;
+					border-right: 0;
+					display: block;
+					margin: 0;
+					border-bottom: 1px solid #ccc;
+
+					&::after {
+						display: none;
+					}
+
+					&:hover{
+						background: var(--main-color);
+						color: white;
+					}
+					
+					&:focus {
+						background: teal;
+						color: white;
+						text-decoration: underline;
+					}
+				}
+
+				&:last-child {
+
+					a {
+						border-bottom: 0;
+					}
+				}
+			}
+
+			/* highlight sub-menu current page */
+			li.current-menu-item,
+			li.current_page_item,
+			li.current_page_ancestor {
+				a {}
+			}
+		}
+
+		/* showing sub-menus */
+		&:hover>ul {
+			display: block;
+			//visibility:visible;
+		}
+
+	}
+
+	/* end .menu ul li */
+
+	/* highlight current page */
+	li.current-menu-item,
+	li.current_page_item,
+	li.current_page_ancestor {
+		a {}
+	}
+
+	/* end current highlighters */
+}
+
+/* end .nav */
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+	}
+
+	.nav-links {
+		display: flex;
+	}
+
+	.nav-previous {
+		flex: 1 0 50%;
+	}
+
+	.nav-next {
+		text-align: end;
+		flex: 1 0 50%;
+	}
+}
+
+
