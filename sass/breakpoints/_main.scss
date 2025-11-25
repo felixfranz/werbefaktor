@@ -126,8 +126,8 @@ CURSOR SNAP
     pointer-events: none;
 
     background: #fff;
-    width: 20px;
-    height: 20px;
+    width: 0;
+    height: 0;
     border-radius: 30px;
     z-index: 0;
     transition:
@@ -140,4 +140,76 @@ CURSOR SNAP
 .snap.is-snapped {
     color: white;
     border: 1px solid var(--pink);     
+}
+
+
+
+#start-section{
+    display: flex;
+    &>div{
+        width: 50%;
+    }
+    .parallax {
+            position: relative;
+           // width: 50%;
+            height: 100vh;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+    
+        svg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    
+        .layer {
+            position: relative;
+            z-index: 1;
+    
+        }
+    
+        .st0 {
+            fill: #66ff7d;
+        }
+    
+        .st1 {
+            fill: #ff25db;
+        }
+    
+        .st2 {
+            fill: #223871;
+        }
+    
+        .st3 {
+            fill: #fff;
+        }
+    
+        .st4 {
+            fill: #6498c3;
+    
+        }
+    
+        .st5 {
+            fill: #0051ff;
+        }
+    
+        .st6 {
+            fill: #0051ff;
+        }
+    
+        .black {
+            fill: black;
+        }
+    
+    
+        .layer {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 25%;
+            left: 25%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.1s linear;     }
 }

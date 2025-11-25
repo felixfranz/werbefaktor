@@ -858,8 +858,8 @@ CURSOR SNAP
   left: 0;
   pointer-events: none;
   background: #fff;
-  width: 20px;
-  height: 20px;
+  width: 0;
+  height: 0;
   border-radius: 30px;
   z-index: 0;
   transition: width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background-color 0.2s ease;
@@ -868,6 +868,62 @@ CURSOR SNAP
 .snap.is-snapped {
   color: white;
   border: 1px solid var(--pink);
+}
+
+#start-section {
+  display: flex;
+}
+#start-section > div {
+  width: 50%;
+}
+#start-section .parallax {
+  position: relative;
+  height: 100vh;
+  perspective: 1000px;
+  overflow: hidden;
+}
+#start-section svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#start-section .layer {
+  position: relative;
+  z-index: 1;
+}
+#start-section .st0 {
+  fill: #66ff7d;
+}
+#start-section .st1 {
+  fill: #ff25db;
+}
+#start-section .st2 {
+  fill: #223871;
+}
+#start-section .st3 {
+  fill: #fff;
+}
+#start-section .st4 {
+  fill: #6498c3;
+}
+#start-section .st5 {
+  fill: #0051ff;
+}
+#start-section .st6 {
+  fill: #0051ff;
+}
+#start-section .black {
+  fill: black;
+}
+#start-section .layer {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.1s linear;
 }
 
 /*********************

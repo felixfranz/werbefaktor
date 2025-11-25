@@ -79,6 +79,7 @@ jq2(function ($) {
     }
   });
 
+  //////////////// CURSOR SNAP
   const cursor = document.querySelector('.cursor');
   const snapLinks = document.querySelectorAll('.snap a');
 
@@ -91,11 +92,11 @@ jq2(function ($) {
   let activeLink = null;
   let isSnapping = false;
 
-  function animate() {
+  function animate_snap() {
     currentX += (targetX - currentX) * speed;
     currentY += (targetY - currentY) * speed;
     cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animate_snap);
   }
 
   document.addEventListener('mousemove', (e) => {
@@ -144,9 +145,79 @@ jq2(function ($) {
     });
   });
 
-  animate();
+  animate_snap();
+
+///// END SNAP
+
+/////// X
+
+  const layers = document.querySelectorAll('#start-section .layer');
+  const container = document.querySelector('#start-section .container');
+
+  layers.forEach(layer => {
+    if (layer.classList.contains('layer-1')) {
+      layer.setAttribute('data-speed', '20');
+    }
+    else if (layer.classList.contains('layer-2')) {
+      layer.setAttribute('data-speed', '12');
+    }
+
+    else if (layer.classList.contains('layer-3')) {
+      layer.setAttribute('data-speed', '9');
+    }
+
+    else if (layer.classList.contains('layer-4')) {
+      layer.setAttribute('data-speed', '6');
+    }
+    else if (layer.classList.contains('layer-5')) {
+      layer.setAttribute('data-speed', '3');
+    }
+
+  });
+
+  let targetX_forX = 0, targetY_forX = 0;
+  let currentX_forX = 0, currentY_forX = 0;
+  let rect = container.getBoundingClientRect();
+
+  window.addEventListener('resize', () => {
+    rect = container.getBoundingClientRect();
+  });
 
 
+  container.addEventListener('mousemove', (e) => {
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    targetX_forX = x - rect.width / 2;
+    targetY_forX = y - rect.height / 2;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    targetX_forX = 0;
+    targetY_forX = 0;
+  });
+
+  function animate_x() {
+
+    currentX_forX += (targetX_forX - currentX_forX) * 0.1;
+    currentY_forX += (targetY_forX - currentY_forX) * 0.1;
+
+    layers.forEach(layer => {
+      const speed = layer.getAttribute('data-speed');
+      const moveX = currentX_forX * (speed / 60);
+      const moveY = currentY_forX * (speed / 60);
+
+      layer.style.transform = `
+      translate(${moveX}px, ${moveY}px)
+    `;
+    });
+
+    requestAnimationFrame(animate_x);
+  }
+
+  animate_x();
+
+/////// END X
 
 
   ////////////////////////////////////
