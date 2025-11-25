@@ -1,11 +1,21 @@
 html{
     //base-colors
-    --black: #111;
+    --black: #0b0e1b;
     --true-black: 000;
     --main-color: red;
-    --dark-gray: #525151;
+   
     --medium-gray: #c9d3dd;
-    --light-gray: #F3F7FB;
+    
+
+    --green: #66ffaf;
+    --dove-blue:#6498c3;
+    --bright-blue: #0051ff;
+    --dark-blue: #223871;
+    --almost-black: #0b0e1b;
+    --pink: #ff25db;
+    --blue-gray: #e2e6f2;
+    --light-gray: #efefef;
+    --dark-gray: #666666;
 
     --color__link: black;
     --color__link-visited: blue;
@@ -28,4 +38,14 @@ html{
     --ratio-widescreen: 16/9;
     --ratio-ultrawide: 18/5;
     --ratio-golden: 1.6180/1;
+
+    --font-xsmall: 12px;
+    --font-small: 13px;
+    --font-text: 18px;
+    --font-medium: 26px;
+    --font-large: 36px;    
+    --font-xlarge: 120px;
+    --font-button: var(--font-medium);
+
+    --button-height: 65px;
 }

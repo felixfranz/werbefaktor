@@ -1,5 +1,47 @@
 @media only screen and (min-width: 1030px) {
 
-   
+/////// HEADER
+    .page__header {
+        padding: 42px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+/////// LOGO
+.logo {
+    a {
+        width: 117px;
+        height: 21px;
+    }
+}
+
+//////////// NAV 
+/// 
+.main-navigation{
+    display: flex;
+}
+
+.main-navigation ul {
+    
+
+    li {
+        &>a {
+            padding: 6px 12px;
+        }
+    }
+}
+
+.main-navigation ul .wpml-ls-item a {
+    font-size: 14px;
+}
+
+.nav-toggle {
+    transform: translateX(100%);
+    width: 120px;
+        height: 70px;
+}
+
+
 
 }
+

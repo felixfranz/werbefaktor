@@ -295,12 +295,6 @@ table {
 a {
   color: var(--color__link);
 }
-a:visited {
-  color: var(--color__link-visited);
-}
-a:hover, a:focus, a:active {
-  color: var(--color__link-hover);
-}
 a:focus {
   outline: thin dotted;
 }
@@ -408,12 +402,19 @@ html {
 }
 
 html {
-  --black: #111;
+  --black: #0b0e1b;
   --true-black: 000;
   --main-color: red;
-  --dark-gray: #525151;
   --medium-gray: #c9d3dd;
-  --light-gray: #F3F7FB;
+  --green: #66ffaf;
+  --dove-blue:#6498c3;
+  --bright-blue: #0051ff;
+  --dark-blue: #223871;
+  --almost-black: #0b0e1b;
+  --pink: #ff25db;
+  --blue-gray: #e2e6f2;
+  --light-gray: #efefef;
+  --dark-gray: #666666;
   --color__link: black;
   --color__link-visited: blue;
   --color__link-hover: red;
@@ -431,6 +432,14 @@ html {
   --ratio-widescreen: 16/9;
   --ratio-ultrawide: 18/5;
   --ratio-golden: 1.6180/1;
+  --font-xsmall: 12px;
+  --font-small: 13px;
+  --font-text: 18px;
+  --font-medium: 26px;
+  --font-large: 36px;
+  --font-xlarge: 120px;
+  --font-button: var(--font-medium);
+  --button-height: 65px;
 }
 
 /*--------------------------------------------------------------
@@ -461,11 +470,17 @@ html {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
+.main-navigation {
+  display: flex;
+}
+
 .main-navigation ul {
   list-style: none;
   border: 0;
-  display: flex;
   justify-content: flex-end;
+  position: relative;
+  top: -7px;
+  z-index: 2;
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
@@ -479,19 +494,21 @@ html {
 .main-navigation ul li > a {
   display: block;
   margin: 0;
-  padding: 12px;
+  padding: 6px 18px 6px;
   text-decoration: none;
   position: relative;
+  font-size: var(--font-text);
+  font-weight: 500;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  transition: all 0.2s, color 0.2s;
 }
 .main-navigation ul li > a:hover {
-  color: #444;
   text-decoration: none;
-}
-.main-navigation ul li > a:hover::after {
-  width: 100%;
+  color: white;
 }
 .main-navigation ul li > a:focus {
-  background-color: teal;
+  background-color: var(--pink);
   color: white;
   text-decoration: underline;
 }
@@ -502,23 +519,23 @@ html {
   margin-top: -1px;
   border-top: 0;
   position: absolute;
+  top: 100%;
   display: none;
   z-index: 2;
-  min-width: 200px;
-  background: white;
   /* highlight sub-menu current page */
 }
 .main-navigation ul li ul li,
 .main-navigation ul li ul li {
   text-align: left;
+  margin-left: -6px;
 }
 .main-navigation ul li ul li a,
 .main-navigation ul li ul li a {
-  padding: 12px 10px;
+  padding: 6px 18px 6px;
   border-right: 0;
-  display: block;
+  display: inline-block;
   margin: 0;
-  border-bottom: 1px solid #ccc;
+  font-size: 16px;
 }
 .main-navigation ul li ul li a::after,
 .main-navigation ul li ul li a::after {
@@ -526,7 +543,6 @@ html {
 }
 .main-navigation ul li ul li a:hover,
 .main-navigation ul li ul li a:hover {
-  background: var(--main-color);
   color: white;
 }
 .main-navigation ul li ul li a:focus,
@@ -542,6 +558,38 @@ html {
 .main-navigation ul li:hover > ul {
   display: block;
 }
+.main-navigation ul li.nav_contact a {
+  background-color: var(--bright-blue);
+  color: white;
+  border-radius: 18px;
+  margin-left: 9px;
+}
+.main-navigation ul li.nav_contact a:hover {
+  background: var(--pink);
+}
+.main-navigation ul .wpml-ls-item a {
+  border-radius: 16px;
+  padding: 8px 3px;
+  font-size: 14px;
+}
+.main-navigation ul .wpml-ls-item a:hover {
+  color: var(--pink);
+}
+
+.main-navigation ul .wpml-ls-item-de {
+  display: flex;
+  margin-left: 25px;
+}
+
+.main-navigation ul .wpml-ls-item-en {
+  display: flex;
+}
+.main-navigation ul .wpml-ls-item-en::before {
+  content: "|";
+  display: inline;
+  padding-top: 7px;
+}
+
 /* end .nav */
 .site-main .comment-navigation,
 .site-main .posts-navigation,
@@ -576,7 +624,7 @@ html {
   z-index: 19;
   height: 100vh;
   width: 100%;
-  background: var(--black);
+  background: white;
   padding: 100px 5vw 0;
   transition: all 0.3s var(--ease);
   transform: translateX(100%);
@@ -584,18 +632,18 @@ html {
 
 .nav-toggle {
   position: fixed;
-  width: 144px;
-  height: 81px;
+  width: 120px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid var(--dark-gray);
-  border-bottom: 1px solid var(--dark-gray);
   z-index: 20;
+  background: var(--pink);
+  color: white;
+  font-weight: 600;
   top: 0;
   right: 0;
   transition: all 0.5s var(--ease);
-  transform: translateX(100%);
 }
 
 .body__scrolled .nav-toggle,
@@ -672,10 +720,6 @@ html {
   outline: 0;
 }
 
-.logo a:focus {
-  background: #e77e23;
-}
-
 .menu-item-has-children a:focus::after {
   position: absolute;
   content: "";
@@ -702,7 +746,12 @@ html {
   --flow-small: 10px;
   --flow-medium: 20px;
   --flow-big: 30px;
-  --bottom-row-height: 70px;
+  --font-xsmall: 12px;
+  --font-small: 13px;
+  --font-text: 16px;
+  --font-medium: 26px;
+  --font-large: 36px;
+  --font-xlarge: 120px;
 }
 
 body {
@@ -767,6 +816,60 @@ LAYOUT & GRID STYLES
   margin: 0 auto;
 }
 
+.page__header {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  z-index: 20;
+}
+.logo a {
+  display: inline-block;
+  width: 117px;
+  height: 16px;
+  background: transparent url("../images/svg/logo-black.svg") left center/contain no-repeat;
+}
+
+.main-navigation {
+  display: none;
+}
+
+.main-navigation ul {
+  display: flex;
+}
+.main-navigation ul li > a {
+  padding: 6px 12px;
+}
+
+.nav-toggle {
+  transform: translateX(0%);
+  width: 80px;
+  height: 55px;
+}
+
+/*********************
+CURSOR SNAP
+*********************/
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  z-index: 0;
+  transition: width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background-color 0.2s ease;
+}
+
+.snap.is-snapped {
+  color: white;
+  border: 1px solid var(--pink);
+}
+
 /*********************
 LARGER MOBILE DEVICES
 *********************/
@@ -776,6 +879,44 @@ TABLET & SMALLER LAPTOPS
 /*********************
 DESKTOP
 *********************/
+@media only screen and (min-width: 1030px) {
+  .page__header {
+    padding: 42px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo a {
+    width: 117px;
+    height: 21px;
+  }
+  .main-navigation {
+    display: flex;
+  }
+  .main-navigation ul li > a {
+    padding: 6px 12px;
+  }
+  .main-navigation ul .wpml-ls-item a {
+    font-size: 14px;
+  }
+  .nav-toggle {
+    transform: translateX(100%);
+    width: 120px;
+    height: 70px;
+  }
+}
 /*********************
 LARGE VIEWING SIZE
 *********************/
+@media only screen and (min-width: 1240px) {
+  html {
+    --font-xsmall: 12px;
+    --font-small: 13px;
+    --font-text: 18px;
+    --font-medium: 26px;
+    --font-large: 36px;
+    --font-xlarge: 120px;
+  }
+  .main-navigation ul .wpml-ls-item a {
+    font-size: 16px;
+  }
+}

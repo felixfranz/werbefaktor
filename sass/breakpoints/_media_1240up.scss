@@ -1,5 +1,16 @@
 @media only screen and (min-width: 1240px) {
 
+    html{
+        --font-xsmall: 12px;
+        --font-small: 13px;
+        --font-text: 18px;
+        --font-medium: 26px;
+        --font-large: 36px;
+        --font-xlarge: 120px;
+    }
 
+    .main-navigation ul .wpml-ls-item a {
+        font-size: 16px;   
+    }
 
 }

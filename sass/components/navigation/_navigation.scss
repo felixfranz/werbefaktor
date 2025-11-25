@@ -1,10 +1,15 @@
-
+.main-navigation{
+	display: flex;
+}
 
 .main-navigation ul {
 	list-style: none;
 	border: 0;
-	display: flex;
+	//display: flex;
 	justify-content: flex-end;
+	position: relative;
+	top: -7px;
+	z-index: 2;
 
 	&:after,
 	&:before {
@@ -17,21 +22,26 @@
 		&>a {
 			display: block;
 			margin: 0;
-			padding: 12px;
+			padding: 6px 18px 6px;
 			text-decoration: none;
 			position: relative;
+			font-size: var(--font-text);
+			font-weight: 500;
+			border-radius: 18px;
+			border: 1px solid transparent;
+			transition: all 0.2s, color 0.2s;
+
 
 			&:hover{
-				color: #444;
+				
 				text-decoration: none;
+				//background: var(--pink);
+				color: white;
 
-				&::after {
-					width: 100%;
-				}
 			}
 
 			&:focus {
-				background-color: teal;
+				background-color: var(--pink);
 				color: white;
 				text-decoration: underline;
 
@@ -47,29 +57,31 @@
 			margin-top: -1px;
 			border-top: 0;
 			position: absolute;
+			top: 100%;
 			display: none;
 			z-index: 2;
-			min-width: 200px;
+			//min-width: 200px;
 
 
-			background: white;
+			//background: white;
 
 			li {
 				text-align: left;
-
+				margin-left: -6px;
 				a {
-					padding: 12px 10px;
+					padding: 6px 18px 6px;
 					border-right: 0;
-					display: block;
+					display: inline-block;
 					margin: 0;
-					border-bottom: 1px solid #ccc;
+					font-size: 16px;
+					//border-bottom: 1px solid #ccc;
 
 					&::after {
 						display: none;
 					}
 
 					&:hover{
-						background: var(--main-color);
+						//background: var(--main-color);
 						color: white;
 					}
 					
@@ -104,6 +116,16 @@
 
 	}
 
+	li.nav_contact a{
+		background-color: var(--bright-blue);
+		color: white;
+		border-radius: 18px;
+		margin-left: 9px;
+		&:hover {
+			background: var(--pink);
+		}
+	}
+
 	/* end .menu ul li */
 
 	/* highlight current page */
@@ -115,6 +137,39 @@
 
 	/* end current highlighters */
 }
+
+
+.main-navigation ul .wpml-ls-item a{
+	border-radius: 16px;
+	padding: 8px 3px;
+	font-size: 14px;
+	&:hover{
+		color: var(--pink)
+	}
+}
+
+.main-navigation ul .wpml-ls-item-de {
+	display: flex;
+	margin-left: 25px;
+}
+
+.main-navigation ul .wpml-ls-item-en{
+	display: flex;
+	&::before{
+		content: '|';
+		display: inline;
+		padding-top: 7px;
+	}
+}
+
+
+
+.nav-contact{
+	a{
+		
+	}
+}
+
 
 /* end .nav */
 

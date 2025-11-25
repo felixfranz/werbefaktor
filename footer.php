@@ -40,6 +40,6 @@
 </div>
 
 <?php wp_footer(); ?>
-
+<div class="cursor"></div>
 </body>
 </html>
