@@ -42,6 +42,10 @@ jq2(function ($) {
   function toggle_menu() {
     document.body.classList.toggle('body__menu_open');
     document.documentElement.classList.toggle('menu_open'); // 'html' element
+
+    const text = document.body.classList.contains("body__menu_open") ? "CLOSE" : "MENU";
+    document.querySelectorAll(".nav-toggle .type").forEach(el => el.textContent = text);
+
   }
 
   // Add click event listener
@@ -49,9 +53,50 @@ jq2(function ($) {
     navToggle.addEventListener('click', function (event) {
       event.preventDefault(); // Equivalent to returning false in jQuery
       toggle_menu();
+
+      document.querySelectorAll(".menu__mobile_menu li").forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.toggle("animate_menu");
+        }, i * 40);
+    });
+
     });
   }
 
+  // Prepend toggle button to each .mobile-nav > li
+  document.querySelectorAll(".menu__mobile_menu > li.menu-item-has-children").forEach(li => {
+    li.insertAdjacentHTML("afterbegin", '<a href="#" class="sub_menu-toggle"></a>');
+  });
+
+  // Add click event to each toggle button
+  document.querySelectorAll(".sub_menu-toggle").forEach(toggle => {
+    toggle.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const li = this.closest("li");
+      const target = li.querySelector("ul");
+
+      // If submenu is already open
+      if (target.classList.contains("menu-active")) {
+        target.classList.remove("menu-active");
+        this.classList.remove("toggle-active");
+      }
+      else {
+        // Close all other menus
+        document.querySelectorAll(".mobile-nav ul").forEach(ul => {
+          ul.classList.remove("menu-active");
+        });
+
+        document.querySelectorAll(".mobile-nav .sub_menu-toggle").forEach(btn => {
+          btn.classList.remove("toggle-active");
+        });
+
+        // Open this menu
+        target.classList.add("menu-active");
+        this.classList.add("toggle-active");
+      }
+    });
+  });
 
   ///////////////////////
   // switch header style
@@ -81,7 +126,7 @@ jq2(function ($) {
 
   //////////////// CURSOR SNAP
   const cursor = document.querySelector('.cursor');
-  const snapLinks = document.querySelectorAll('.snap a');
+  const snapLinks = document.querySelectorAll('.snap a, a.snap');
 
   let targetX = 0;
   let targetY = 0;
@@ -126,8 +171,6 @@ jq2(function ($) {
 
       // Inherit background color
       const bgColor = window.getComputedStyle(link).backgroundColor;
-      //cursor.style.background = bgColor !== 'rgba(0, 0, 0, 0)' ? bgColor : '#0ff';
-
       link.classList.add('is-snapped');
     });
 
@@ -136,16 +179,16 @@ jq2(function ($) {
       isSnapping = false;
 
       // Reset to small circle
-      cursor.style.width = `20px`;
-      cursor.style.height = `20px`;
+      cursor.style.width = `10px`;
+      cursor.style.height = `10px`;
       cursor.style.borderRadius = `50%`;
-      cursor.style.background = `#fff`;
-      cursor.style.opacity = `0`;
+      //cursor.style.background = `#fff`;
+      //cursor.style.opacity = `0`;
       link.classList.remove('is-snapped');
     });
   });
 
-  animate_snap();
+ // animate_snap();
 
 ///// END SNAP
 
@@ -219,6 +262,28 @@ jq2(function ($) {
 
 /////// END X
 
+/////// LIST FOLLOWER
+
+  const highlight = document.querySelector('.highlight');
+  const links = document.querySelectorAll('.page-menu a');
+
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      const rect = link.getBoundingClientRect();
+      const containerRect = link.closest('.page-menu-container').getBoundingClientRect();
+      const offsetTop = rect.top - containerRect.top + 50;
+
+      highlight.style.top = `${offsetTop}px`;
+      highlight.style.opacity = 1;
+    });
+
+    link.addEventListener('mouseleave', () => {
+      highlight.style.opacity = 0;
+    });
+  });
+
+
+/////// END LIST FOLLOWER
 
   ////////////////////////////////////
   // SETTING UP NAV FOR ACCESIBILITY

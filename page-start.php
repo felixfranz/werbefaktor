@@ -22,16 +22,24 @@ get_header();
 	<main id="main" class="site-main page__site-main">
 
 		<section id="start-section">
-			<div class=""></div>
+			<div class="">
+				<div class="page-menu-container">
+					<div class="highlight"></div>
+					<ul class="page-menu">
+						<li><a href="#">SKATE</a></li>
+						<li><a href="#">PARKCOUR</a></li>
+						<li><a href="#">KLETTERN</a></li>
+						<li><a href="#">PLAY</a></li>
+					</ul>
+				</div>
+				<a href="#" class="snap button">Projekte</a> <a href="#" class="snap button">Über Uns</a>
+			</div>
+			
+
 			<div>
 			<div class="parallax container">
-    <svg id="Ebene_1 class="container" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 849 852.6">
+    <svg id="Ebene_1" class="container" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 849 852.6">
 
-  <defs>
-    <style>
-    
-    </style>
-  </defs>
   <g id="Ebene_6">
     <polygon class="layer layer-1 st6" points="692.7 203 665 175.3 729 111.2 776.2 158.3 737.3 158.4 692.7 203"/>
     <polygon class="layer layer-1 black"  points="417.4 500.1 449.6 467.9 449.6 423.1 417.4 456.6 417.4 500.1"/>

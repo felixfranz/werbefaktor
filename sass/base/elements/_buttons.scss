@@ -19,3 +19,31 @@ input[type="submit"] {
 		border-color: var(--color__border-button-focus);
 	}
 }
+
+.button{
+	margin-top: var(--flow-medium);
+	border: 1px solid var(--dove-blue);
+	border-radius: 30px;
+	height: 63px;
+	min-width: 300px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	font-size: var(--font-medium);
+	text-decoration: none;
+	z-index: 2;
+	position: relative;
+	transition: all 0.3s var(--ease); 
+
+	&:hover{
+		color: white;
+		background: var(--pink);
+		border: 1px solid var(--pink);
+	}
+
+	&+.button{
+		margin-left: 20px;
+	}
+
+}

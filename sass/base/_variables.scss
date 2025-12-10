@@ -15,11 +15,12 @@ html{
     --pink: #ff25db;
     --blue-gray: #e2e6f2;
     --light-gray: #efefef;
+    --very-light-gray: #f6f6f6;
     --dark-gray: #666666;
 
     --color__link: black;
     --color__link-visited: blue;
-    --color__link-hover: red;
+    --color__link-hover: var(--pink);
 
     --color__border-button: red;
     --color__background-button: green;

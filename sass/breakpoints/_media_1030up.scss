@@ -1,5 +1,11 @@
 @media only screen and (min-width: 1030px) {
 
+    html{
+        --flow-small: 20px;
+            --flow-medium: 40px;
+            --flow-big: 60px;
+    }
+
 /////// HEADER
     .page__header {
         padding: 42px 0;
@@ -16,7 +22,7 @@
 }
 
 //////////// NAV 
-/// 
+
 .main-navigation{
     display: flex;
 }
