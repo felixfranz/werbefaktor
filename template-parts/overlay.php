@@ -62,15 +62,16 @@
 <div class="page-overlay__overlay-left overlay-left">
 		<div class="overlay-left__container">
 			<div class="quick-cta">
+				<a class="quick-cta__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> </a>
 				<h2>Sie planen ein Projekt?</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, non illum. Eaque cumque, mollitia itaque ipsa cupiditate illo excepturi maiores, accusamus quod exercitationem autem delectus porro veritatis voluptates id explicabo?</p>
 				<a href="#" class="button">Kontakt</a>
 			</div>
 			<div class="overlay__quick-contact quick-contact">
 				<ul>
-					<li><strong>T:</strong> <a href="tel:+49 60 27 4 09 33 80">+49 (0) 60 27 / 4 09 33 80</a> </li>
-					<li><strong>Fax:</strong> +49 (0) 60 27 / 4 09 33 89</li>
-					<li><strong>E:</strong> <a href="mailto:info@x-move.net">info@x-move.net</a> </li>
+					<li><span class="text"><strong>T:</strong></span> <a href="tel:+49 60 27 4 09 33 80"><span class="social_icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span class="text"> +49 (0) 60 27 / 4 09 33 80</span></a> </li>
+					<li class="hide"><strong>Fax:</strong><span class="text">+49 (0) 60 27 / 4 09 33 89</li>
+					<li><span class="text"><strong>E:</strong></span> <a href="mailto:info@x-move.net"><span class="social_icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><span class="text">info@x-move.net</span></a> </li>
 				</ul>
 				
 			</div>

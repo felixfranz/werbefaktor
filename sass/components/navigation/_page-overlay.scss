@@ -55,6 +55,16 @@ div{
 	p {
 			max-width: 600px;
 		}
+
+		.quick-cta__logo {
+
+			display: block;
+			width: 40px;
+			height: 40px;
+			margin-left: 10px;
+			background: url("../images/svg/monkey-blue.svg") center center / contain no-repeat;
+
+		}
 }
 
 .quick-contact {
@@ -63,21 +73,21 @@ div{
 	ul {
 		list-style: none;
 	}
+
+	.social_icon{
+		display: none;
+	}
+
 }
 
 .overlay-left h2{
 	font-size: var(--font-very-large);
 	font-weight: 700;
 	line-height: 1.1;
-	&::before {
-			content: '';
-			display: block;
-			width: 40px;
-			height: 40px;
-			margin-left: 10px;
-			background: url("../images/svg/monkey-blue.svg") center center / contain no-repeat;
-		}
+	
 }
+
+
 
 .overlay-right{
 	width: 36%;
@@ -139,13 +149,13 @@ div{
 	.type{
 		position: relative;
 		top:-1px;
-		
+		margin-right: 7px;
 	}
 	
 	//transform: translateX(100%)
 
 	span.bars {
-			margin-left: 7px;
+			
 			display: block;
 			height: var(--toggle-line-height);
 			width: var(--toggle-line-width);
@@ -243,8 +253,97 @@ div{
 	}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 767px) {
 
+	.body__menu_open{
+		.logo{
+			display: none;
+		}
+	}
 
+	/// START OVERLAY LEFT
+	.overlay-left{
+		background: var(--almost-black);
+		height: 55px;
+		width: 100vw;
+		padding: 0;
+		border-radius: 0;
+
+		.overlay-left__container{
+			width: 100%;
+				justify-content: space-between;
+				flex-direction: row;
+				padding-right: 70px;
+				padding-left: 2vw;
+				align-items: center;
+		}
+
+		.quick-cta{
+			align-self: normal;
+			height: 100%;
+			h2, p,.button{
+				display: none;
+			}
+			.quick-cta__logo{
+				height: 100%;	
+
+			}
+		}
+
+		.quick-contact{
+			margin-top: 0;
+			height: 100%;
+			display: flex;
+			justify-content: flex-end;
+			ul{
+				
+				display: flex;
+				justify-content: flex-end;
+
+				li{
+					border-left: 1px solid #333;
+
+					width: 70px;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					a{
+						width: 100%;
+						height: 100%;
+						display: flex;
+						justify-content: center;
+							align-items: center;
+					}
+				}
+			}
+
+			.social_icon{
+				display: inline-block;
+				color: var(--dove-blue);
+			}
+			.text{
+				display: none;
+			}
+		}
+	}
+	// END OVERLAY LEFT
+
+	// START OVERLAY RIGHT
+	.page-overlay{
+		padding: 7px;
+		width: 100vw;
+	}
+	.overlay-right{
+		width: 100%;
+		align-items: flex-start;
+		justify-content: flex-start;
+		padding-left: 3vw;
+	}
+
+	.overlay-right__container {
+		.mobile-menu, .social_container {
+				margin-top: 70px;}
+	}
 
 }
