@@ -43,13 +43,16 @@
 
 .nav-toggle {
     transform: translateX(100%);
+    transition: all 0.2s var(--ease);
     width: 120px;
-        height: 70px;
+    height: 70px;
 
         .type{
             display: inline;
+            font-size: 1.6em;
         }
 }
+
 
 
 

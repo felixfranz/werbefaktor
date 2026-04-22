@@ -432,6 +432,30 @@ html {
   --font-serif: "Zodiak", "Garamond", "Times New Roman", serif;
   --font-sans: "GeneralSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+html h1 {
+  font-size: var(--headline-xl);
+  font-weight: 600;
+  line-height: var(--lineheight-m);
+}
+html h1.page-title {
+  font-size: var(--headline-2xl);
+  font-weight: 700;
+}
+html h2 {
+  font-size: var(--headline-l);
+  line-height: var(--lineheight-m);
+  font-weight: 600;
+}
+html h3 {
+  font-size: var(--headline-m);
+  line-height: var(--lineheight-l);
+  font-weight: 600;
+}
+html h4 {
+  font-size: var(--headline-s);
+  line-height: var(--lineheight-l);
+  font-weight: 300;
+}
 
 strong {
   font-weight: 600;
@@ -477,6 +501,55 @@ html {
   --font-xlarge: 120px;
   --font-button: var(--font-medium);
   --button-height: 65px;
+  font-size: 62.5%;
+  --headline-s: clamp(2.200rem, calc(2.061rem + 0.435vw), 2.600rem);
+  --headline-m: clamp(2.400rem, calc(2.261rem + 0.435vw), 2.800rem);
+  --headline-l: clamp(2.800rem, calc(2.522rem + 0.87vw), 3.600rem);
+  --headline-xl: clamp(3.200rem, calc(2.087rem + 3.478vw), 6.400rem);
+  --headline-2xl: clamp(3.600rem, calc(0.330rem + 10.217vw), 13.000rem);
+  --text-2xs:clamp(0.93rem, calc(0.0021296296296296285 * (100vw - 36rem) + 0.93rem), 1.16rem);
+  --text-xs: clamp(1.11rem, calc(0.002592592592592591 * (100vw - 36rem) + 1.11rem), 1.39rem);
+  --text-s:clamp(1.33rem, calc(0.003148148148148147 * (100vw - 36rem) + 1.33rem), 1.67rem);
+  --text-m:clamp(1.6rem, calc(0.003703703703703703 * (100vw - 36rem) + 1.6rem), 2rem);
+  --text-l: clamp(1.92rem, calc(0.0044444444444444444 * (100vw - 36rem) + 1.92rem), 2.4rem);
+  --text-xl:clamp(2.3rem, calc(0.005370370370370371 * (100vw - 36rem) + 2.3rem), 2.88rem);
+  --text-2xl:clamp(2.76rem, calc(0.006481481481481483 * (100vw - 36rem) + 2.76rem), 3.46rem);
+  --text-3xl: clamp(3.32rem, calc(0.00768518518518519 * (100vw - 36rem) + 3.32rem), 4.15rem);
+  --lineheight-xs: 0.6em;
+  --lineheight-s: 0.85em;
+  --lineheight-m: 1em;
+  --lineheight-l: 1.05em;
+  --lineheight-xl: 1.15em;
+  --lineheight-2xl: 1.40em;
+  --colors-Pink: #FF25D4FF;
+  --colors-Pink-Dark: #B00091FF;
+  --colors-Pink-Medium: #DB00B5FF;
+  --colors-Pink-Light: #FF7BDDFF;
+  --colors-Green: #66FF7DFF;
+  --colors-Dark-Green: #006E1EFF;
+  --colors-Green-Medium: #00C639FF;
+  --colors-Green-Light: #C5FFCAFF;
+  --colors-Bright-Blue: #493CFFFF;
+  --colors-Almost-Black: #0B0E1BFF;
+  --colors-Dark-Blue: #223871FF;
+  --colors-Teal-Blue: #6498C3FF;
+  --colors-Light-Blue: #E2E6F2FF;
+  --spacing-100: 2px;
+  --spacing-200: 5px;
+  --spacing-300: 8px;
+  --spacing-400: 13px;
+  --spacing-500: 20px;
+  --spacing-600: 34px;
+  --spacing-700: 55px;
+  --spacing-800: 85px;
+  --spacing-xxs: var(--spacing-100);
+  --spacing-xs: var(--spacing-200);
+  --spacing-sm: var(--spacing-300);
+  --spacing-md: var(--spacing-400);
+  --spacing-lg: var(--spacing-500);
+  --spacing-xl: var(--spacing-600);
+  --spacing-xxl: var(--spacing-700);
+  --spacing-xxxl: var(--spacing-800);
 }
 
 /*--------------------------------------------------------------
@@ -518,15 +591,9 @@ html {
   position: relative;
   top: -7px;
   z-index: 2;
-  /* end .menu ul li */
-  /* highlight current page */
-  /* end current highlighters */
 }
 .main-navigation ul:after, .main-navigation ul:before {
   display: none;
-}
-.main-navigation ul li {
-  /* showing sub-menus */
 }
 .main-navigation ul li > a {
   display: block;
@@ -542,9 +609,8 @@ html {
 }
 .main-navigation ul li > a:hover {
   text-decoration: none;
-  background: var(--pink);
   color: white;
-  color: var(--pink);
+  color: var(--colors-Pink-Medium);
   background: var(--very-light-gray);
 }
 .main-navigation ul li > a:focus {
@@ -562,7 +628,6 @@ html {
   top: 100%;
   display: none;
   z-index: 2;
-  /* highlight sub-menu current page */
 }
 .main-navigation ul li ul li,
 .main-navigation ul li ul li {
@@ -595,18 +660,47 @@ html {
 .main-navigation ul li ul li:last-child a {
   border-bottom: 0;
 }
+.main-navigation ul li ul,
+.main-navigation ul li ul {
+  /* highlight sub-menu current page */
+}
+.main-navigation ul li ul li.current-menu-item a,
+.main-navigation ul li ul li.current_page_item a,
+.main-navigation ul li ul li.current_page_ancestor a,
+.main-navigation ul li ul li.current-menu-item a,
+.main-navigation ul li ul li.current_page_item a,
+.main-navigation ul li ul li.current_page_ancestor a {
+  color: red;
+}
+.main-navigation ul li {
+  /* showing sub-menus */
+}
 .main-navigation ul li:hover > ul {
   display: block;
 }
 .main-navigation ul li.nav_contact a {
-  background-color: var(--dove-blue);
+  background-color: var(--colors-Dark-Blue);
+  background: var(--colors-Dark-Blue);
   color: white;
   border-radius: 18px;
   margin-left: 9px;
 }
 .main-navigation ul li.nav_contact a:hover {
-  background: var(--pink);
+  background: var(--colors-Pink);
 }
+.main-navigation ul {
+  /* end .menu ul li */
+  /* highlight current page */
+}
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li.current_page_ancestor a {
+  color: red;
+}
+.main-navigation ul {
+  /* end current highlighters */
+}
+
 .main-navigation ul .wpml-ls-item a {
   border-radius: 16px;
   padding: 8px 3px;
@@ -670,10 +764,10 @@ html {
   transition-delay: 0.3s;
 }
 .page-overlay nav ul li.current-menu-item > a {
-  color: var(--pink);
+  color: var(--dove-blue);
 }
 .page-overlay nav ul li.current-page-ancestor > a {
-  color: var(--pink);
+  color: var(--dove-blue);
 }
 .page-overlay nav .wpml-ls-item {
   display: inline;
@@ -984,6 +1078,11 @@ html {
   --toggle-color-hover: var(--jas_yellow_contrast);
 }
 
+html.menu_open {
+  overflow: hidden;
+  height: 100vh;
+}
+
 @media only screen and (max-width: 767px) {
   .body__menu_open .logo {
     display: none;
@@ -1140,6 +1239,7 @@ html {
   overflow-x: hidden;
   box-sizing: border-box;
   /* magic... */
+  overflow-y: scroll;
   --flow-small: 10px;
   --flow-medium: 20px;
   --flow-big: 30px;
@@ -1203,7 +1303,6 @@ h5 a,
 }
 
 h2 {
-  font-size: var(--font-large);
   font-weight: 600;
 }
 
@@ -1260,6 +1359,10 @@ LAYOUT & GRID STYLES
   display: none;
 }
 
+.page-overlay .menu__mobile_menu .sub_menu-toggle {
+  top: 14px;
+}
+
 /*********************
 CURSOR SNAP
 *********************/
@@ -1291,34 +1394,41 @@ START SECTION
   width: 50%;
   position: relative;
 }
-#start-section .page-menu-container {
+#start-section .page-menu-container, #start-section .start-section_button-container {
   position: relative;
+  width: 200%;
 }
 #start-section .page-menu {
   list-style: none;
-  padding: 100px 0 0 40px;
+  padding: 0 0 0 40px;
   margin: 0;
   position: relative;
   z-index: 2;
   left: -40px;
+  pointer-events: none;
+}
+#start-section .page-menu li {
+  pointer-events: none;
 }
 #start-section .page-menu::before {
   content: "";
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin-left: 10px;
   background: url("../images/svg/monkey.svg") center center/contain no-repeat;
 }
 #start-section .page-menu a {
   text-decoration: none;
+  display: inline-block;
   color: black;
-  font-size: var(--font-xlarge);
+  font-size: var(--headline-2xl);
   display: inline-block;
   padding: 20px 0 20px 0;
   font-weight: 700;
-  line-height: 0.6;
-  transition: all 0.2s ease;
+  line-height: var(--lineheight-xs);
+  transition: color 0.2s ease;
+  pointer-events: auto;
 }
 #start-section .page-menu a:hover {
   color: var(--pink);
@@ -1345,6 +1455,7 @@ START SECTION
   height: 100%;
   position: relative;
   overflow: visible;
+  top: -3vw;
 }
 #start-section .layer {
   position: relative;
@@ -1433,11 +1544,13 @@ DESKTOP
   }
   .nav-toggle {
     transform: translateX(100%);
+    transition: all 0.2s var(--ease);
     width: 120px;
     height: 70px;
   }
   .nav-toggle .type {
     display: inline;
+    font-size: 1.6em;
   }
 }
 /*********************
@@ -1455,5 +1568,25 @@ LARGE VIEWING SIZE
   }
   .main-navigation ul .wpml-ls-item a {
     font-size: 16px;
+  }
+  .page-overlay .menu__mobile_menu .sub_menu-toggle {
+    top: 20px;
+  }
+}
+/*********************
+LARGE VIEWING SIZE
+*********************/
+@media only screen and (min-width: 1440px) {
+  html {
+    --font-xsmall: 12px;
+    --font-small: 13px;
+    --font-text: 18px;
+    --font-medium: 26px;
+    --font-large: 36px;
+    --font-very-large: 60px;
+    --font-xlarge: 120px;
+  }
+  .page-overlay .menu__mobile_menu .sub_menu-toggle {
+    top: 20px;
   }
 }

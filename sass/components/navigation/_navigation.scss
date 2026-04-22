@@ -35,9 +35,8 @@
 			&:hover{
 				
 				text-decoration: none;
-				background: var(--pink);
 				color: white;
-				color: var(--pink);
+				color: var(--colors-Pink-Medium);
 				background: var(--very-light-gray);
 
 			}
@@ -76,14 +75,12 @@
 					display: inline-block;
 					margin: 0;
 					font-size: 16px;
-					//border-bottom: 1px solid #ccc;
 
 					&::after {
 						display: none;
 					}
 
 					&:hover{
-						//background: var(--main-color);
 						color: white;
 					}
 					
@@ -106,7 +103,7 @@
 			li.current-menu-item,
 			li.current_page_item,
 			li.current_page_ancestor {
-				a {}
+				a {color: red}
 			}
 		}
 
@@ -119,12 +116,13 @@
 	}
 
 	li.nav_contact a{
-		background-color: var(--dove-blue);
+		background-color: var(--colors-Dark-Blue);
+		background: var(--colors-Dark-Blue);
 		color: white;
 		border-radius: 18px;
 		margin-left: 9px;
 		&:hover {
-			background: var(--pink);
+			background: var(--colors-Pink);
 		}
 	}
 
@@ -134,7 +132,7 @@
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
-		a {}
+		a {color: red}
 	}
 
 	/* end current highlighters */
@@ -227,13 +225,13 @@
 
 				&.current-menu-item {
 					&>a {
-						color: var(--pink);
+						color: var(--dove-blue);
 					}
 				}
 
 				&.current-page-ancestor {
 					&>a {
-						color: var(--pink);
+						color: var(--dove-blue);
 					}
 
 				}
@@ -256,9 +254,6 @@
 			}
 		}
 
-			.wpml-ls-item-de {
-	
-		}
 
 			.wpml-ls-item-en {
 			display: inline;

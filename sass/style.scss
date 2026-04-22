@@ -82,5 +82,11 @@ LARGE VIEWING SIZE
 	// styles in 1240up.scss
 	@use "breakpoints/media_1240up";
 
+		/*********************
+	LARGE VIEWING SIZE
+	*********************/
+		// styles in 1440up.scss
+		@use "breakpoints/media_1440up";
+
 
 // end of media query

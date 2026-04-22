@@ -5,6 +5,7 @@ html {
     overflow-x: hidden;
     box-sizing: border-box;
     /* magic... */
+    overflow-y: scroll;
 
     --flow-small: 10px;
     --flow-medium: 20px;
@@ -64,7 +65,7 @@ h5,
 }
 
 h2{
-    font-size: var(--font-large);
+
     font-weight: 600;
 }
 
@@ -129,6 +130,16 @@ LAYOUT & GRID STYLES
     }
 }
 
+/// OVERLAY
+/// 
+/// SUB MENU
+.page-overlay{
+    .menu__mobile_menu{
+        .sub_menu-toggle{
+            top: 14px;
+        }
+    }
+}
 
 
 /*********************
@@ -166,37 +177,42 @@ START SECTION
         position: relative;
     }
 
-    .page-menu-container{
+    .page-menu-container, .start-section_button-container{
         position: relative;
-       
-        
+        width: 200%;
     }
 
     .page-menu{
         list-style: none;
-        padding: 100px 0 0 40px;
+        padding: 0 0 0 40px;
         margin: 0;
         position: relative;
         z-index: 2;
         left: -40px;
+        pointer-events: none;
+        li{
+            pointer-events: none;
+        }
       
         &::before{
             content: '';
             display: block;
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             margin-left: 10px;
             background: url("../images/svg/monkey.svg") center center / contain no-repeat;
         }
         a{
             text-decoration: none;
+            display: inline-block;
             color: black;
-            font-size: var(--font-xlarge);
+            font-size: var(--headline-2xl);
             display: inline-block;
             padding: 20px 0  20px 0;
             font-weight: 700;
-            line-height: 0.6;
-            transition: all 0.2s ease;
+            line-height: var(--lineheight-xs);
+            transition: color 0.2s ease;
+            pointer-events: auto;
             &:hover{
                 color: var(--pink)
             }
@@ -218,7 +234,6 @@ START SECTION
 
 
     /////////PARALAX
-
     .parallax {
             position: relative;
             perspective: 1000px;
@@ -231,6 +246,7 @@ START SECTION
             height: 100%;
             position: relative;
             overflow: visible;
+            top: calc(3vw * -1);
         }
     
         .layer {

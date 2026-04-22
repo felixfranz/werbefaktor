@@ -26,6 +26,35 @@ html {
 	// FONTSTACKS
 	--font-serif: "Zodiak", "Garamond", "Times New Roman", serif;
 	--font-sans: "GeneralSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    h1{
+        font-size: var(--headline-xl);
+        font-weight: 600;
+        line-height: var(--lineheight-m);
+        &.page-title{
+           font-size: var(--headline-2xl);
+            font-weight: 700;
+        }
+    }
+    h2 {
+        font-size: var(--headline-l);
+        line-height: var(--lineheight-m);
+        font-weight: 600;
+    }
+    h3 {
+        font-size: var(--headline-m);
+        line-height: var(--lineheight-l);
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: var(--headline-s);
+        line-height: var(--lineheight-l);
+        font-weight: 300;
+    }
+
+
+    
 }
 
 strong{

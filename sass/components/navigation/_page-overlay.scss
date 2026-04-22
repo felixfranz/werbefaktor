@@ -246,6 +246,11 @@ div{
 
 }
 
+html.menu_open{
+	overflow: hidden;
+	height: 100vh;
+}
+
 
 .nav li.current-menu-item {
 	&>a {

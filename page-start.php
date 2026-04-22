@@ -4,14 +4,6 @@ Template Name: Start
 
  */
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package New_Base
  */
@@ -22,7 +14,7 @@ get_header();
 	<main id="main" class="site-main page__site-main">
 
 		<section id="start-section">
-			<div class="">
+			<div class="start-section_menu-wrapper">
 				<div class="page-menu-container">
 					<div class="highlight"></div>
 					<ul class="page-menu">
@@ -32,13 +24,15 @@ get_header();
 						<li><a href="#">PLAY</a></li>
 					</ul>
 				</div>
-				<a href="#" class="snap button">Projekte</a> <a href="#" class="snap button">Über Uns</a>
+        <div class="start-section_button-container">
+				  <a href="#" class="snap button">Projekte</a> <a href="#" class="snap button">Über Uns</a>
+        </div>
 			</div>
 			
 
 			<div>
 			<div class="parallax container">
-    <svg id="Ebene_1" class="container" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 849 852.6">
+    <svg id="Ebene_1" class="container" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 849 852.6" width="100%" height="100%">
 
   <g id="Ebene_6">
     <polygon class="layer layer-1 st6" points="692.7 203 665 175.3 729 111.2 776.2 158.3 737.3 158.4 692.7 203"/>
