@@ -66,7 +66,7 @@ html{
 --text-2xs :clamp(0.93rem, calc(0.0021296296296296285 * (100vw - 36rem) + 0.93rem), 1.16rem);
 --text-xs : clamp(1.11rem, calc(0.002592592592592591 * (100vw - 36rem) + 1.11rem), 1.39rem);
 --text-s :clamp(1.33rem, calc(0.003148148148148147 * (100vw - 36rem) + 1.33rem), 1.67rem);
---text-m:clamp(1.6rem, calc(0.003703703703703703 * (100vw - 36rem) + 1.6rem), 2rem);
+--text-m:clamp(1.6rem, calc(0.003703703703703703 * (100vw - 36rem) + 1.6rem), 1.8rem);
 --text-l : clamp(1.92rem, calc(0.0044444444444444444 * (100vw - 36rem) + 1.92rem), 2.4rem);
 --text-xl :clamp(2.3rem, calc(0.005370370370370371 * (100vw - 36rem) + 2.3rem), 2.88rem);
 --text-2xl :clamp(2.76rem, calc(0.006481481481481483 * (100vw - 36rem) + 2.76rem), 3.46rem);
@@ -94,6 +94,7 @@ html{
     --colors-Dark-Blue: #223871FF;
     --colors-Teal-Blue: #6498C3FF;
     --colors-Light-Blue: #E2E6F2FF;
+    --colors-Very-Light-Blue: #F4F5FA;
 
     --spacing-100: 2px;
     --spacing-200: 5px;

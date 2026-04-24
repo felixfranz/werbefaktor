@@ -56,7 +56,7 @@ h5,
     text-rendering: optimizelegibility;
     font-weight: normal;
     font-family: var(--font-sans);
-    margin: 0 0 0.3em;
+    margin: 0;
 
     /* removing text decoration from all headline links */
     a {
@@ -65,12 +65,30 @@ h5,
 }
 
 h2{
-
     font-weight: 600;
+}
+
+// preheadline  headline combo
+h4+h2{
+    margin-top: calc(-1 * var(--spacing-lg));
 }
 
 p.site-title{
     margin: 0;
+}
+
+p{
+    margin: 0;
+    font-size:var(--text-m );
+    line-height: var(--lineheight-2xl);
+
+    &.small{
+        font-size: var(--text-s);
+    }
+}
+
+.flex img{
+    align-self: baseline;
 }
 
 /*********************
@@ -314,4 +332,119 @@ START SECTION
 
 .otgs-development-site-front-end{
     display: none;
+}
+
+/////////////////////////////////
+// FLEXIBLE CONTENT 
+/////////////////////////////////
+
+// SECTION  
+
+section{
+    padding: var(--spacing-xxl) 0;
+    &.fullwidth{
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+// DECO BAR
+.deco-bottom, .deco-top{
+    &::after{
+        position: absolute;
+        bottom: -20px;
+        content: '';
+        width: 100%;
+        height: 70px;
+    }
+}
+
+.deco-bottom{
+    &::after {
+        bottom: -20px;
+    }
+}
+.deco-top {
+    &::after {
+        top: -40px;
+        height: 40px;
+    }
+}
+
+.deco-style-color{
+    &::after {
+            background: url(../images/svg/bar-color.svg) left -20px / cover repeat-x;
+        }
+    &.deco-bottom{
+        &::after{
+            bottom: -70px;
+            background-position: left -60px;
+        }
+    }    
+}
+
+.deco-style-plain {
+    &::after {
+        background: url(../images/svg/bar-gray.svg) left top / contain repeat-x;
+    }
+}
+
+// INNER CONTAINER
+.inner-wrap{
+    
+    .col-50{
+        width: 50%;
+        min-width: 50%;
+        flex-basis: 50%;
+    }
+    .col-66{
+        width: 66%;
+    }
+
+    .col-33{
+        width: 33%;
+    }
+
+    .col-auto{
+        flex-grow: 0;
+    }
+
+    div{
+        gap: var(--spacing-lg);
+    }
+}
+
+// FLEX
+.flex{
+    display: flex;
+   
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.items-left{
+    justify-content: flex-start;
+}
+
+.gab-md{
+    gap: var(--spacing-lg);
+}
+
+
+// BACKGROUNDS
+.bg-light-blue{
+    background: var(--colors-Light-Blue);
+}
+
+.bg-very-light-blue {
+    background: var(--colors-Very-Light-Blue);
 }

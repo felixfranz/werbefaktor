@@ -340,12 +340,10 @@ input[type=submit]:focus {
 }
 
 .button {
-  margin-top: var(--flow-medium);
   border: 1px solid var(--dove-blue);
   border-radius: 30px;
-  height: 63px;
   min-width: 300px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 600;
@@ -353,6 +351,10 @@ input[type=submit]:focus {
   text-decoration: none;
   z-index: 2;
   position: relative;
+  flex-basis: auto;
+  width: auto;
+  align-self: baseline;
+  padding: var(--spacing-md) var(--spacing-md);
   transition: all 0.3s var(--ease);
 }
 .button:hover {
@@ -362,6 +364,19 @@ input[type=submit]:focus {
 }
 .button + .button {
   margin-left: 20px;
+}
+
+.button-size-l {
+  padding: var(--spacing-md) var(--spacing-md);
+  min-width: 300px;
+  font-size: var(--text-xl);
+}
+
+.button-size-m {
+  padding: var(--spacing-s) var(--spacing-md);
+  font-size: var(--text-l);
+  border-radius: 30px;
+  min-width: 200px;
 }
 
 input[type=text],
@@ -510,7 +525,7 @@ html {
   --text-2xs:clamp(0.93rem, calc(0.0021296296296296285 * (100vw - 36rem) + 0.93rem), 1.16rem);
   --text-xs: clamp(1.11rem, calc(0.002592592592592591 * (100vw - 36rem) + 1.11rem), 1.39rem);
   --text-s:clamp(1.33rem, calc(0.003148148148148147 * (100vw - 36rem) + 1.33rem), 1.67rem);
-  --text-m:clamp(1.6rem, calc(0.003703703703703703 * (100vw - 36rem) + 1.6rem), 2rem);
+  --text-m:clamp(1.6rem, calc(0.003703703703703703 * (100vw - 36rem) + 1.6rem), 1.8rem);
   --text-l: clamp(1.92rem, calc(0.0044444444444444444 * (100vw - 36rem) + 1.92rem), 2.4rem);
   --text-xl:clamp(2.3rem, calc(0.005370370370370371 * (100vw - 36rem) + 2.3rem), 2.88rem);
   --text-2xl:clamp(2.76rem, calc(0.006481481481481483 * (100vw - 36rem) + 2.76rem), 3.46rem);
@@ -534,6 +549,7 @@ html {
   --colors-Dark-Blue: #223871FF;
   --colors-Teal-Blue: #6498C3FF;
   --colors-Light-Blue: #E2E6F2FF;
+  --colors-Very-Light-Blue: #F4F5FA;
   --spacing-100: 2px;
   --spacing-200: 5px;
   --spacing-300: 8px;
@@ -645,10 +661,6 @@ html {
 .main-navigation ul li ul li a::after,
 .main-navigation ul li ul li a::after {
   display: none;
-}
-.main-navigation ul li ul li a:hover,
-.main-navigation ul li ul li a:hover {
-  color: white;
 }
 .main-navigation ul li ul li a:focus,
 .main-navigation ul li ul li a:focus {
@@ -1286,7 +1298,7 @@ h5,
   text-rendering: optimizelegibility;
   font-weight: normal;
   font-family: var(--font-sans);
-  margin: 0 0 0.3em;
+  margin: 0;
   /* removing text decoration from all headline links */
 }
 h1 a,
@@ -1306,8 +1318,25 @@ h2 {
   font-weight: 600;
 }
 
+h4 + h2 {
+  margin-top: calc(-1 * var(--spacing-lg));
+}
+
 p.site-title {
   margin: 0;
+}
+
+p {
+  margin: 0;
+  font-size: var(--text-m);
+  line-height: var(--lineheight-2xl);
+}
+p.small {
+  font-size: var(--text-s);
+}
+
+.flex img {
+  align-self: baseline;
 }
 
 /*********************
@@ -1509,6 +1538,91 @@ START SECTION
   display: none;
 }
 
+section {
+  padding: var(--spacing-xxl) 0;
+}
+section.fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.deco-bottom::after, .deco-top::after {
+  position: absolute;
+  bottom: -20px;
+  content: "";
+  width: 100%;
+  height: 70px;
+}
+
+.deco-bottom::after {
+  bottom: -20px;
+}
+
+.deco-top::after {
+  top: -40px;
+  height: 40px;
+}
+
+.deco-style-color::after {
+  background: url(../images/svg/bar-color.svg) left -20px/cover repeat-x;
+}
+.deco-style-color.deco-bottom::after {
+  bottom: -70px;
+  background-position: left -60px;
+}
+
+.deco-style-plain::after {
+  background: url(../images/svg/bar-gray.svg) left top/contain repeat-x;
+}
+
+.inner-wrap .col-50 {
+  width: 50%;
+  min-width: 50%;
+  flex-basis: 50%;
+}
+.inner-wrap .col-66 {
+  width: 66%;
+}
+.inner-wrap .col-33 {
+  width: 33%;
+}
+.inner-wrap .col-auto {
+  flex-grow: 0;
+}
+.inner-wrap div {
+  gap: var(--spacing-lg);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-left {
+  justify-content: flex-start;
+}
+
+.gab-md {
+  gap: var(--spacing-lg);
+}
+
+.bg-light-blue {
+  background: var(--colors-Light-Blue);
+}
+
+.bg-very-light-blue {
+  background: var(--colors-Very-Light-Blue);
+}
+
 /*********************
 LARGER MOBILE DEVICES
 *********************/
@@ -1523,6 +1637,9 @@ DESKTOP
     --flow-small: 20px;
     --flow-medium: 40px;
     --flow-big: 60px;
+  }
+  .wrap {
+    max-width: 1240px;
   }
   .page__header {
     padding: 42px 0;
@@ -1573,6 +1690,10 @@ LARGE VIEWING SIZE
     top: 20px;
   }
 }
+.wrap {
+  max-width: 1440px;
+}
+
 /*********************
 LARGE VIEWING SIZE
 *********************/
