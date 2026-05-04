@@ -38,6 +38,7 @@
 				color: white;
 				color: var(--colors-Pink-Medium);
 				background: var(--very-light-gray);
+				background: RGBA(0,0,0,0.03);
 
 			}
 
@@ -129,7 +130,10 @@
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
-		a {color: red}
+		a {
+			//color: var(--colors-Pink-Medium);
+			background: RGBA(0, 0, 0, 0.03);
+		}
 	}
 
 	/* end current highlighters */

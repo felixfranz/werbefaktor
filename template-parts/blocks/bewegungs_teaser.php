@@ -21,24 +21,25 @@ if( get_row_layout() == 'bewegungs_teaser' ):
         $ID = $my_posts[0]->ID;
         // get fields by ID
         $teaser_headline = get_field('headline', $ID);
-        $teaser_text = get_field('text_area', $ID);
+        $teaser_text = get_field('text_area', $ID, false, false, );
 
-        $button = get_field('component_button', $ID);
+        $button = get_field('bewegungs_button_component_button', $ID);
         // get button options
         $button_text = $button['button_text'];
         $button_link = $button['button_link'];
         $button_style = $button['button_style'];
+        $button_size = $button['button_size'];
         
         // options
         $teaser_color = get_sub_field('teaser_farbe');
 
         ?>
-        <section class="fullwidth_section section_<?php echo $teaser_color; ?>">
-            <div class="inner-section">
-                <?php  echo '<h2>' . $teaser_headline . '</h2>'; ?>
+        <section class="flex fullwidth bg-<?php echo $teaser_color; ?>">
+            <div class="flex flex-col items-center items-justify-center gap-l inner-wrap wrap col-66">
+                <?php  echo '<h1>' . $teaser_headline . '</h1>'; ?>
                 <?php  echo '<p>' . $teaser_text. '</p>'; ?>
                 <?php if($button){ ?>
-                    <a href="<?php echo($button_link); ?>" class="button <?php echo($button_style); ?>"><?php echo($button_text); ?></a>
+                   <div class="button-container"> <a href="<?php echo($button_link); ?>" class="button <?php echo($button_style); ?> button--<?php echo($button_size); ?>"><?php echo($button_text); ?></a></div>
                <?php } ?>
             </div>
         </section>

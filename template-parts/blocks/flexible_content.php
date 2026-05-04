@@ -12,7 +12,7 @@ if( get_row_layout() == 'flex_content_various' ):
         ?>
         <section class="flex fullwidth  bg-<?php echo $background; ?>   deco-<?php echo $deco_bar_position; ?> deco-style-<?php echo $deco_bar_style; ?>">
             
-            <div class="flex flex-row items-left gab-md inner-wrap wrap">
+            <div class="flex flex-row items-left gap-md inner-wrap wrap">
 
         <?php 
 
@@ -25,7 +25,7 @@ if( get_row_layout() == 'flex_content_various' ):
             // column options
             $col_width = get_sub_field('column_width');
 
-        ?> <div class="flex flex-col items-left col -<?php echo $col_width; ?>"> <?php 
+        ?> <div class="flex flex-col items-left col-<?php echo $col_width; ?>"> <?php 
 
         // Check for flexible content Elements
         if( have_rows('my_content') ):
@@ -35,22 +35,22 @@ if( get_row_layout() == 'flex_content_various' ):
 
 
             // Case: Headline.  
-            include("flex-elements/element_headline.php");
+            include("elements/element_headline.php");
 
             // Case: Preheadline.  
-            include("flex-elements/element_preheadline.php");
+            include("elements/element_preheadline.php");
 
             // Case: button.  
-            include("flex-elements/element_button.php");
+            include("elements/element_button.php");
 
             // Case: text.  
-            include("flex-elements/element_textarea.php");
+            include("elements/element_textarea.php");
 
             // Case: cite.  
-            include("flex-elements/element_cite.php");
+            include("elements/element_cite.php");
 
             // Case: image.  
-            include("flex-elements/element_image.php");
+            include("elements/element_image.php");
 
 
             // End loop.
@@ -71,7 +71,6 @@ if( get_row_layout() == 'flex_content_various' ):
 
     endif; // end repeater ?>
 
-        </div>
 
     </div>
             

@@ -19,19 +19,20 @@ get_header();
 					<div class="highlight"></div>
 					<ul class="page-menu">
 						<li><a href="#">SKATE</a></li>
-						<li><a href="#">PARKCOUR</a></li>
+						<li><a href="#">PARKOUR</a></li>
 						<li><a href="#">KLETTERN</a></li>
 						<li><a href="#">PLAY</a></li>
 					</ul>
 				</div>
-        <div class="start-section_button-container">
-				  <a href="#" class="snap button">Projekte</a> <a href="#" class="snap button">Über Uns</a>
+        <div class="start-section_button-container flex flex-row items-left gap-md">
+        
+				  <a href="#" class="snap button ">Projekte</a> <a href="#" class="snap button green_outline ">Über Uns</a>
         </div>
 			</div>
 			
 
-			<div>
-			<div class="parallax container">
+    <div class="x-container">
+    <div class="parallax container">
     <svg id="Ebene_1" class="container" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 849 852.6" width="100%" height="100%">
 
   <g id="Ebene_6">
@@ -104,11 +105,18 @@ get_header();
     <polygon class="layer layer-5 st3" points="319.5 499.9 255.1 564.4 255.1 654.1 319.5 587.1 319.5 499.9"/>
     <polygon class="layer layer-5 st4" points="265.5 591.5 280.6 576.5 280.6 555.5 265.5 571.2 265.5 591.5"/>
   </g>
-</svg></div>
+</svg>
+</div>
 
-  </div>
-			</div>
-		</section>
+
+	</div>
+	</section>
+
+  <?php 
+    
+    get_template_part( 'template-parts/content', 'flexible_sections' );
+
+    ?>
 
 	</main><!-- #main -->
 

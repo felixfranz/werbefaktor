@@ -3,7 +3,6 @@
  * Template part for displaying page content in page.php
  *
  */
-
 ?>
 <?php
 
@@ -16,25 +15,34 @@ if( have_rows('page_sections') ):
 
 
 		// Case: Image Header Area.  
-		include("flex-blocks/header_image.php");
+		include("blocks/header_image.php");
 
 		// Case: Flex blocks  
-		include("flex-blocks/flexible_content.php");
+		include("blocks/flexible_content.php");
 
 		// Case: Bewegungs Teaser 
-		include("flex-blocks/bewegungs_teaser.php");
+		include("blocks/bewegungs_teaser.php");
 
 		// Case: Katalog Teaser 
-		include("flex-blocks/katalog_teaser.php");
+		include("blocks/katalog_teaser.php");
 
 		// Case: Safety Teaser 
-		include("flex-blocks/safety_teaser.php");
+		include("blocks/safety_teaser.php");
+
+		// Case: Project Teaser 
+		include("blocks/project_teaser.php");
 
 		// Case: Slider 
-		include("flex-blocks/slider.php");
+		include("blocks/slider.php");
 
 		// Case: Images with Caption 
-		include("flex-blocks/image_row.php");
+		include("blocks/image_row.php");
+
+		// Case: Social Links & Streetwear
+		include("blocks/social_streetwear.php");
+
+		// Case: Social Links & Streetwear
+		include("blocks/skate_switch.php");
 	
         
 

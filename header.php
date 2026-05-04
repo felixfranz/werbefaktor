@@ -32,7 +32,6 @@
 	<header class="header page__header">
 		<div class="logo header__logo">
 			
-			
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> </a>
 			
 		</div><!-- .site-branding -->

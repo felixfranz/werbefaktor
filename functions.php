@@ -50,6 +50,9 @@ function new_base_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'new-base' ),
+			'menu-footer' => esc_html__( 'Footer Menu', 'new-base' ),
+			'menu-homepage' => esc_html__( 'Start Screen Menu', 'new-base' ),
+			'menu-about' => esc_html__( 'Über uns Menu', 'new-base' ),
 		)
 	);
 
@@ -180,3 +183,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+remove_filter('the_content', 'wpautop');
