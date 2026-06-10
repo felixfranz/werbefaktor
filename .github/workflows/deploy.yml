@@ -23,4 +23,8 @@ jobs:
             ./ \
             ${{ secrets.REMOTE_PATH }}
           quit
+<<<<<<< HEAD
           EOF
+=======
+          EOF
+>>>>>>> a17971d65fb0657d398f6976662f6e65c078813a
