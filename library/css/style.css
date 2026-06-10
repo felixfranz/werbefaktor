@@ -1997,6 +1997,8 @@ BREADCRUMBS
 
 .image-container--3-2 {
   aspect-ratio: 3/2;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .product__gallery-more {

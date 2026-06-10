@@ -1,4 +1,4 @@
-name: Deploy via SFTP
+name: Deploy
 
 on:
   push:
@@ -10,15 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Upload files via SFTP
-        uses: pressidium/lftp-mirror-action@v1
-        with:
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.USERNAME }}
-          pass: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          localDir: ./
-          remoteDir: ${{ secrets.REMOTE_PATH }}
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Sync changed files
+        run: |
+          lftp -u "${{ secrets.USERNAME }},${{ secrets.PASSWORD }}" sftp://${{ secrets.HOST }}:${{ secrets.PORT }} <<EOF
+          mirror -R \
+            --verbose \
+            ./ \
+            ${{ secrets.REMOTE_PATH }}
+          quit
+          EOF
