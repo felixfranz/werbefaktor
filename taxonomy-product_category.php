@@ -108,7 +108,7 @@ if ($current_term->parent) {
                                 <?php endforeach; // end Bilder Test ?>
 
                             </div>
-                             <div class="swiper-pagination"></div>
+                             <div class="swiper-pagination test"></div>
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
