@@ -39,7 +39,7 @@
 
 				$adress = get_field('x-move_adresse', 'option');
 
-				echo $adress;
+				//echo $adress;
 				 ?>
 				 <div class="social_container">
 							<?php if ($link_facebook) {
@@ -70,6 +70,5 @@
 <?php get_template_part( 'template-parts/overlay', '' ); ?>
 
 <?php wp_footer(); ?>
-<div class="cursor_off"></div>
 </body>
 </html>

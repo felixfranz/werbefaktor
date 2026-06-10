@@ -3,20 +3,7 @@ html{
     --black: #0b0e1b;
     --true-black: 000;
     --main-color: red;
-   
-    --medium-gray: #c9d3dd;
-    
 
-    --green: #66ffaf;
-    --dove-blue:#6498c3;
-    --bright-blue: #0051ff;
-    --dark-blue: #223871;
-    --almost-black: #0b0e1b;
-    --pink: #ff25db;
-    --blue-gray: #e2e6f2;
-    --light-gray: #efefef;
-    --very-light-gray: #f6f6f6;
-    --dark-gray: #666666;
 
     --color__link: black;
     --color__link-visited: blue;
@@ -27,9 +14,7 @@ html{
     --color__border-button-hover: blue;
     --color__border-button-focus: yellow;
 
-    --color__text-input: red;
-    --color__border-input: red;
-    --color__text-input-focus: red;
+
 
     --ease: cubic-bezier(.12, .845, .305,1);
 
@@ -80,39 +65,81 @@ html{
 --lineheight-xl: 1.15em;
 --lineheight-2xl: 1.40em;
 
-//COLORS
---colors-Pink: #FF25D4FF;
-    --colors-Pink-Dark: #B00091FF;
-    --colors-Pink-Medium: #DB00B5FF;
-    --colors-Pink-Light: #FF7BDDFF;
-    --colors-Green: #66FF7DFF;
-    --colors-Dark-Green: #006E1EFF;
-    --colors-Green-Medium: #00C639FF;
-    --colors-Green-Light: #C5FFCAFF;
-    --colors-Bright-Blue: #493CFFFF;
-    --colors-Almost-Black: #0B0E1BFF;
-    --colors-Dark-Blue: #223871FF;
-    --colors-Teal-Blue: #6498C3FF;
-    --colors-Light-Blue: #E2E6F2FF;
-    --colors-Very-Light-Blue: #F4F5FA;
+// SPACING
+--spacing-100: 2px;
+--spacing-200: 5px;
+--spacing-300: 8px;
+--spacing-400: 13px;
+--spacing-500: 20px;
+--spacing-600: 34px;
+--spacing-700: 55px;
+--spacing-750: 64px;
+--spacing-800: 85px;
+--spacing-1000: 98px;
+--spacing-1200: 122px;
 
-    --spacing-100: 2px;
-    --spacing-200: 5px;
-    --spacing-300: 8px;
-    --spacing-400: 13px;
-    --spacing-500: 20px;
-    --spacing-600: 34px;
-    --spacing-700: 55px;
-    --spacing-800: 85px;
+// COLORS
 
-    --spacing-xxs: var(--spacing-100);
-    --spacing-xs: var(--spacing-200);
-    --spacing-sm: var(--spacing-300);
-    --spacing-md: var(--spacing-400);
-    --spacing-lg: var(--spacing-500);
-    --spacing-xl: var(--spacing-600);
-    --spacing-xxl: var(--spacing-700);
-    --spacing-xxxl: var(--spacing-800);
+--colors-Purple-700: #AA509BFF;
+
+--colors-Green-600: #556B13;
+--colors-Green-300: #9BC12BFF;
+--colors-Green-200: #ACD530;
+--colors-Green-50: #F1FBD2;
+
+--colors-Brown-400: #C2AD6BFF;
+--colors-Brown-600: #7D6F43;
+
+--colors-Blue-900: #041C36;
+--colors-Blue-700: #134676FF;
+--colors-Blue-500: #1E63A5FF;
+--colors-Blue-400: #3191ECFF;
+--colors-Blue-300: #3191ECFF;
+--colorsWhite: #FFFFFFFF;
+--colors-Blue-50: #EBF1FEFF;
+
+--colors-Gray-50: #F9FAFBFF;
+--colors-Gray-100: #F3F4F6FF;
+--colors-Gray-200: #E5E7EBFF;
+--colors-Gray-300: #D1D5DBFF;
+--colors-Gray-400: #9CA3AFFF;
+--colors-Gray-500: #6B7280FF;
+--colors-Gray-600: #4B5563FF;
+--colors-Gray-700: #374151FF;
+--colors-Gray-800: #1F2937FF;
+--colors-Gray-900: #111827FF;
+--colorsBlack: #000000FF;
+--colors-Blue-950: #021125FF;
+
+--gradient-green: linear-gradient(90deg, #9bc12b, #96bc28, #91b625, #8db123, #88ac20, #83a61d, #7fa11a, #7a9c17);
+--gradient-purple:: linear-gradient(90deg, #c242af, #bc41aa, #b63fa4, #b03e9f, #aa3c9a, #a53b94, #9f398f, #99388a);
+--gradient-blue:: linear-gradient(90deg, #1c7dda, #1c79d2, #1c76cb, #1c72c3, #1d6ebb, #1d6ab4, #1d67ac, #1e63a5);
+--gradient-dark:: linear-gradient(90deg, #11133c, #111134, #110f2c, #100c25, #0e091e, #0a0617, #05030d, #000000);
+
+    --color__text-input: var(--colors-Gray-800);
+      --color__border-input: var(--colors-Gray-300);
+      --color__text-input-focus: var(--colors-Gray-800);
+      --color__border-input-focus: var(--colors-Gray-500);
+
+--spacing-2xs: var(--spacing-100);
+--spacing-xs: var(--spacing-200);
+--spacing-s: var(--spacing-300);
+--spacing-m: var(--spacing-400);
+--spacing-l: var(--spacing-500);
+--spacing-xl: var(--spacing-600);
+--spacing-2xl: var(--spacing-700);
+--spacing-3xl: var(--spacing-800);
+--spacing-4xl: var(--Space-1200);
+--spacing-5xl: var(--Space-1600);
+
+--color-Text-Black: var(--colors-Blue-950);
+--color-Dark-Gray: var(--colors-Gray-700);
+--color-Medium-Dark-Gray: var(--colors-Gray-500);
+--color-Medium-Light: var(--colors-Gray-300);
+--color-Border-Gray: var(--colors-Gray-200);
+--color-Very-Light-Gray: var(--colors-Gray-50);
+--color-Almost-White: #FAFCFFFF;
+  
 
 
 }

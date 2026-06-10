@@ -29,7 +29,6 @@ var waitForFinalEvent = (function () {
 var timeToWaitForLast = 100;
 
 
-
 // jq2 = jQuery.noConflict();
 // jq2(function ($) {
 
@@ -101,7 +100,7 @@ var timeToWaitForLast = 100;
   ///////////////////////
   // switch header style
   ///////////////////////
-  var scrolled_class = "body__scrolled";
+  var scrolled_class = "body--scrolled";
 
 document.addEventListener('DOMContentLoaded', function () {
   const pageHeader = 150;
@@ -123,175 +122,453 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-  //////////////// CURSOR SNAP
-  const cursor = document.querySelector('.cursor');
-  const snapLinks = document.querySelectorAll('.snap a, a.snap');
 
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-  const speed = 0.2;
 
-  let activeLink = null;
-  let isSnapping = false;
 
-  function animate_snap() {
-    currentX += (targetX - currentX) * speed;
-    currentY += (targetY - currentY) * speed;
-    cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
-    requestAnimationFrame(animate_snap);
-  }
+////////////////////
+// PRODUCT FORM
+////////////////////
+if (document.body.classList.contains('single-product')) {
 
-  document.addEventListener('mousemove', (e) => {
-    if (!isSnapping) {
-      targetX = e.clientX;
-      targetY = e.clientY;
-    }
+
+
+// get variables
+const formatSelect = document.getElementById('format-select');
+
+const priceSelect = document.getElementById( 'price-select');
+
+const totalElement = document.getElementById( 'total' );
+
+const perUnitElement = document.getElementById('per-unit' );
+
+
+// populate second select
+function populatePrices() {
+
+  const formatId = formatSelect.value;
+
+  const dataElement = document.getElementById( formatId );
+
+  // Use optional chaining and fallback to an empty string to prevent an error
+  const priceData = dataElement?.dataset?.price || '';
+
+  // split by line break
+  const entries =
+    priceData
+      .trim()
+      .split('\n');
+
+  // Filter out empty entries if the data was missing or had trailing newlines
+  const validEntries = entries.filter(entry => entry.length > 0);
+
+  priceSelect.innerHTML = '';
+
+  // first option
+  const placeholder = document.createElement('option');
+
+  placeholder.value = '';
+
+  placeholder.textContent = 'Bitte auswählen';
+
+  placeholder.selected = true;
+
+  priceSelect.appendChild( placeholder );
+
+
+  entries.forEach(entry => {
+
+    entry = entry.trim();
+
+    if (!entry) return;
+
+    // amount;price
+    const parts = entry.split(';');
+
+    const amount = parts[0];
+
+    const price = parts[1];
+
+    const option =  document.createElement('option');
+
+
+    option.dataset.amount = amount;
+
+    option.dataset.price =  price;  
+
+    option.value = price;
+
+    option.textContent = `${amount} Stk á ${price}€`;
+
+   
+    priceSelect.appendChild(option);
+   
   });
 
-  snapLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      activeLink = link;
-      isSnapping = true;
+  const freeAmount =
+    document.createElement(
+      'option'
+    );
 
-      const rect = link.getBoundingClientRect();
+  freeAmount.textContent =
+    "Ihre Auflage";
 
-      // 🟡 Position at TOP LEFT instead of center
-      targetX = rect.left;
-      targetY = rect.top;
+  priceSelect.appendChild(
+    freeAmount
+  );
 
-      // Match the link shape
-      cursor.style.width = `${rect.width}px`;
-      cursor.style.height = `${rect.height}px`;
-      cursor.style.background = '#ff25db';
-      cursor.style.opacity = '1';
-      cursor.style.borderRadius = window.getComputedStyle(link).borderRadius || '0px';
+  updateSummary();
 
-      // Inherit background color
-      const bgColor = window.getComputedStyle(link).backgroundColor;
-      link.classList.add('is-snapped');
-    });
-
-    link.addEventListener('mouseleave', () => {
-      activeLink = null;
-      isSnapping = false;
-
-      // Reset to small circle
-      cursor.style.width = `10px`;
-      cursor.style.height = `10px`;
-      cursor.style.borderRadius = `50%`;
-      //cursor.style.background = `#fff`;
-      //cursor.style.opacity = `0`;
-      link.classList.remove('is-snapped');
-    });
-  });
-
- // animate_snap();
-
-///// END SNAP
-
-/////// X
-if (document.body.classList.contains('home')) {
-
-
-
-  const layers = document.querySelectorAll('#start-section .layer');
-  const container = document.querySelector('#start-section .container');
-
-  layers.forEach(layer => {
-    if (layer.classList.contains('layer-1')) {
-      layer.setAttribute('data-speed', '20');
-    }
-    else if (layer.classList.contains('layer-2')) {
-      layer.setAttribute('data-speed', '12');
-    }
-
-    else if (layer.classList.contains('layer-3')) {
-      layer.setAttribute('data-speed', '9');
-    }
-
-    else if (layer.classList.contains('layer-4')) {
-      layer.setAttribute('data-speed', '6');
-    }
-    else if (layer.classList.contains('layer-5')) {
-      layer.setAttribute('data-speed', '3');
-    }
-
-  });
-
-  let targetX_forX = 0, targetY_forX = 0;
-  let currentX_forX = 0, currentY_forX = 0;
-  let rect = container.getBoundingClientRect();
-
-  window.addEventListener('resize', () => {
-    rect = container.getBoundingClientRect();
-  });
-
-
-  container.addEventListener('mousemove', (e) => {
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    targetX_forX = x - rect.width / 2;
-    targetY_forX = y - rect.height / 2;
-  });
-
-  container.addEventListener('mouseleave', () => {
-    targetX_forX = 0;
-    targetY_forX = 0;
-  });
-
-  function animate_x() {
-
-    currentX_forX += (targetX_forX - currentX_forX) * 0.1;
-    currentY_forX += (targetY_forX - currentY_forX) * 0.1;
-
-    layers.forEach(layer => {
-      const speed = layer.getAttribute('data-speed');
-      const moveX = currentX_forX * (speed / 60);
-      const moveY = currentY_forX * (speed / 60);
-
-      layer.style.transform = `
-      translate(${moveX}px, ${moveY}px)
-    `;
-    });
-
-    requestAnimationFrame(animate_x);
-  }
-
-  animate_x();
-
-/////// END X
 }
 
-/////// LIST FOLLOWER
+// calculate total
+function updateSummary() {
 
-  const highlight = document.querySelector('.highlight');
-  const links = document.querySelectorAll('.page-menu a');
+  const option =
+    priceSelect.options[
+    priceSelect.selectedIndex
+    ];
 
-  links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      const rect = link.getBoundingClientRect();
-      const containerRect = link.closest('.page-menu-container').getBoundingClientRect();
-      const offsetTop = rect.top - containerRect.top + 50;
+  // Use the nullish coalescing operator (??) to provide a default empty string 
+  // if the data attribute is missing
+  const amountStr = option.dataset.amount ?? '';
+  const priceStr = option.dataset.price ?? '';
 
-      highlight.style.top = `${offsetTop}px`;
-      highlight.style.opacity = 1;
-    });
+  // Only attempt to calculate if the strings are not empty
+  if (amountStr && priceStr) {
+    const amount = parseFloat(amountStr.replace(',', '.'));
+    const price = parseFloat(priceStr.replace(',', '.'));
+    const total = amount * price;
 
-    link.addEventListener('mouseleave', () => {
-      highlight.style.opacity = 0;
-    });
-  });
+    totalElement.textContent = total.toFixed(2);
+    perUnitElement.textContent = price.toFixed(2);
+  } else {
+    // Optional: Reset the display if data is missing
+    totalElement.textContent = '--,-- ';
+    perUnitElement.textContent = '--,-- ';
+  }
+
+}
+
+// Use optional chaining (?.) or an if-block to check if the element exists
+formatSelect?.addEventListener(
+  'change',
+  () => {
+
+    populatePrices();
+
+    toggleCustomField();
+
+    toggleExtraField();
+
+    togglePriceSelect();
+
+    clearCustomFields();
+
+    validateForm();
+
+    updateContactForm();
+
+  }
+);
+
+// price select
+priceSelect?.addEventListener(
+  'change',
+  () => {
+
+    updateSummary();
+
+    toggleExtraField();
+
+    togglePriceSelect();
+
+    clearCustomFields();
+
+    validateForm();
+
+    updateContactForm();
+
+  }
+);
+
+// update on Input Change
+const formatInput = document.getElementById('custom-format-input');
+if (formatInput) {
+  formatInput.addEventListener('input', 
+   () => { 
+    updateContactForm();
+    validateForm()
+  }
+);
+}
+
+const amountInput = document.getElementById('custom-amount-input');
+if (amountInput) {
+  amountInput.addEventListener('input', 
+   () => { 
+    updateContactForm();
+    validateForm()
+  }
+);
+}
 
 
-/////// END LIST FOLLOWER
+// show hidden custom Format field
+function toggleCustomField() {
 
-  ////////////////////////////////////
-  // PARALLAX
-  ////////////////////////////////////
+  const lastIndex = formatSelect.options.length - 1;
 
+  const isLastOption =  formatSelect.selectedIndex ===  lastIndex;
+
+  document.getElementById( 'custom-format' ).hidden = !isLastOption;
+
+}
+
+// Custom Amount Field
+// Custom Amount Field - Added a check to ensure the element exists
+const customAmountEl = document.getElementById('custom-amount');
+if (customAmountEl) {
+  customAmountEl.hidden = true;
+}
+
+
+// toggle the Hidden Fields
+function toggleExtraField() {
+
+  const lastFormatIndex = formatSelect.options.length - 1;
+
+  const isLastFormat = formatSelect.selectedIndex === lastFormatIndex;
+
+  const lastPriceIndex = priceSelect.options.length - 1;
+
+  const isLastPrice = priceSelect.selectedIndex ===lastPriceIndex;
+
+
+  document.getElementById('custom-amount').hidden = !(isLastFormat || isLastPrice);
+
+}
+
+// Auflage ausblenden wennn Custom Format
+function togglePriceSelect() {
+
+  const customVisible =  !document.getElementById( 'custom-format' ).hidden;
+
+  document.getElementById( 'price-select-wrapper').hidden = customVisible;
+
+}
+
+const continueButton = document.getElementById( 'continue-button' );
+
+
+function validateForm() {
+
+  const formatValid = formatSelect.selectedIndex > 0;
+
+  const priceValid = priceSelect.selectedIndex > 0;
+
+  const customFormatFilled = document.getElementById( 'custom-format-input').value.trim() !== '';
+
+  const customAmountFilled =  document.getElementById( 'custom-amount-input' ).value.trim() !== '';
+  
+  const customFormatVisible = !document.getElementById( 'custom-format').hidden;
+
+  const customAmountVisible = !document.getElementById( 'custom-amount' ).hidden;
+
+  let valid = false;
+
+  // normal selects
+  if (!customFormatVisible && !customAmountVisible  ) {
+
+    valid =  formatValid &&  priceValid;
+
+  }
+
+  // custom Format visible
+  else if (  customFormatVisible &&  customAmountVisible  ) {
+
+    valid = formatValid && customFormatFilled && customAmountFilled;
+
+  }
+
+  // extra Amount visible
+  else {
+
+    valid =  formatValid &&  (priceValid && customAmountFilled);
+
+  }
+
+  continueButton.disabled = !valid;
+
+}
+
+
+// validate on change
+formatSelect?.addEventListener(
+  'change',
+  validateForm
+);
+
+priceSelect?.addEventListener(
+  'change',
+  validateForm
+);
+
+
+// init
+validateForm();
+
+
+document.getElementById(
+  'continue-button'
+).addEventListener(
+  'click',
+  () => {
+
+    // selected pricing option
+    const selectedOption =
+      priceSelect.options[
+      priceSelect.selectedIndex
+      ];
+
+
+    // fill contact form
+    document.getElementById(
+      'contact-format'
+    ).value =
+      formatSelect.options[
+        formatSelect.selectedIndex
+      ].text;
+
+
+    document.getElementById(
+      'contact-pricing'
+    ).value =
+      selectedOption
+        ? selectedOption.textContent
+        : '';
+
+
+    document.getElementById(
+      'contact-total'
+    ).value =
+      totalElement.textContent;
+
+    document.getElementById(
+      'contact-number'
+    ).value =
+      document.querySelector(
+        '.product__product-number'
+      ).textContent.trim();
+
+    document.getElementById(
+      'contact-name'
+    ).value =
+      document.querySelector(
+        '.product__product-title'
+      ).textContent.trim();
+
+
+    // For inputs you need to read from, check existence before accessing .value
+    const customInput = document.getElementById('custom-format-input');
+    const customValue = customInput ? customInput.value : '';
+
+    if (customValue.trim() !== '') {
+      const contactCustom = document.getElementById('contact-custom');
+      if (contactCustom) contactCustom.value = customValue;
+    }
+
+    const extraInput = document.getElementById('custom-amount-input');
+    const extraValue = extraInput ? extraInput.value : '';
+
+    if (extraValue.trim() !== '') {
+      const contactExtra = document.getElementById('contact-extra');
+      if (contactExtra) contactExtra.value = extraValue;
+    }
+
+    // show contact form
+    document.getElementById(
+      'contact-form'
+    ).hidden = false;
+
+  }
+);
+
+// Update the contact form on any changes. 
+function updateContactForm() {
+
+  const selectedOption =
+    priceSelect.options[
+    priceSelect.selectedIndex
+    ];
+
+  document.getElementById(
+    'contact-format'
+  ).value =
+    formatSelect.options[
+      formatSelect.selectedIndex
+    ].text;
+
+
+  document.getElementById(
+    'contact-pricing'
+  ).value =
+    selectedOption &&
+      selectedOption.value !== ''
+      ? selectedOption.textContent
+      : '';
+
+
+  document.getElementById(
+    'contact-total'
+  ).value =
+    totalElement.textContent;
+
+
+  // For inputs you need to read from, check existence before accessing .value
+  const customInput = document.getElementById('custom-format-input');
+  const customValue = customInput ? customInput.value : '';
+
+  if (customValue.trim() !== '') {
+    const contactCustom = document.getElementById('contact-custom');
+    if (contactCustom) contactCustom.value = customValue;
+  }
+
+  const extraInput = document.getElementById('custom-amount-input');
+  const extraValue = extraInput ? extraInput.value : '';
+
+  if (extraValue.trim() !== '') {
+    const contactExtra = document.getElementById('contact-extra');
+    if (contactExtra) contactExtra.value = extraValue;
+  }
+
+}
+
+
+function clearCustomFields() {
+
+  // custom format field hidden
+  if ( document.getElementById( 'custom-format' ).hidden) {
+
+    document.getElementById( 'custom-format-input' ).value = '';
+
+   // document.getElementById( 'contact-custom' ).value = '';
+
+  }
+
+
+  // custom Amount field hidden
+  if ( document.getElementById( 'custom-amount' ).hidden) {
+
+    document.getElementById('custom-amount-input' ).value = '';
+
+   // document.getElementById( 'contact-extra' ).value = '';
+
+  }
+
+}
+} // end single-product form
+// END PRODUCT FORM 
+////////////////////////////////////////////
 
 // SCROLL TO
   document.querySelectorAll('a.arrow[href^="#"]').forEach(anchor => {
@@ -309,7 +586,46 @@ if (document.body.classList.contains('home')) {
     });
   });
 
-
-
-
 // }); 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('.js-swiper').forEach(slider => {
+
+    const autoplay = slider.dataset.autoplay;
+    const pagination = slider.dataset.pagination === 'true';
+    const navigation = slider.dataset.navigation === 'true';
+    const loop = slider.dataset.loop === 'true';
+
+    new Swiper(slider, {
+
+      loop,
+
+      autoplay: autoplay
+        ? {
+          delay: parseInt(autoplay, 10),
+          disableOnInteraction: false
+        }
+        : false,
+
+      pagination: pagination
+        ? {
+          el: slider.querySelector('.swiper-pagination'),
+          clickable: true
+        }
+        : false,
+
+      navigation: navigation
+        ? {
+          nextEl: slider.querySelector('.swiper-button-next'),
+          prevEl: slider.querySelector('.swiper-button-prev')
+        }
+        : false
+
+    });
+
+  });
+
+});

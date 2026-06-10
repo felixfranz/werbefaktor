@@ -13,21 +13,36 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-textarea {
+textarea, select {
 	color: var(--color__text-input);
 	border: 1px solid var(--color__border-input);
-	border-radius: 3px;
-	padding: 3px;
+	border-radius: 8px;
+	padding: 5px;
+	height: 42px;
+	font-size: var(--text-s);
 
-	&:focus {
+	&:focus, &:focus-visible {
 		color: var(--color__text-input-focus);
+		border: 1px solid var(--color__border-input-focus);
 	}
 }
 
 select {
 	border: 1px solid var(--color__border-input);
+	margin-top: var(--spacing-xs);
 }
 
 textarea {
 	width: 100%;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	margin-top: var(--spacing-m);
+}
+
+label{
+	font-size: var(--text-m);
+	display: block;
 }

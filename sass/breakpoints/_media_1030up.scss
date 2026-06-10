@@ -11,18 +11,68 @@
         }
 
 /////// HEADER
-    .page__header {
-        padding: 33px 0 15px;
-        display: flex;
+
+.page__header {
+    padding: 0;
+    width: 100vw;
+    left: 50%;
+    top: 0;
+    position: fixed;
+    transform: translateX(-50%);
+    z-index: 10;
+    border-bottom: 1px solid var(--colors-Gray-200)
+}
+
+.top-header, .bottom-header, .logo{
+transition: height 0.4s var(--ease);
+}
+
+.top-header{
+    background: var(--colors-Blue-950);
+    height: 50px;
+   
+} 
+
+.bottom-header{
+    height: 100px;
+    padding:   0 0;
+    background-color: var(--colors-Gray-50);
+    background: RGBA(235, 235, 235, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    align-items: center;
+    &>div{
         justify-content: space-between;
     }
+}
+
+.search-container{
+   width: 340px;
+   background: white;
+}
+
+.body--scrolled{
+    .top-header{
+        height: 40px;
+    }
+
+    .bottom-header{
+        height: 52px;
+        padding: 0px 0 0;
+    }
+
+    .logo {
+        margin-top: 5px;
+        font-size: 24px;
+        a{
+            transform: translateY(0px);
+        }
+    }
+}
 
 /////// LOGO
 .logo {
-    a {
-        width: 117px;
-        height: 21px;
-    }
+
 }
 
 //////////// NAV 
@@ -31,15 +81,6 @@
     display: flex;
 }
 
-.main-navigation ul {
-    
-
-    li {
-        &>a {
-            padding: 6px 12px;
-        }
-    }
-}
 
 .main-navigation ul .wpml-ls-item a {
     font-size: 14px;

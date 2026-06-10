@@ -26,7 +26,7 @@
 		<?php wp_nav_menu(array(
 					'container'  => false,
 					'menu_class' => 'page-overlay__menu menu__mobile_menu',               // adding custom nav class
-					'theme_location' => 'menu-1',                                // limit the depth of the nav
+					'theme_location' => 'menu-primary',                                // limit the depth of the nav
 					'fallback_cb' => ''                             // fallback function (if there is one)
 		)); ?>
 
