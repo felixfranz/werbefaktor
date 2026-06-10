@@ -105,7 +105,7 @@ if ($current_term->parent) {
                                     <div class="swiper-slide">
                                         <img src="<?php echo esc_url($image['sizes']['large']); ?>">
                                     </div>
-                                <?php endforeach; ?>
+                                <?php endforeach; // end Bilder ?>
 
                             </div>
                              <div class="swiper-pagination"></div>
