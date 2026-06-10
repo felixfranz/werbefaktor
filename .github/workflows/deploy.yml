@@ -1,0 +1,24 @@
+name: Deploy via SFTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload files via SFTP
+        uses: pressidium/lftp-mirror-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USERNAME }}
+          pass: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          localDir: ./
+          remoteDir: ${{ secrets.REMOTE_PATH }}
