@@ -1,31 +1,27 @@
 @font-face {
-    font-family: 'Zodiak';
-    src: url('../fonts/Zodiak-Variable.eot');
-    src: url('../fonts/Zodiak-Variable.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/Zodiak-Variable.woff2') format('woff2'),
-        url('../fonts/Zodiak-Variable.ttf') format('truetype'),
-        url('../fonts/Zodiak-Variable.svg#font-name') format('svg');
+    font-family: 'Alexandria';
+    src: url('../fonts/Alexandria/Alexandria-VariableFont_wght.ttf') format('truetype');
     font-weight: 100 900;
     font-display: swap;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'GeneralSans';
-    src: url('../fonts/GeneralSans-Variable.eot');
-    src: url('../fonts/GeneralSans-Variable.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GeneralSans-Variable.woff2') format('woff2'),
-        url('../fonts/GeneralSans-Variable.ttf') format('truetype'),
-        url('../fonts/GeneralSans-Variable.svg#font-name') format('svg');
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../fonts/Lato/Lato-Bold.ttf') format('truetype');
+    font-weight: 700;
 }
 
 html {
 	// FONTSTACKS
-	--font-serif: "Zodiak", "Garamond", "Times New Roman", serif;
-	--font-sans: "GeneralSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-text-regular: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-text-bold: "Lato-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-headline: "Alexandria", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     h1{
         font-size: var(--headline-xl);
@@ -58,5 +54,6 @@ html {
 }
 
 strong{
-    font-weight: 600;
+    font-family: var(--font-text-bold);
+    font-weight: 700;
 }

@@ -127,7 +127,7 @@ if ($current_term->parent) {
 
                         <?php if ($description) : ?>
                             <div class="subcategory-description">
-                               <p class="text--small"> <?php echo wp_kses_post($description); ?></p>
+                               <div class="text--small"> <?php echo wp_kses_post($description); ?></div>
                             </div>
                         <?php endif; ?>
                     </div>
