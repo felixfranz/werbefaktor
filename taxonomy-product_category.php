@@ -77,16 +77,14 @@ if ($current_term->parent) {
                 <?php
                 $term_link = get_term_link($term);
 
-                $description = get_field(
-                    'page_text',
-                    'product_category_' . $term->term_id
-                );
+                $description = category_description($term->term_id);
 
                 // ACF Gallery field
                 $gallery = get_field(
                     'category_gallery',
                     'product_category_' . $term->term_id
                 );
+
                 ?>
 
                 <article class="subcategory-card">
@@ -121,8 +119,8 @@ if ($current_term->parent) {
 
                     <?php endif; ?>
 
-                    <div class="subcategory-content flex flex-col gap-s">
-
+                    <div class="subcategory-content flex flex-col gap-m">
+                    <div class="category_card-text-wrapper flex flex-col gap-s">
                         <h3>
                             <?php echo esc_html($term->name); ?>
                         </h3>
@@ -132,8 +130,9 @@ if ($current_term->parent) {
                                <p class="text--small"> <?php echo wp_kses_post($description); ?></p>
                             </div>
                         <?php endif; ?>
+                    </div>
 
-                        <a class="subcategory-button button button--subtle"
+                        <a class="subcategory-button button button--subtle button--small"
                             href="<?php echo esc_url($term_link); ?>"
                         >
                             Zur Produktgalerie › 
@@ -178,7 +177,7 @@ if ($current_term->parent) {
                          
                             <div class="product-card__content flex flex-col gap-s">
                                 <h2><?php the_title(); ?></h2>
-                                <p class="text--small product-card__description">Lorem ipsum do Culpa eaque asperiores hic modi.</p>
+                                <p class="text--small product-card__description"><?php echo get_field("preview_text"); ?></p>
                             </div>
                             
                         </a>

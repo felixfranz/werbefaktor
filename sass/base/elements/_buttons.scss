@@ -68,10 +68,18 @@ input[type="submit"] {
 }
 
 .button--subtle{
-	color: var(--colors-Almost-Black);
+	color: var(--colors-Gray-800);
 	min-width: 0;
-	padding-left: 0;
-	padding-right: 0;
+
+	border: 1px solid var(--colors-Gray-300);
+	&:hover{
+		color: white;
+		background: var(--colors-Blue-500);
+		border: 1px solid var(--colors-Blue-500);
+	}
+	&:active{
+		background: var(--colors-Blue-400);
+	}
 }
 
 .button--color-white{
@@ -92,10 +100,11 @@ padding: var(--spacing-md) var(--spacing-xl);
 }
 
 .button--small {
-	padding: var(--spacing-sm);
+	padding: var(--spacing-s);
 	font-size: var(--text-m);
-	border-radius: 30px;
 	min-width: 150px;
+	font-size: var(--text-s);
+	font-weight: 500;
 }
 
 .button--on-color{

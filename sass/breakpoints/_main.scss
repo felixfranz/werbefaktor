@@ -813,6 +813,10 @@ BREADCRUMBS
 
     display: flex;
     flex-direction: column;
+
+    .button{
+        align-self: auto;
+    }
 }
 
 
@@ -831,6 +835,7 @@ BREADCRUMBS
 .subcategory-content {
     padding: 1.5rem;
     flex: 1;
+    justify-content: space-between;
     h3{
         font-size: var(--text-m);
         
@@ -929,6 +934,9 @@ BREADCRUMBS
 
             .product-card__image-container {
                 background: black;
+                img{
+                    opacity: 0.6;
+                }
             }
         }
     }
@@ -943,21 +951,29 @@ BREADCRUMBS
     }
 }
 
-.product-card__image-container{
-    position: relative;
-    transition: all 0.2s ease;
-}
 
 .product-card__image-container {
+    position: relative;
+    transition: all 0.2s ease;
     aspect-ratio: 4 / 3;
     overflow: hidden;
     background: #eee;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.2s all var(--ease);
+    }
 
     .image-placeholder {
-        aspect-ratio: 4 / 3;
+       aspect-ratio: 4 / 3;
         overflow: hidden;
         background: #eee;
-        background: url("../images/placeholder.png") center center / contain no-repeat;
+        background: url("../images/image-placeholder.png") center center / cover no-repeat;
     }
 }
 

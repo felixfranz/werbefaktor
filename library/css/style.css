@@ -382,10 +382,17 @@ input[type=submit]:focus {
 }
 
 .button--subtle {
-  color: var(--colors-Almost-Black);
+  color: var(--colors-Gray-800);
   min-width: 0;
-  padding-left: 0;
-  padding-right: 0;
+  border: 1px solid var(--colors-Gray-300);
+}
+.button--subtle:hover {
+  color: white;
+  background: var(--colors-Blue-500);
+  border: 1px solid var(--colors-Blue-500);
+}
+.button--subtle:active {
+  background: var(--colors-Blue-400);
 }
 
 .button--color-white {
@@ -406,10 +413,11 @@ input[type=submit]:focus {
 }
 
 .button--small {
-  padding: var(--spacing-sm);
+  padding: var(--spacing-s);
   font-size: var(--text-m);
-  border-radius: 30px;
   min-width: 150px;
+  font-size: var(--text-s);
+  font-weight: 500;
 }
 
 .button--on-color {
@@ -876,7 +884,7 @@ html {
   color: black;
 }
 .main-navigation ul.main-navigation__menu > li:nth-child(2) {
-  --nav-color: var(--colors-Blue-700);
+  --nav-color: var(--colors-Blue-500);
 }
 .main-navigation ul.main-navigation__menu > li:nth-child(3) {
   --nav-color: var(--colors-Green-300);
@@ -2173,6 +2181,9 @@ BREADCRUMBS
   display: flex;
   flex-direction: column;
 }
+.subcategory-card .button, .product-card .button {
+  align-self: auto;
+}
 
 .subcategory-slider {
   aspect-ratio: 4/3;
@@ -2189,6 +2200,7 @@ BREADCRUMBS
 .subcategory-content {
   padding: 1.5rem;
   flex: 1;
+  justify-content: space-between;
 }
 .subcategory-content h3 {
   font-size: var(--text-m);
@@ -2276,6 +2288,9 @@ BREADCRUMBS
 .product-card a:hover .product-card__image-container {
   background: black;
 }
+.product-card a:hover .product-card__image-container img {
+  opacity: 0.6;
+}
 .product-card .product-card__content {
   padding: var(--spacing-m);
   padding-top: 0;
@@ -2287,18 +2302,24 @@ BREADCRUMBS
 .product-card__image-container {
   position: relative;
   transition: all 0.2s ease;
-}
-
-.product-card__image-container {
   aspect-ratio: 4/3;
   overflow: hidden;
   background: #eee;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.product-card__image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.2s all var(--ease);
 }
 .product-card__image-container .image-placeholder {
   aspect-ratio: 4/3;
   overflow: hidden;
   background: #eee;
-  background: url("../images/placeholder.png") center center/contain no-repeat;
+  background: url("../images/image-placeholder.png") center center/cover no-repeat;
 }
 
 .details-link {
