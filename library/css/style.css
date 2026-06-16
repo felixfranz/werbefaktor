@@ -1592,6 +1592,7 @@ p {
   margin: 0;
   font-size: var(--text-m);
   line-height: var(--lineheight-2xl);
+  max-width: 80ch;
 }
 p.text--small {
   font-size: var(--text-xs);
