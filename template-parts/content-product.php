@@ -228,7 +228,7 @@ if ( function_exists('custom_taxonomy_breadcrumbs') ) {
 						<label for="tab2">Details</label>
 					</div>
 
-					<div class="tab-content content1">
+					<div class="tab-content content1 product__desc">
 						<?php echo($desc); ?>
 					</div>
 
