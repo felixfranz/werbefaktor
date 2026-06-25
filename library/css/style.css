@@ -600,6 +600,7 @@ html {
   --font-button: var(--font-medium);
   --button-height: 65px;
   font-size: 62.5%;
+  --section-border: 1px solid var(--color-Border-Gray);
   --headline-s: clamp(2.200rem, calc(2.061rem + 0.435vw), 2.600rem);
   --headline-m: clamp(2.400rem, calc(2.261rem + 0.435vw), 2.800rem);
   --headline-l: clamp(2.800rem, calc(2.522rem + 0.87vw), 3.600rem);
@@ -631,6 +632,7 @@ html {
   --spacing-1000: 98px;
   --spacing-1200: 122px;
   --colors-Purple-700: #AA509BFF;
+  --colors-Purple-500: #CD4EBA;
   --colors-Green-600: #556B13;
   --colors-Green-300: #9BC12BFF;
   --colors-Green-200: #ACD530;
@@ -2061,6 +2063,38 @@ BREADCRUMBS
 }
 #summary .sum-total {
   font-size: var(--text-m);
+}
+
+.section-with-tag {
+  border-top: var(--section-border);
+  padding-top: calc(var(--spacing-xl) + 15px);
+  position: relative;
+}
+.section-with-tag .section-tag {
+  --tag-color: var(--colors-Green-300);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  padding: 8px 13px 9px;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 19px;
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  background-color: var(--tag-color);
+}
+.section-with-tag .section-tag.section-tag--green {
+  --tag-color: var(--colors-Green-300);
+}
+.section-with-tag .section-tag.section-tag--pink {
+  --tag-color: var(--colors-Purple-500);
+}
+.section-with-tag .section-title {
+  text-align: center;
 }
 
 .site-footer {

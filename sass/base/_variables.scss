@@ -37,6 +37,8 @@ html{
 
     font-size: 62.5%; // 1rem = 10px;
 
+    --section-border: 1px solid var(--color-Border-Gray);
+
     //HEALDLINES
   // --headline-2xs: clamp(1.74rem, calc(0.0034259259259259247 * (100vw - 36rem) + 1.74rem), 2.11rem);
 //--headline-xs: clamp(2.18rem, calc(0.005833333333333333 * (100vw - 36rem) + 2.18rem), 2.81rem);
@@ -81,6 +83,7 @@ html{
 // COLORS
 
 --colors-Purple-700: #AA509BFF;
+--colors-Purple-500: #CD4EBA;
 
 --colors-Green-600: #556B13;
 --colors-Green-300: #9BC12BFF;

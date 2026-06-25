@@ -17,6 +17,7 @@ $number = get_field('number');
 $details = get_field('artikel_details');
 $desc = get_field('description');
 $varianten = get_field('varianten');
+$related_products = get_field('related_products');
 
 $green_box_text 	= get_field('product_green_box', 'option');
 
@@ -223,32 +224,34 @@ if ( function_exists('custom_taxonomy_breadcrumbs') ) {
 						<input type="radio" name="tabs" id="tab1" checked>
 						<input type="radio" name="tabs" id="tab2">
 
-					<div class="tab-buttons">
-						<label for="tab1">Beschreibung</label>
-						<label for="tab2">Details</label>
-					</div>
+						<div class="tab-buttons">
+							<label for="tab1">Beschreibung</label>
+							<label for="tab2">Details</label>
+						</div>
 
-					<div class="tab-content content1 product__desc">
-						<?php echo($desc); ?>
-					</div>
+						<div class="tab-content content1 product__desc">
+							<?php echo($desc); ?>
+						</div>
 
-					<div class="tab-content content2 product__details-specs text--small">
-						<?php if($details['material']){ ?><p><span>Material: </span><?php echo $details['material']; ?></p><?php }; ?>
-						<?php if($details['druck']){ ?><p><span>Druck: </span><?php echo $details['druck']; ?></p><?php }; ?>
-						<?php if($details['verarbeitung']){ ?><p><span>Verarbeitung: </span><?php echo $details['verarbeitung']; ?></p><?php }; ?>
-						<?php if($details['fixation']){ ?><p><span>Befestigung: </span><?php echo $details['fixation']; ?></p><?php }; ?>
-						<?php if($details['produktionszeit']){ ?><p><span>Produktionszeit: </span><?php echo $details['produktionszeit']; ?></p><?php }; ?>
-						<?php if($details['druckdaten']){ ?><p><span>Druckdaten: </span><?php echo $details['druckdaten']; ?></p><?php }; ?>
-					</div>
+						<div class="tab-content content2 product__details-specs text--small">
+							<?php if($details['material']){ ?><p><span>Material: </span><?php echo $details['material']; ?></p><?php }; ?>
+							<?php if($details['druck']){ ?><p><span>Druck: </span><?php echo $details['druck']; ?></p><?php }; ?>
+							<?php if($details['verarbeitung']){ ?><p><span>Verarbeitung: </span><?php echo $details['verarbeitung']; ?></p><?php }; ?>
+							<?php if($details['fixation']){ ?><p><span>Befestigung: </span><?php echo $details['fixation']; ?></p><?php }; ?>
+							<?php if($details['produktionszeit']){ ?><p><span>Produktionszeit: </span><?php echo $details['produktionszeit']; ?></p><?php }; ?>
+							<?php if($details['druckdaten']){ ?><p><span>Druckdaten: </span><?php echo $details['druckdaten']; ?></p><?php }; ?>
+						</div>
 
-					</div>
+					</div>  <!-- end tabs -->
 
 
-				</div>
-				 
-			</div>
+				</div>  <!-- end details -->
+			</div>  <!-- end right site -->
 
-		</div>
+		</div> <!-- end end product container -->
+
+		
+
 	
 		<?php
 			edit_post_link(
@@ -271,3 +274,50 @@ if ( function_exists('custom_taxonomy_breadcrumbs') ) {
 
 
 </article><!-- #post-<?php the_ID(); ?> -->
+<?php
+		
+			if( $related_products ): ?>
+			<section class="related_products section-with-tag flex flex-col gap-m">
+
+			<div class="section-tag section-tag--pink"><span>Für Sie</span></div>
+
+			<h3 class="section-title">Für Sie empfohlene Produkte</h3>
+				<div class="products-grid products-grid-4">
+				<?php foreach( $related_products as $post ): 
+
+					// Setup this post for WP functions (variable must be named $post).
+					setup_postdata($post); ?>
+					<article <?php post_class('product-card flex flex-col gap-m'); ?>>
+
+                        <a href="<?php the_permalink(); ?>" class="flex flex-col gap-s">
+
+                          
+                                <div class="product-card__image-container">
+                                      <?php if (has_post_thumbnail()) : ?>
+                                         <?php the_post_thumbnail('medium'); ?>
+                                       
+                                      
+                                          <?php else :  ?>
+                                          <div class="image-placeholder">
+
+                                          </div>
+                                      
+                                         <?php endif; ?>
+                                        <div class="details-link text--small">Details</div>  
+                                </div>
+                         
+                            <div class="product-card__content flex flex-col gap-s">
+                                <h2><?php the_title(); ?></h2>
+                                <p class="text--small product-card__description"><?php echo get_field("preview_text"); ?></p>
+                            </div>
+                            
+                        </a>
+
+                    </article>
+				<?php endforeach; ?>
+				</div>
+				<?php 
+				// Reset the global post object so that the rest of the page works correctly.
+				wp_reset_postdata(); ?>
+				</section>
+			<?php endif; ?>
