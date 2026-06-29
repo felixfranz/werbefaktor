@@ -32,8 +32,15 @@
 	<header class="header page__header flex flex-col fullwidth">
 		<div class="header__top-header top-header flex flex-row">
 			<div class="inner-wrap wrap flex flex-row">
-				<div class="header__quick-contact">
-					email telefon
+				<div class="header__quick-contact flex flex-row gap-m">
+					<?php 
+					$main_email 	= get_field('business_email', 'option');
+					$main_phone 	= get_field('phone_number', 'option');
+					
+					?>
+					<span><?php echo '<a href="mailto:' . $main_email .' "><span class="social_icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>' . $main_email .'</a>'; ?></span>
+					<span><?php echo '<a href="tel:' . $main_phone .' "><span class="social_icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>' . $main_phone .'</a>'; ?></span>
+
 				</div>
 			<nav class="header__menu-top nav-menu-top flex">
 			<?php
@@ -58,7 +65,7 @@
 
 			<div class="logo header__logo">
 			
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> werbe<span>faktor</span> </a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> <span>werbe</span>faktor </a>
 
 			</div><!-- .site-branding -->
 

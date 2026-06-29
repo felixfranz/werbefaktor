@@ -539,9 +539,15 @@ label {
   src: url("../fonts/Lato/Lato-Bold.ttf") format("truetype");
   font-weight: 700;
 }
+@font-face {
+  font-family: "Lato-Light";
+  src: url("../fonts/Lato/Lato-Light.ttf") format("truetype");
+  font-weight: 400;
+}
 html {
   --font-text-regular: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-text-bold: "Lato-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-light: "Lato-Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-headline: "Alexandria", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 html h1 {
@@ -716,12 +722,18 @@ html {
 .menu-top {
   display: flex;
   list-style: none;
-  gap: 10px;
+}
+.menu-top li {
+  margin-left: var(--spacing-l);
+}
+.menu-top li:last-child {
+  margin-left: var(--spacing-s);
 }
 .menu-top li a {
   color: white;
   text-decoration: none;
   font-size: var(--text-s);
+  font-family: var(--font-light);
 }
 
 .main-navigation {
@@ -1642,9 +1654,19 @@ LAYOUT & GRID STYLES
   align-items: center;
 }
 
-.header__quick-contact {
+.header__quick-contact > span {
+  display: inline-block;
+}
+.header__quick-contact > span span {
+  margin-right: var(--spacing-s);
+}
+.header__quick-contact span, .header__quick-contact a {
   color: white;
   font-size: var(--text-s);
+  text-decoration: none;
+}
+.header__quick-contact a:hover, .header__quick-contact a:hover span {
+  color: var(--colors-Blue-300);
 }
 
 .logo {
@@ -1698,7 +1720,7 @@ section.fullwidth {
 }
 
 .inner-wrap > div {
-  gap: var(--spacing-lg);
+  gap: var(--spacing-l);
 }
 
 .tabs {

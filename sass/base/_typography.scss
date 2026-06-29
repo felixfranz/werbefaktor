@@ -17,10 +17,17 @@
     font-weight: 700;
 }
 
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('../fonts/Lato/Lato-Light.ttf') format('truetype');
+    font-weight: 400;
+}
+
 html {
 	// FONTSTACKS
 	--font-text-regular: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-text-bold: "Lato-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-light: "Lato-Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-headline: "Alexandria", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     h1{
