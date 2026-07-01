@@ -733,7 +733,10 @@ html {
   color: white;
   text-decoration: none;
   font-size: var(--text-s);
-  font-family: var(--font-light);
+  font-family: var(--font-text-regular);
+}
+.menu-top li a:hover {
+  color: var(--colors-Blue-300);
 }
 
 .main-navigation {

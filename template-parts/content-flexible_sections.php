@@ -20,17 +20,14 @@ if( have_rows('page_sections') ):
 		// Case: Flex blocks  
 		include("blocks/flexible_content.php");
 
-		// Case: Bewegungs Teaser 
-		include("blocks/bewegungs_teaser.php");
-
-		// Case: Katalog Teaser 
-		include("blocks/katalog_teaser.php");
-
-		// Case: Safety Teaser 
-		include("blocks/safety_teaser.php");
-
 		// Case: Project Teaser 
 		include("blocks/project_teaser.php");
+
+		// Case: Newest Products
+		include("blocks/new_products.php");
+
+		// Case: Popular Products
+		include("blocks/popular_products.php");
 
 		// Case: Slider 
 		include("blocks/slider.php");
@@ -38,12 +35,6 @@ if( have_rows('page_sections') ):
 		// Case: Images with Caption 
 		include("blocks/image_row.php");
 
-		// Case: Social Links & Streetwear
-		include("blocks/social_streetwear.php");
-
-		// Case: Social Links & Streetwear
-		include("blocks/skate_switch.php");
-	
         
 
     // End loop.

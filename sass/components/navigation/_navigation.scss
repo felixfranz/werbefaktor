@@ -11,7 +11,10 @@
 			color: white;
 			text-decoration: none;
 			font-size: var(--text-s);
-			font-family: var(--font-light);
+			font-family: var(--font-text-regular);
+			&:hover{
+				color: var(--colors-Blue-300)
+			}
 		}
 	}
 }
