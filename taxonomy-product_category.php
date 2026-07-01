@@ -122,7 +122,8 @@ if ($current_term->parent) {
                     <div class="subcategory-content flex flex-col gap-m">
                     <div class="category_card-text-wrapper flex flex-col gap-s">
                         <h3>
-                            <?php echo esc_html($term->name); ?>
+                            <a  href="<?php echo esc_url($term_link); ?>"
+                        > <?php echo esc_html($term->name); ?> </a>
                         </h3>
 
                         <?php if ($description) : ?>
@@ -135,7 +136,7 @@ if ($current_term->parent) {
                         <a class="subcategory-button button button--subtle button--small"
                             href="<?php echo esc_url($term_link); ?>"
                         >
-                            Zur Produktgalerie › 
+                            Zu den Produkten › 
                         </a>
 
                     </div>
