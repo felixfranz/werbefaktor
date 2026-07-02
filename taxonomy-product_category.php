@@ -211,7 +211,8 @@ if ($current_term->parent) {
 
     <?php if ($term_description_additional) : ?>
     <section class="taxonomy-footer fullwidth taxonomy-footer-<?php echo esc_html($current_term->slug); if($parent){ echo " parent-".$parent;}?> ">
-        <div class="inner-wrap wrap flex flex-col gap-m">
+    <div class="sticky-border fullwidth"><span></span></div>   
+    <div class="inner-wrap wrap flex flex-col gap-m">
 
             <div class="taxonomy-intro text-content">
                 <?php echo wp_kses_post($term_description_additional); ?>

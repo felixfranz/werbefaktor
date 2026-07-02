@@ -2225,13 +2225,14 @@ BREADCRUMBS
 .taxonomy-header {
   padding: 0 0 0;
 }
-.taxonomy-header + .sticky-border {
+
+.sticky-border {
   position: sticky;
   top: 90px;
   width: 100%;
   z-index: 2;
 }
-.taxonomy-header + .sticky-border span {
+.sticky-border span {
   display: inline-block;
   position: relative;
   width: 100vw;
@@ -2240,7 +2241,11 @@ BREADCRUMBS
   border-bottom: 8px solid var(--colors-Brown-400);
 }
 
-.taxonomy-header-regalwerbung + .sticky-border span, .parent-regalwerbung + .sticky-border span {
+.taxonomy-footer .sticky-border {
+  margin-bottom: var(--spacing-xl);
+}
+
+.taxonomy-header-regalwerbung + .sticky-border span, .parent-regalwerbung + .sticky-border span, .taxonomy-footer-regalwerbung + .sticky-border span {
   border-bottom: 8px solid var(--colors-Brown-400);
 }
 
