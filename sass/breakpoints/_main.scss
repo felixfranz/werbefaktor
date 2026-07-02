@@ -834,10 +834,7 @@ BREADCRUMBS
 
 
 .taxonomy-header {
-    padding: 0 0  0;
-
-
-
+    padding: 0;
 }
 
 .sticky-border {
@@ -863,9 +860,8 @@ BREADCRUMBS
     }
 }
 
-.taxonomy-header-regalwerbung, .parent-regalwerbung, .taxonomy-footer-regalwerbung,
+.taxonomy-header-regalwerbung, .parent-regalwerbung, .taxonomy-footer-regalwerbung
 {
-
     &+.sticky-border span{
             border-bottom: 8px solid var(--colors-Brown-400);
         }  

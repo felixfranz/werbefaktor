@@ -214,7 +214,7 @@ if ($current_term->parent) {
     <div class="sticky-border fullwidth"><span></span></div>   
     <div class="inner-wrap wrap flex flex-col gap-m">
 
-            <div class="taxonomy-intro text-content">
+            <div class="taxonomy-intro text-content flex flex-col gap-m">
                 <?php echo wp_kses_post($term_description_additional); ?>
             </div>
             
