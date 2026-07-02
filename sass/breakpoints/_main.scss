@@ -274,7 +274,7 @@ section{
 
 .tab-content {
     opacity: 0;
-    padding: var(--spacing-m) 0;
+    padding: var(--spacing-l) 0;
     visibility: hidden;
     position: absolute;
     transition: opacity 0.3s ease;
@@ -306,10 +306,13 @@ section{
 
 .product__details-specs{
     p{
-        padding: var(--spacing-xs);
+        padding: var(--spacing-s);
         span{
             font-weight: 600;
         }
+    }
+    p:first-child{
+        padding-top:var(--spacing-xxs)
     }
     p:nth-child(even){
         background: var(--colors-Gray-100);
@@ -599,7 +602,7 @@ BREADCRUMBS
     width: 100%;
     .gallery-item{
         min-width: 0;
-        
+        max-width: 180px;
         img{
             width: 100%;
             height: 100%;
@@ -616,6 +619,24 @@ BREADCRUMBS
         opacity: 0.8;
     }
 }
+
+.product__main-image, .product__gallery .gallery-item{
+    border: 1px solid var(--colors-Gray-200);
+}
+
+.product__main-image{
+    a{
+        width: 100%;
+        height: 100%;
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
 
 .image-container--3-2{
     aspect-ratio: 3 / 2;

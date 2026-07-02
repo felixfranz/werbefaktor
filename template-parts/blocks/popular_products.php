@@ -1,7 +1,7 @@
 <?php 
 
 // Case: Bewegungs Teaser  
-if( get_row_layout() == 'section_new_products' ):
+if( get_row_layout() == 'section_popular_products' ):
 
     $tag_text = get_sub_field('tag_text');
     $tag_color = get_sub_field('tag_color');
@@ -21,7 +21,7 @@ if( $product_selection ): ?>
 			<div class="section-tag section-tag--<?php echo $tag_color;?>"><span><?php echo($tag_text); ?></span></div>
 
 			<h3 class="section-title"><?php echo($teaser_headline); ?></h3>
-				<div class="products-grid products-grid-4">
+				<div class="products-grid products-grid-3">
 				<?php foreach( $product_selection as $post ): 
 
 					// Setup this post for WP functions (variable must be named $post).

@@ -45,7 +45,7 @@ if ( function_exists('custom_taxonomy_breadcrumbs') ) {
 	<div class="product-container flex inner-container flex-row gap-m">
 
 			<div class="col-50 flex flex-col gap-m">
-				<div class="product__main-image image-container  image-container--3-2">
+				<div class="product__main-image image-container flex image-container--3-2">
 					<?php 
 					if( $images ): 
 						$i = 0;
@@ -53,7 +53,7 @@ if ( function_exists('custom_taxonomy_breadcrumbs') ) {
 						foreach( $images as $image ): 
 						$i++;
 						if ($i === 1){
-							$content = '<a class="gallery_image" data-slb-group="lighbox-2" href="'. $image['url'] .'"><img src="'. $image['url'] .'" alt=""></a>';
+							$content = '<a class="gallery_image flex" data-slb-group="lighbox-2" href="'. $image['url'] .'"><img src="'. $image['url'] .'" alt=""></a>';
 							if ( function_exists('slb_activate') ){
 							$content = slb_activate($content);
 							}
