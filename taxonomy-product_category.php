@@ -4,10 +4,20 @@ get_header();
 $current_term = get_queried_object();
 
 // Custom taxonomy field (ACF)
-$term_description = get_field(
+$term_description_raw = get_field(
     'page_text',
     'product_category_' . $current_term->term_id
 );
+
+$term_description = preg_replace('/<p>(?:\s|&nbsp;|<br\s*\/?>)*<\/p>/i', '', $term_description_raw);
+
+// Custom taxonomy field (ACF)
+$term_description_additional_raw = get_field(
+    'page_text_additional',
+    'product_category_' . $current_term->term_id
+);
+
+$term_description_additional = clean_wysiwyg($term_description_additional_raw);
 
 if (
     ! $current_term ||
@@ -47,8 +57,8 @@ if ($current_term->parent) {
         <h1><?php echo esc_html($current_term->name); ?></h1>
 
         <?php if ($term_description) : ?>
-            <div class="taxonomy-intro">
-               <p> <?php echo wp_kses_post($term_description); ?></p>
+            <div class="taxonomy-intro text-content">
+               <?php echo wp_kses_post($term_description); ?>
             </div>
         <?php endif; ?>
 </div>
@@ -197,6 +207,19 @@ if ($current_term->parent) {
 
         <?php the_posts_pagination(); ?>
 
+    <?php endif; ?>
+
+    <?php if ($term_description_additional) : ?>
+    <section class="taxonomy-footer fullwidth taxonomy-footer-<?php echo esc_html($current_term->slug); if($parent){ echo " parent-".$parent;}?> ">
+        <div class="inner-wrap wrap flex flex-col gap-m">
+
+            <div class="taxonomy-intro text-content">
+                <?php echo wp_kses_post($term_description_additional); ?>
+            </div>
+            
+        </div>
+
+    </section>
     <?php endif; ?>
 
 </main>

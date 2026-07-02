@@ -1617,6 +1617,10 @@ p.text--small {
   font-weight: 400;
 }
 
+p + p {
+  margin-top: var(--spacing-l);
+}
+
 .flex img {
   align-self: baseline;
 }

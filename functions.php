@@ -534,3 +534,6 @@ class Category_Description_Walker extends Walker_Nav_Menu {
 
 // REWRITE URLS TO MATCH TYPO3 STRUCTURE
 
+function clean_wysiwyg($content) {
+    return preg_replace('/<p>(?:\s|&nbsp;|<br\s*\/?>)*<\/p>/i', '', $content);
+}

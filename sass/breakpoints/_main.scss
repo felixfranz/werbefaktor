@@ -97,6 +97,10 @@ p{
 
 }
 
+p+p{
+    margin-top: var(--spacing-l);
+}
+
 .flex img{
     align-self: baseline;
 }
