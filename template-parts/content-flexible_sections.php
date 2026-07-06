@@ -29,8 +29,14 @@ if( have_rows('page_sections') ):
 		// Case: Popular Products
 		include("blocks/popular_products.php");
 
+		// Case: Hero Products
+		include("blocks/hero_products.php");
+
 		// Case: Banner Grün
 		include("blocks/banner_green.php");
+
+		// Case: Banner Projekte
+		include("blocks/banner_projects.php");
 
 		// Case: Slider 
 		include("blocks/slider.php");

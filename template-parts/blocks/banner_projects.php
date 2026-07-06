@@ -1,18 +1,18 @@
 <?php 
 
 // Case:  Banner Grün  
-if( get_row_layout() == 'section_banner_green' ):
+if( get_row_layout() == 'banner_projects' ):
 
         // get fields
-        $banner_green = get_field('banner_green', 'option');
+        $banner_projects = get_field('banner_projects', 'option');
        
-        $teaser_headline = $banner_green['headline'];
-        $teaser_text = $banner_green['text'];
-        $button_text = $banner_green['button_text'];
-        $button_link = $banner_green['button_link'];
+        $teaser_headline = $banner_projects['headline'];
+        $teaser_text = $banner_projects['text'];
+        $button_text = $banner_projects['button_text'];
+        $button_link = $banner_projects['button_link'];
 
         ?>
-        <section class="flex fullwidth banner banner__green">
+        <section class="flex fullwidth banner banner__purple">
             <div class="inner-wrap flex flex-row wrap">
                 <div class="flex flex-col items-left items-justify-center col-66">
                     <?php  echo '<span class="banner__headline">' . $teaser_headline . '</span>'; ?>

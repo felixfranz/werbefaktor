@@ -665,9 +665,9 @@ html {
   --colorsBlack: #000000FF;
   --colors-Blue-950: #021125FF;
   --gradient-green: linear-gradient(90deg, #9bc12b, #96bc28, #91b625, #8db123, #88ac20, #83a61d, #7fa11a, #7a9c17);
-  --gradient-purple:: linear-gradient(90deg, #c242af, #bc41aa, #b63fa4, #b03e9f, #aa3c9a, #a53b94, #9f398f, #99388a);
-  --gradient-blue:: linear-gradient(90deg, #1c7dda, #1c79d2, #1c76cb, #1c72c3, #1d6ebb, #1d6ab4, #1d67ac, #1e63a5);
-  --gradient-dark:: linear-gradient(90deg, #11133c, #111134, #110f2c, #100c25, #0e091e, #0a0617, #05030d, #000000);
+  --gradient-purple: linear-gradient(90deg, #c242af, #bc41aa, #b63fa4, #b03e9f, #aa3c9a, #a53b94, #9f398f, #99388a);
+  --gradient-blue: linear-gradient(90deg, #1c7dda, #1c79d2, #1c76cb, #1c72c3, #1d6ebb, #1d6ab4, #1d67ac, #1e63a5);
+  --gradient-dark: linear-gradient(90deg, #11133c, #111134, #110f2c, #100c25, #0e091e, #0a0617, #05030d, #000000);
   --color__text-input: var(--colors-Gray-800);
   --color__border-input: var(--colors-Gray-300);
   --color__text-input-focus: var(--colors-Gray-800);
@@ -706,7 +706,6 @@ html {
 
 .site-main {
   grid-area: main;
-  overflow: hidden;
   /* Resolves issue with <pre> elements forcing full width. */
 }
 
@@ -2001,6 +2000,167 @@ section.fullwidth {
   font-weight: 400;
 }
 
+.banner {
+  padding: var(--spacing-2xl) 0;
+  min-height: 350px;
+  color: white;
+}
+.banner .col-33 {
+  border-left: 1px solid white;
+  padding-left: var(--spacing-l);
+  justify-content: space-between;
+}
+
+.banner__headline {
+  font-family: var(--font-headline);
+  font-size: var(--headline-xl);
+  font-weight: 200;
+}
+
+.banner__text {
+  font-family: var(--font-headline);
+  font-size: var(--headline-l);
+  font-weight: 700;
+}
+
+.banner__green {
+  background: url(../images/svg/vector-green.svg) left/contain no-repeat, var(--gradient-green);
+}
+
+.banner__purple {
+  background: url(../images/svg/vector-purple.svg) left/contain no-repeat, var(--gradient-purple);
+}
+.banner__purple .banner__text {
+  font-family: var(--font-text);
+  font-size: var(--text-m);
+  font-weight: 500;
+}
+
+.hero_product .section-tag {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--section-color);
+  align-self: flex-start;
+  padding: 7px 17px 5px;
+  font-family: var(--font-headline);
+  font-size: 12px;
+}
+.hero_product .hero_text {
+  color: var(--section-color);
+}
+.hero_product.hero-bg-green {
+  --section-color: var(--colors-Green-600);
+}
+.hero_product.hero-bg-blue {
+  --section-color: var(--colors-Blue-700);
+}
+.hero_product.hero-bg-white {
+  --section-color: var(--colors-Green-400);
+}
+.hero_product.hero-bg-light-gray, .hero_product.hero-bg-white {
+  --section-color: var(--colors-Green-300);
+}
+.hero_product.hero-bg-light-gray .section-tag, .hero_product.hero-bg-white .section-tag {
+  background: var(--section-color);
+  color: white;
+}
+
+.hero_product--full {
+  position: relative;
+  padding: 30px 0 30px 30px;
+  color: white;
+}
+.hero_product--full div {
+  position: relative;
+}
+.hero_product--full.hero-bg-light-gray, .hero_product--full.hero-bg-white {
+  color: var(--colors-Text-Black);
+}
+.hero_product--full.hero-bg-light-gray .hero_text, .hero_product--full.hero-bg-white .hero_text {
+  color: var(--colors-Text-Black);
+}
+.hero_product--full.hero-bg-light-gray .button, .hero_product--full.hero-bg-white .button {
+  background: var(--colors-Blue-500);
+}
+.hero_product--full.hero-bg-light-gray .button:hover, .hero_product--full.hero-bg-white .button:hover {
+  background: var(--colors-Blue-700);
+  color: white;
+}
+.hero_product--full.hero-bg-light-gray .button:active, .hero_product--full.hero-bg-white .button:active {
+  background: var(--colors-Blue-300);
+}
+.hero_product--full .hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80%;
+  border-radius: 8px;
+  z-index: 0;
+}
+.hero_product--full .hero__background.bg-green {
+  background: var(--gradient-green);
+}
+.hero_product--full .hero__background.bg-blue {
+  background: var(--gradient-blue);
+}
+.hero_product--full .hero__background.bg-light-gray {
+  background: var(--colors-Gray-100);
+}
+.hero_product--full .hero__image-container {
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
+  border: 6px solid white;
+  background: white;
+  border-radius: 8px;
+  -webkit-animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+.hero_product--full .hero__image-container img {
+  border-radius: 6px;
+}
+
+.hero_product--half {
+  position: relative;
+  padding: 30px;
+  color: white;
+  border-radius: 8px;
+}
+.hero_product--half.hero-bg-green {
+  background: var(--gradient-green);
+}
+.hero_product--half.hero-bg-blue {
+  background: var(--gradient-blue);
+}
+
+/**
+ * ----------------------------------------
+ * animation slide-in-left
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 /*********************
 BREADCRUMBS
 *********************/
@@ -2123,6 +2283,13 @@ BREADCRUMBS
   left: 50%;
   top: 0;
   transform: translate(-50%, -50%);
+}
+.section-with-tag .section-title {
+  text-align: center;
+}
+
+.section-tag {
+  --tag-color: var(--colors-Green-300);
   padding: 8px 13px 9px;
   min-width: 100px;
   display: flex;
@@ -2134,14 +2301,11 @@ BREADCRUMBS
   font-weight: 600;
   background-color: var(--tag-color);
 }
-.section-with-tag .section-tag.section-tag--green {
+.section-tag.section-tag--green {
   --tag-color: var(--colors-Green-300);
 }
-.section-with-tag .section-tag.section-tag--pink {
+.section-tag.section-tag--pink {
   --tag-color: var(--colors-Purple-500);
-}
-.section-with-tag .section-title {
-  text-align: center;
 }
 
 .site-footer {
