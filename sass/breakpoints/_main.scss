@@ -315,6 +315,9 @@ section{
             font-weight: 600;
         }
     }
+    p+p{
+        margin-top: 0;
+    }
     p:first-child{
         padding-top:var(--spacing-xxs)
     }

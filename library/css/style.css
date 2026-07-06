@@ -1788,6 +1788,9 @@ section.fullwidth {
 .product__details-specs p span {
   font-weight: 600;
 }
+.product__details-specs p + p {
+  margin-top: 0;
+}
 .product__details-specs p:first-child {
   padding-top: var(--spacing-xxs);
 }
