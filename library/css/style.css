@@ -2741,6 +2741,23 @@ BREADCRUMBS
   background: var(--colors-Gray-500);
 }
 
+.image_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-m);
+}
+
+.grid_image {
+  aspect-ratio: var(--ratio-landscape);
+}
+
+.image_grid img {
+  width: 100%;
+  display: block;
+  aspect-ratio: var(--ratio-landscape);
+  object-fit: cover;
+}
+
 .product-card a {
   text-decoration: none;
 }

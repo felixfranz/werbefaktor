@@ -55,6 +55,9 @@ if( get_row_layout() == 'flex_content_various' ):
             // Case: Slider.  
             include("elements/element_slider.php");
 
+            // Case: Slider.  
+            include("elements/element_image_grid.php");
+
 
             // End loop.
     endwhile; // end while content elements
