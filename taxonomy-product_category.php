@@ -118,8 +118,8 @@ if ($current_term->parent) {
                             </div>
                              <div class="swiper-pagination test"></div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
 
                         <?php else : ?> 
