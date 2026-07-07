@@ -232,7 +232,7 @@ margin: 0;
 // SECTION  
 
 section{
-    padding: var(--spacing-xxl) 0;
+    padding: var(--spacing-2xl) 0;
     &.fullwidth{
         width: 100vw;
         position: relative;
@@ -240,6 +240,7 @@ section{
         transform: translateX(-50%);
     }
 }
+
 
 
 
@@ -327,6 +328,8 @@ section{
 
 }
 
+
+
 // COLUMNS
 .col-50 {
     width: 50%;
@@ -400,6 +403,10 @@ gap: var(--spacing-xs);
     text-align: center;
 }
 
+.content-section .wrap:has(> :only-child){
+    justify-content: center;
+}
+
 // FULLWIDTH IMAGE WITH BLACK
 .fullwidth{
     .image-container{
@@ -445,14 +452,7 @@ gap: var(--spacing-xs);
 
 
 
-// BACKGROUNDS
-.bg-light-blue{
-    background: var(--colors-Light-Blue);
-}
 
-.bg-very-light-blue {
-    background: var(--colors-Very-Light-Blue);
-}
 
 /////////////////////////////////
 // BOXES AND BANNERS
@@ -462,10 +462,15 @@ gap: var(--spacing-xs);
     padding: var(--spacing-l);
     border-radius: 8px;;
 }
-
+// BACKGROUNDS
 .bg-green{
     background: var(--gradient-green);
     color: white;
+}
+
+.bg-light-gray {
+    background: var(--colors-Gray-100);
+
 }
 
 // PROJECT TEASER GRID
@@ -646,6 +651,10 @@ min-height: 350px;
         --section-color: var(--colors-Green-400);
     }
 
+    &.hero-bg-light-gray {
+        --section-color: var(--colors-Gray-200);
+    }
+
     &.hero-bg-light-gray, &.hero-bg-white{
         --section-color: var(--colors-Green-300);
         .section-tag{
@@ -655,7 +664,7 @@ min-height: 350px;
     }
 }
 
-.hero_product--full{
+.hero_product--fullsize, .hero_product--fullscreen{
     position: relative;
     padding: 30px 0 30px 30px;
     color: white;
@@ -716,11 +725,52 @@ min-height: 350px;
     }   
 }
 
+.hero_product--fullscreen{
+    .hero__background{
+        border-radius: 0;
+        left: 50%;
+        width: 100vw;
+        transform: translateX(-50%);
+    }
+}
+
 .hero_product--half {
     position: relative;
     padding: 30px;
     color: white;
     border-radius: 8px;
+    min-height: 400px;
+
+    div { position: relative;  }
+
+    .background_image{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        display: flex;
+        img {
+                max-height: 75%;
+                align-self: unset;
+            }
+        &.image_position--top_right{
+            justify-content: flex-end;   
+        }
+
+        &.image_position--center_right {
+            justify-content: flex-end;
+            align-self: center;
+
+        }
+
+        &.image_position--bottom_right {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    }
 
     &.hero-bg-green {
         background: var(--gradient-green);
@@ -731,6 +781,154 @@ min-height: 350px;
     }
 }
 
+/*
+* PAGE HEADER FLEXIBLE
+*/
+
+.flexible_header{
+    padding: var(--spacing-xl) 0 var(--spacing-2xl);
+ .subheadline{
+    color: var(--colors-Green-300);
+    font-size: var(--text-m);
+ }
+
+    &.header--text_center, &.header--text_left{
+    position: relative;
+   
+    &::after{
+        width: 100vw;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        content: '';
+        transform: translateX(-50%);
+        border-bottom: 8px solid var(--colors-Green-300);
+        }
+    }
+    
+   &.header--text_left{
+    .scroll_down{
+        display: none;
+    }
+   } 
+
+
+&.header--text_center, &.header--image_full{
+    justify-content: center;
+    &>div{
+        position: relative;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .header_text{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .scroll_down{
+            margin-top: var(--spacing-xl);
+        }
+    }
+   
+}
+
+&.header--image_full, &.header--image_50{
+    margin-top: calc(-1 * var(--spacing-2xl));
+}
+
+&.header--image_full{
+    position: relative;
+    min-height: 450px;
+
+    .header__background{
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+        overflow: hidden;
+        text-align: center;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            position: relative;
+        }
+        .backdrop{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 5;
+        }
+    }
+    color: white;
+}
+
+&.header--image_50{
+    width: 100vw;
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    padding: 0;
+    gap: 0;
+    &.header-bg-green{
+        .header__content{
+            background: var(--gradient-green);
+        }
+        
+        color: white;
+        .subheadline{
+            color: white;
+        }
+    }
+
+    .header__content{
+        order: 1;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: var(--spacing-xl);
+    }
+
+    .scroll_down{
+        background: RGBA(0, 0, 0, 0.1);
+        &:hover{
+            background: RGBA(0, 0, 0, 0.2);
+        }
+        &:active {
+            background: RGBA(0, 0, 0, 0.15);
+        }
+    }
+
+    .header__background{
+        order:2;
+        width: 50%;
+        position: relative;
+        .backdrop {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: black;
+                z-index: 5;
+            }
+    }
+}
+
+}
 
 /**
  * ----------------------------------------
@@ -1034,6 +1232,36 @@ BREADCRUMBS
     }
 }
 
+.scroll_down{
+
+    width: 40px;
+    height: 40px;
+    background: var(--colors-Green-300);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+       background: var(--colors-Green-200);
+     
+    }
+    &:active{
+        background: var(--colors-Green-300);
+    }
+    &:focus{
+        outline: none;
+    }
+    
+    span{
+        display: inline-block;
+        width: 12px;
+            height: 12px;
+            margin-top: 0px;
+            background: url(../images/icons/icon-arrow-white.svg) center center / 12px 12px no-repeat;
+            transform: rotate(180deg);
+    }
+}
+
 
 //placeholder css
 
@@ -1071,6 +1299,8 @@ BREADCRUMBS
             border-bottom: 8px solid var(--colors-Brown-400);
         }  
 }
+
+
 
 .taxonomy-header-pos-material,
 .parent-pos-material {

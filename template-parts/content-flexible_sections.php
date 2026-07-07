@@ -18,6 +18,9 @@ if( have_rows('page_sections') ):
 		include("blocks/header_image.php");
 
 		// Case: Flex blocks  
+		include("blocks/flexible_header.php");
+
+		// Case: Flex blocks  
 		include("blocks/flexible_content.php");
 
 		// Case: Project Teaser 

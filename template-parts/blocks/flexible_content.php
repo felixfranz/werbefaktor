@@ -10,9 +10,9 @@ if( get_row_layout() == 'flex_content_various' ):
   
 
         ?>
-        <section class="flex fullwidth  bg-<?php echo $background; ?>   deco-<?php echo $deco_bar_position; ?> deco-style-<?php echo $deco_bar_style; ?>">
+        <section class="content-section flex fullwidth  bg-<?php echo $background; ?> ">
             
-            <div class="flex flex-row items-left gap-md inner-wrap wrap">
+            <div class="flex flex-row items-left gap-m inner-wrap wrap">
 
         <?php 
 
@@ -51,6 +51,9 @@ if( get_row_layout() == 'flex_content_various' ):
 
             // Case: image.  
             include("elements/element_image.php");
+
+            // Case: Slider.  
+            include("elements/element_slider.php");
 
 
             // End loop.

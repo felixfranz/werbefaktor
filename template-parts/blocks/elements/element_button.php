@@ -10,7 +10,7 @@
                 $button_size = $button['button_size'];
 
                 ?>
-                <a href="<?php echo($button_link); ?>" class="button <?php echo($button_style); ?> button--<?php echo($button_size); ?>"><?php echo($button_text); ?></a>
+                <a href="<?php echo($button_link); ?>" class="button button--<?php echo($button_style); ?> button--<?php echo($button_size); ?>"><?php echo($button_text); ?></a>
             <?php 
         
         endif; // end button

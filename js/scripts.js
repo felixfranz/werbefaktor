@@ -588,6 +588,22 @@ function clearCustomFields() {
 
 // }); 
 
+document.querySelectorAll("section a.scroll_down").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    const currentSection = link.closest("section");
+    const nextSection = currentSection.nextElementSibling;
+
+    if (nextSection?.tagName === "SECTION") {
+      window.scrollTo({
+        top: nextSection.offsetTop,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

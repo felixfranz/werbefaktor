@@ -7,7 +7,7 @@ if( get_row_layout() == 'hero_product_banner' ):
         // get fields
         $variant = get_sub_field('variante');
 
-        if ($variant == "fullsize") {
+        if ($variant == "fullsize" || $variant =="fullscreen") {
              $fullsize = get_sub_field('hero_fullsize');
              $headline = $fullsize['headline'];
              $text = $fullsize['text'];
@@ -17,6 +17,8 @@ if( get_row_layout() == 'hero_product_banner' ):
 
              $product = $fullsize['link'];
 
+             $size = $variant;
+
              
 
              $image = $fullsize['image'];
@@ -24,7 +26,7 @@ if( get_row_layout() == 'hero_product_banner' ):
 
              ?>
             
-             <section class="hero_product hero_product--full flex gap-m flex-row hero-bg-<?php echo $background;?>">
+             <section class="hero_product hero_product--<?php echo $size;?> flex gap-m flex-row hero-bg-<?php echo $background;?>">
                 <div class="hero__background bg-<?php echo $background;?>"></div>
                 <div class="flex flex-col items-left items-justify-center gap-s col-50">
                     <div class="section-tag"> <?php echo $tag_text;?></div>
@@ -63,12 +65,24 @@ if( get_row_layout() == 'hero_product_banner' ):
              $tag_text = get_sub_field('tag_text');
              $link_text = get_sub_field('link_text');
              $product = get_sub_field('link');
+             $image = get_sub_field('background_image');
+             $image_url = $image['url'];
+
+            // Thumbnail size attributes.
+            if($image){
+            $size = 'medium';
+            $thumb = $image['sizes'][ $size ];
+             $image_position =  get_sub_field('image_position');
+            }
+            
             
              
             ?>
 
             <div class="hero_product hero_product--half flex flex-row col-50 hero-bg-<?php echo $background;?>">
-                
+                <div class="background_image image_position--<?php echo $image_position;?>">
+                    <img src="<?php echo $thumb; ?>"/> 
+                </div>
                 <div class="flex flex-col items-left items-justify-center gap-s">
                     <div class="section-tag"> <?php echo $tag_text;?></div>
                     <h2><?php echo $headline;?></h2>
