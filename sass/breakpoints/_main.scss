@@ -407,6 +407,15 @@ gap: var(--spacing-xs);
     justify-content: center;
 }
 
+// ABSTÄNDE ANPASSEN NACH HEADER
+.flexible_header{
+
+    & + section.bg-light-gray {
+            margin-top: var(--negative-spacing);
+        }
+
+} 
+
 // FULLWIDTH IMAGE WITH BLACK
 .fullwidth{
     .image-container{
@@ -837,7 +846,7 @@ min-height: 350px;
 }
 
 &.header--image_full, &.header--image_50{
-    margin-top: calc(-1 * var(--spacing-2xl));
+    margin-top: var(--negative-spacing);
 }
 
 &.header--image_full{

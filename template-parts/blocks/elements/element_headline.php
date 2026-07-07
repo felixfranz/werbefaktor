@@ -2,9 +2,13 @@
 
         // Case: Headline.  
         if( get_row_layout() == 'headline' ):
-            
+
+            $size = get_sub_field('headline_size');
             $headline = get_sub_field('my_headline');
-            echo '<h2>'. $headline . '</h2>';
+
+
+
+            echo '<' . $size . '>' . $headline . '</'. $size . '>';
         endif; // end headline
 
 ?>

@@ -135,6 +135,8 @@ html{
 --spacing-4xl: var(--Space-1200);
 --spacing-5xl: var(--Space-1600);
 
+--negative-spacing: calc(-1 * var(--spacing-2xl));
+
 --color-Text-Black: var(--colors-Blue-950);
 --color-Dark-Gray: var(--colors-Gray-700);
 --color-Medium-Dark-Gray: var(--colors-Gray-500);

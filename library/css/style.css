@@ -679,6 +679,7 @@ html {
   --spacing-3xl: var(--spacing-800);
   --spacing-4xl: var(--Space-1200);
   --spacing-5xl: var(--Space-1600);
+  --negative-spacing: calc(-1 * var(--spacing-2xl));
   --color-Text-Black: var(--colors-Blue-950);
   --color-Dark-Gray: var(--colors-Gray-700);
   --color-Medium-Dark-Gray: var(--colors-Gray-500);
@@ -1868,6 +1869,10 @@ section.fullwidth {
   justify-content: center;
 }
 
+.flexible_header + section.bg-light-gray {
+  margin-top: var(--negative-spacing);
+}
+
 .fullwidth .image-container {
   --ratio: 8/3;
   z-index: 0;
@@ -2217,7 +2222,7 @@ section.fullwidth {
   margin-top: var(--spacing-xl);
 }
 .flexible_header.header--image_full, .flexible_header.header--image_50 {
-  margin-top: calc(-1 * var(--spacing-2xl));
+  margin-top: var(--negative-spacing);
 }
 .flexible_header.header--image_full {
   position: relative;
