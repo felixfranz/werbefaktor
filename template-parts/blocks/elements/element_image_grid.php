@@ -12,9 +12,7 @@
                        <div  class="image_grid" >
                          
                                 <?php foreach ($gallery as $image) : 
-                                    $content .= '<div class="grid_image">
-                                        <img src="<?php echo esc_url($image['sizes']['large']); ?>">
-                                    </div>'
+                                    
                                     ?>
                                     <div class="grid_image">
                                         <img src="<?php echo esc_url($image['sizes']['large']); ?>">
