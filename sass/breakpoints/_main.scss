@@ -408,13 +408,19 @@ gap: var(--spacing-xs);
 }
 
 // ABSTÄNDE ANPASSEN NACH HEADER
-.flexible_header{
+.flexible_header, .bg-transparent{
 
     & + section.bg-light-gray {
             margin-top: var(--negative-spacing);
         }
 
 } 
+
+section.bg-light-gray{
+    & + .bg-white, & + .bg-transparent{
+        margin-top: var(--negative-spacing);
+    }
+}
 
 // FULLWIDTH IMAGE WITH BLACK
 .fullwidth{

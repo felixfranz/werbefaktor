@@ -1869,7 +1869,11 @@ section.fullwidth {
   justify-content: center;
 }
 
-.flexible_header + section.bg-light-gray {
+.flexible_header + section.bg-light-gray, .bg-transparent + section.bg-light-gray {
+  margin-top: var(--negative-spacing);
+}
+
+section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   margin-top: var(--negative-spacing);
 }
 
