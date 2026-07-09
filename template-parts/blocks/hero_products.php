@@ -66,7 +66,7 @@ if( get_row_layout() == 'hero_product_banner' ):
              $link_text = get_sub_field('link_text');
              $product = get_sub_field('link');
              $image = get_sub_field('background_image');
-             $image_url = $image['url'];
+            //$image_url = $image['url'];
 
             // Thumbnail size attributes.
             if($image){

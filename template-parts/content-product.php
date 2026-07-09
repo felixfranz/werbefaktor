@@ -35,12 +35,11 @@ if(have_rows('varianten')) :
 
 <article id="post-<?php the_ID(); ?>" <?php post_class("flex flex-col gap-s"); ?>>
 	<div class="product__breadcrumb">
-
 		<?php
-if ( function_exists('custom_taxonomy_breadcrumbs') ) {
-  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-}
-?>
+			if ( function_exists('custom_taxonomy_breadcrumbs') ) {
+			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+			}
+		?>
 	</div>
 	<div class="product-container flex inner-container flex-row gap-m">
 
