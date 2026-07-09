@@ -2341,6 +2341,46 @@ section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   }
 }
 /*********************
+ABFOLGE
+*********************/
+.abfolge-section {
+  padding: 0;
+}
+
+.block__step {
+  width: 100%;
+  padding: var(--spacing-2xl) 0;
+  justify-content: center;
+  position: relative;
+}
+.block__step:nth-child(odd) {
+  background: var(--colors-Gray-100);
+}
+.block__step:nth-child(odd) .abfolge_icon {
+  background: var(--colors-Gray-100);
+}
+
+.abfolge_icon {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--colors-Green-300);
+  top: 0;
+  left: 50%;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -45%);
+}
+.abfolge_icon i {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+
+/*********************
 BREADCRUMBS
 *********************/
 #breadcrumbs {

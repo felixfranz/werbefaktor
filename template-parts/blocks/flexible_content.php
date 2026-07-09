@@ -5,8 +5,6 @@ if( get_row_layout() == 'flex_content_various' ):
 
         // section options
         $background = get_sub_field('background_color');
-        $deco_bar_position   = get_sub_field('deco_bar');
-        $deco_bar_style = get_sub_field('deco_bar_style');
   
 
         ?>

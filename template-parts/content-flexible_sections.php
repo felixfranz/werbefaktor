@@ -47,6 +47,9 @@ if( have_rows('page_sections') ):
 		// Case: Images with Caption 
 		include("blocks/image_row.php");
 
+		// Case: Abfolge
+		include("blocks/abfolge-big.php");
+
         
 
     // End loop.
