@@ -800,12 +800,20 @@ min-height: 350px;
 * PAGE HEADER FLEXIBLE
 */
 
+.single-project{
+    .flexible_header{
+        --highlight-color: var(--colors-Purple-500)
+    }
+}
+
 .flexible_header{
     padding: var(--spacing-xl) 0 var(--spacing-2xl);
- .subheadline{
-    color: var(--colors-Green-300);
-    font-size: var(--text-m);
- }
+    --highlight-color: var(--colors-Green-300);
+
+    .subheadline{
+        color: var(--highlight-color);
+        font-size: var(--text-m);
+    }
 
     &.header--text_center, &.header--text_left{
     position: relative;
@@ -817,7 +825,7 @@ min-height: 350px;
         bottom: 0;
         content: '';
         transform: translateX(-50%);
-        border-bottom: 8px solid var(--colors-Green-300);
+        border-bottom: 8px solid var(--highlight-color);
         }
     }
     
@@ -846,6 +854,7 @@ min-height: 350px;
         }
         .scroll_down{
             margin-top: var(--spacing-xl);
+            background: var(--highlight-color);
         }
     }
    
@@ -896,6 +905,10 @@ min-height: 350px;
     left: 50%;
     padding: 0;
     gap: 0;
+
+    .scroll_down{
+        background: var(--highlight-color);
+    }
     
     &:not(.header-bg-white) {
             color: white;
