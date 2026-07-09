@@ -994,6 +994,31 @@ BREADCRUMBS
     }
 }
 
+.edit-link{
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;    
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    
+    a{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+            border-top-right-radius: 8px;
+            background: var(--colors-Purple-500);
+            background: hotpink;
+            font-size: 20px;
+            color: white; 
+        color: white;
+        &:hover{
+            background: green;
+        }
+    }
+}
+
 //////////////////////
 // PRODUCT SINGLE
 //////////////////////
@@ -1166,10 +1191,51 @@ BREADCRUMBS
     transform: translateX(-50%);
     
     .inner-wrap{
-        padding: var(--spacing-xl) 0 0;
-        &>div{
-            padding:0 0 50px 0;
-        }
+        padding: var(--spacing-xl) 0;
+    }
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color: var(--colors-Blue-300)
+    }
+}
+
+.footer-top{
+    padding: var(--spacing-xl) 0;
+}
+
+.footer-logo{
+
+    width: 100%;
+    max-width: 130px;
+    height: 33px;
+    background: url(../images/svg/footer-logo.svg) top left / contain no-repeat;
+}
+.footer-logo + p{
+    margin-top: -8px;
+}
+
+.site-footer .inner-wrap .col-25{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 0;
+    h5{
+        font-family: var(--font-headline);
+        font-size: var(--text-m);
+        font-weight: 600;
+    }
+
+    p{
+        white-space: pre;
+    }
+    p,li{
+        font-size: var(--text-s);
+        color: white;
     }
 }
 
@@ -1177,7 +1243,7 @@ BREADCRUMBS
    
     font-size: var(--text-s);
     list-style: none;
-   column-gap: var(--spacing-s);
+    column-gap: var(--spacing-s);
     column-count: 2;
 
     a{  
@@ -1192,25 +1258,23 @@ BREADCRUMBS
 
 }
 
-.footer-adress{
-    color: white;
+.footer__top-menu{
     display: flex;
-    justify-content: flex-end;
-    p{
-        font-size: var(--text-s);
-        width: auto;
-        display: inline-block;
-        align-self: flex-end;
-    }
-    .social_container{
-        display: flex;
-        justify-content: flex-end;
-    }
-   
+    flex-direction: column;
+    list-style: none;
 }
 
+.footer__footer-menu{
+    display: flex;
+    font-size: var(--text-xs);
+}
+
+
+
 .footer-bottom {
-    height: 40px;
+    height: 45px;
+    display: flex;
+    align-items: center;
     background: var(--colors-Blue-900);
     position: relative;
 

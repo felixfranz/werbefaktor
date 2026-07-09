@@ -692,25 +692,6 @@ html {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-.no-sidebar .site {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-areas: "header" "main" "footer";
-}
-
-.site-header {
-  grid-area: header;
-}
-
-.site-main {
-  grid-area: main;
-  /* Resolves issue with <pre> elements forcing full width. */
-}
-
-.site-footer {
-  grid-area: footer;
-}
-
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -2356,6 +2337,29 @@ BREADCRUMBS
   color: var(--colors-Blue-500);
 }
 
+.edit-link {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+}
+.edit-link a {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-top-right-radius: 8px;
+  background: var(--colors-Purple-500);
+  background: hotpink;
+  font-size: 20px;
+  color: white;
+  color: white;
+}
+.edit-link a:hover {
+  background: green;
+}
+
 .single-product .site-main {
   padding: var(--spacing-xl) 0;
 }
@@ -2496,10 +2500,48 @@ BREADCRUMBS
   transform: translateX(-50%);
 }
 .site-footer .inner-wrap {
-  padding: var(--spacing-xl) 0 0;
+  padding: var(--spacing-xl) 0;
 }
-.site-footer .inner-wrap > div {
-  padding: 0 0 50px 0;
+.site-footer a {
+  color: white;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: var(--colors-Blue-300);
+}
+
+.footer-top {
+  padding: var(--spacing-xl) 0;
+}
+
+.footer-logo {
+  width: 100%;
+  max-width: 130px;
+  height: 33px;
+  background: url(../images/svg/footer-logo.svg) top left/contain no-repeat;
+}
+
+.footer-logo + p {
+  margin-top: -8px;
+}
+
+.site-footer .inner-wrap .col-25 {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 0;
+}
+.site-footer .inner-wrap .col-25 h5 {
+  font-family: var(--font-headline);
+  font-size: var(--text-m);
+  font-weight: 600;
+}
+.site-footer .inner-wrap .col-25 p {
+  white-space: pre;
+}
+.site-footer .inner-wrap .col-25 p, .site-footer .inner-wrap .col-25 li {
+  font-size: var(--text-s);
+  color: white;
 }
 
 .footer-menu {
@@ -2514,24 +2556,21 @@ BREADCRUMBS
   text-decoration: none;
   color: white;
 }
-.footer-adress {
-  color: white;
+.footer__top-menu {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  list-style: none;
 }
-.footer-adress p {
-  font-size: var(--text-s);
-  width: auto;
-  display: inline-block;
-  align-self: flex-end;
-}
-.footer-adress .social_container {
+
+.footer__footer-menu {
   display: flex;
-  justify-content: flex-end;
+  font-size: var(--text-xs);
 }
 
 .footer-bottom {
-  height: 40px;
+  height: 45px;
+  display: flex;
+  align-items: center;
   background: var(--colors-Blue-900);
   position: relative;
 }
