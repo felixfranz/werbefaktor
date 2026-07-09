@@ -32,6 +32,11 @@ body {
     position: relative;
 }
 
+.page{
+    display: flex;
+    flex-direction: column;
+}
+
 *,
 *::before,
 *::after {
@@ -1017,12 +1022,13 @@ min-height: 350px;
 }
 
 /*********************
-ABFOLGE
+ABFOLGE & Abfolge Small
 *********************/
 .abfolge-section{
 
     padding: 0;
 }
+
 .block__step{
     width:100%;
     padding: var(--spacing-2xl) 0;
@@ -1035,7 +1041,6 @@ ABFOLGE
             background: var(--colors-Gray-100);;
         }
     }
-
 }
 
 .abfolge_icon{
@@ -1058,6 +1063,115 @@ ABFOLGE
     }
 }
 
+// Abfolge Small
+
+.abfolge-small{
+    width: 80%;
+    .block__step{
+        padding: var(--spacing-xl);
+        position: relative;
+        color: white;
+        &::after{
+            content: '';
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left:50%;
+            transform: translate(-13px, 20px);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 16px 0px 16px;
+            border-color: red transparent transparent transparent;
+            z-index: 2;
+            }
+
+        .abfolge_headline{
+            font-size: var(--text-m);
+            font-weight: 600;
+        }
+
+        &:nth-child(even){
+            .abfolge_icon--small{
+                order:2;
+            }
+            .abfolge_headline{
+                order: 1;
+            }
+        }
+
+        &:nth-child(1){
+            background: var(--colors-Brown-400);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            &::after{
+                border-color: var(--colors-Brown-400) transparent transparent transparent;;
+            }
+        }
+        &:nth-child(2) {
+            background: var(--colors-Blue-700);
+            &::after {
+                    border-color: var(--colors-Blue-700) transparent transparent transparent;
+                }
+        }
+        &:nth-child(3) {
+            background: var(--colors-Green-300);
+            &::after {
+                    border-color: var(--colors-Green-300) transparent transparent transparent;
+                }
+        }
+        &:nth-child(4) {
+            background: var(--colors-Purple-500);
+            border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+            &::after {
+                    display: none;
+                }
+        }
+        
+    }
+}
+
+//  BOX ROW
+.box-row{
+    &>div{
+        .box{
+            flex:1;
+            color: white;
+            justify-content: space-between;
+            .underline{
+                width: 100%;
+                padding-bottom: var(--spacing-s);
+                border-bottom: 1px solid white;
+            }
+            p{
+                width: 100%;
+                text-align: left;
+            }
+            .button-container, .button{
+                width: 100%;
+            }
+            &.bg-black{
+                background: var(--gradient-dark);
+                .button{
+                    background: RGBA(255, 255, 255, 0.15);
+                    &:hover{
+                        background: rgba(255, 255, 255, .2);
+                    }
+                }
+            }
+            &.bg-blue{
+                background: var(--gradient-blue);
+            }
+            &.bg-green{
+                background: var(--gradient-green);
+            }
+        &.bg-purple {
+            background: var(--gradient-purple);
+        }
+        }
+    }
+}
 
 /*********************
 BREADCRUMBS
@@ -1686,6 +1800,22 @@ BREADCRUMBS
     opacity: 0;
     transition: all 0.2s ease;
 }
+
+///////
+/// LIGHTBOX ANPASSUNGEN    
+/// 
+
+#slb_viewer_wrap{
+    #slb_viewer_slb_default{
+        
+         .slb_data_title,
+            .slb_group_status{
+font-family: var(--font-text-regular);
+font-size: var(--text-m);
+            }
+    }
+}
+
 
 
 

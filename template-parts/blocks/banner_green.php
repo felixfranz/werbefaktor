@@ -23,9 +23,9 @@ if( get_row_layout() == 'section_banner_green' ):
                     <?php  echo '<p class="banner__text">' . $teaser_text. '</p>'; ?>
 
                   
-                    <?php if($button_text){ ?>
+                   <?php if($button_text){ ?>
                     <div class="button-container flex items-left"> <a href="<?php echo($button_link); ?>" class="button button--on-color"><?php echo($button_text); ?></a></div>
-                <?php } ?>
+                <?php } ?> 
                 </div>
             </div>
 

@@ -50,6 +50,12 @@ if( have_rows('page_sections') ):
 		// Case: Abfolge
 		include("blocks/abfolge-big.php");
 
+		// Case: Abfolge Start
+		include("blocks/abfolge-small.php");
+
+		// Case: Box Row
+		include("blocks/box_row.php");
+
         
 
     // End loop.
