@@ -29,6 +29,9 @@ if( have_rows('page_sections') ):
 		// Case: Newest Products
 		include("blocks/new_products.php");
 
+		// Case: Products Grid
+		include("blocks/products_grid.php");
+
 		// Case: Popular Products
 		include("blocks/popular_products.php");
 

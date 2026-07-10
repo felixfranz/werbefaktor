@@ -172,6 +172,13 @@ function new_base_scripts() {
 
 
 	wp_enqueue_script('jquery');
+    wp_register_script( 'mixitup-js', get_stylesheet_directory_uri() . '/js/libs/mixitup.min.js', array( 'jquery' ), '', true );
+	wp_register_script( 'mixitupagination-js', get_stylesheet_directory_uri() . '/js/libs/mixitup-pagination.min.js', array( 'jquery' ), '', true );
+	wp_register_script( 'mixitupmultifilter-js', get_stylesheet_directory_uri() . '/js/libs/mixitup-multifilter.min.js', array( 'jquery' ), '', true );
+
+    wp_enqueue_script( 'mixitup-js' );
+	wp_enqueue_script( 'mixitupagination-js' );
+	wp_enqueue_script( 'mixitupmultifilter-js' );
 	wp_enqueue_script( 'new-base-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), _S_VERSION, true );
 
 

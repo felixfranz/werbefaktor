@@ -1094,7 +1094,8 @@ ABFOLGE & Abfolge Small
             border-style: solid;
             border-width: 20px 16px 0px 16px;
             border-color: red transparent transparent transparent;
-            z-index: 2;
+            z-index: 3;
+            transition: all 0.3s var(--ease);
             }
 
         .abfolge_headline{
@@ -1142,8 +1143,9 @@ ABFOLGE & Abfolge Small
         // fancy hover? 
         &:hover{
             transform: scale(1.05);
-                transform-origin: top;
-                z-index: 2;
+            transform-origin: top;
+            z-index: 4;
+
         }
         
     }
@@ -1601,19 +1603,17 @@ BREADCRUMBS
 }
 
 
-
-
 .subcategory-grid, .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
 }
 
-.products-grid-4 {
+.products-grid-4, .post-grid-4 {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.subcategory-card, .product-card {
+.subcategory-card, .product-card, .post-card {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -1864,7 +1864,7 @@ display: grid;
 }
 
 
-.product-card__image-container {
+.product-card__image-container, .preview-image {
     position: relative;
     transition: all 0.2s ease;
     aspect-ratio: 4 / 3;
@@ -1901,6 +1901,68 @@ display: grid;
     color: white;
     opacity: 0;
     transition: all 0.2s ease;
+}
+
+////
+// ÜBERSICHT PRODUKTION & PROJEKTE
+////
+/// 
+
+.filter{
+    position: sticky;
+    top: 150px;
+            background-color: var(--colors-Gray-50);
+                background: RGBA(255, 255, 255, 1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+    padding: var(--spacing-s);
+    z-index: 5;
+    transition: all 0.5s var(--ease);
+    margin-bottom: var(--negative-spacing);
+}
+
+.filter-button{
+    border: none;
+    background: var(--colors-Gray-200);
+    border-radius: 8px;
+    padding: var(--spacing-s) var(--spacing-m);
+    transition: all 0.2s var(--ease);
+    &:hover{
+        background: var(--colors-Gray-300);
+    }
+    &:active {
+        background: var(--colors-Gray-400);
+    }
+    &.mixitup-control-active{
+        background: var(--colors-Purple-700);
+        color: white;
+    }
+}
+
+.body--scrolled{
+    .filter{
+        top: 90px;
+    }
+}
+
+
+.post-list{
+    article:nth-child(odd){
+       // background: var(--colors-Gray-100);
+    }
+    article{
+        padding: var(--spacing-l) 0;
+        .preview-image{
+            border-radius: 8px;
+        }
+        .preview-text{
+            padding: var(--spacing-l) 0;
+        }
+        border-bottom: 1px solid var(--color-Border-Gray);
+        &:last-child{
+            border-bottom: none;
+        }
+    }
 }
 
 ///////

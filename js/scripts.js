@@ -645,3 +645,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+jQuery(document).ready(function ($) {
+//////////////////////////////////////////////////////
+// IMPULS FILTER --- MIX IT UP
+//////////////////////////////////////////////////////
+if ($(".projects-list").length) {
+
+  var initialFilter = 'all';
+
+  var hash = window.location.hash.replace(/^#/g, '');
+
+  if (hash) {
+    initialFilter = '.' + hash;
+  }
+
+  var mixer = mixitup('.projects-list', {
+    controls: {
+      toggleLogic: 'and'
+    },
+    pagination: {
+      limit: 10 // impose a limit of 8 targets per page
+    },
+    load: {
+      filter: initialFilter
+    },
+    callbacks: {
+      onMixEnd: state => {
+        paginationCallback_puls();
+      }
+    }
+  });
+
+  function paginationCallback_puls() {
+    // do something only when pagination state has changed
+    $("body,html").animate({
+      scrollTop: $("#main").offset().top - 140
+
+    }, 400);
+  }
+
+} // end impuls list
+
+}); /* end of as page load scripts */
