@@ -10,6 +10,7 @@ if( get_row_layout() == 'banner_clients' ):
         <section class="content-section clients-banner flex fullwidth  ">
             
             <div class="flex flex-row clients-banner-inner">
+                
                 <div class="flex items-center col-33">
                     <h3><?php echo($headline); ?></h3>
                 </div>
@@ -39,14 +40,9 @@ if( get_row_layout() == 'banner_clients' ):
 
                     endif; // end repeater ?>
 
-                </div>
-            </div>
-        
-            
-
- 
-
-    </div> <?php // end inner-wrapper ?>
+                </div> <?php // end grid ?>
+           
+        </div> <?php // end inner-wrapper ?>
    
     </section>
 
