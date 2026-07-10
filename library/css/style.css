@@ -832,6 +832,9 @@ html {
   font-weight: 600;
   text-decoration: none;
 }
+.main-navigation ul.main-navigation__menu > li .sub-menu-container .parent-category-link a:hover {
+  color: var(--colors-Blue-400);
+}
 .main-navigation ul.main-navigation__menu > li ul,
 .main-navigation ul.main-navigation__menu > li ul {
   display: grid;
@@ -917,7 +920,8 @@ html {
 .main-navigation ul.main-navigation__menu li.current-menu-item > a,
 .main-navigation ul.main-navigation__menu li.current_page_item > a,
 .main-navigation ul.main-navigation__menu li.current_page_ancestor > a {
-  background: RGBA(0, 0, 0, 0.03);
+  background: RGBA(0, 0, 0, 0.05);
+  color: inherit;
 }
 .main-navigation ul.main-navigation__menu {
   /* end current highlighters */
@@ -3141,6 +3145,9 @@ BREADCRUMBS
   top: 90px;
 }
 
+.post-list {
+  padding-top: 0;
+}
 .post-list article {
   padding: var(--spacing-l) 0;
 }
@@ -3155,6 +3162,13 @@ BREADCRUMBS
 }
 .post-list article:last-child {
   border-bottom: none;
+}
+
+.search-result a {
+  color: var(--colors-Blue-500);
+}
+.search-result a:hover {
+  color: var(--colors-Blue-700);
 }
 
 #slb_viewer_wrap #slb_viewer_slb_default .slb_data_title,
@@ -3211,10 +3225,7 @@ DESKTOP
   .bottom-header {
     height: 100px;
     padding: 0 0;
-    background-color: var(--colors-Gray-50);
-    background: RGBA(235, 235, 235, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background-color: var(--colors-Gray-100);
     align-items: center;
   }
   .bottom-header > div {
@@ -3232,7 +3243,7 @@ DESKTOP
     padding: 0px 0 0;
   }
   .body--scrolled .logo {
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: 24px;
   }
   .body--scrolled .logo a {

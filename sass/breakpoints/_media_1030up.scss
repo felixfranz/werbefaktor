@@ -36,10 +36,10 @@ transition: height 0.4s var(--ease);
 .bottom-header{
     height: 100px;
     padding:   0 0;
-    background-color: var(--colors-Gray-50);
-    background: RGBA(235, 235, 235, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+    background-color: var(--colors-Gray-100);
+    //background: RGBA(235, 235, 235, 0.7);
+    //    backdrop-filter: blur(20px);
+  //      -webkit-backdrop-filter: blur(20px);
     align-items: center;
     &>div{
         justify-content: space-between;
@@ -62,7 +62,7 @@ transition: height 0.4s var(--ease);
     }
 
     .logo {
-        margin-top: 5px;
+        margin-top: 8px;
         font-size: 24px;
         a{
             transform: translateY(0px);

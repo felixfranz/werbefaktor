@@ -175,6 +175,9 @@
 				border-top: 1px solid RGBA(255, 255, 255, 0.2);
 				font-weight: 600;
 				text-decoration: none;
+				&:hover{
+					color: var(--colors-Blue-400);
+				}
 			}
 
 		}
@@ -275,8 +278,9 @@
 	li.current_page_item,
 	li.current_page_ancestor {
 		&>a {
-			//color: var(--colors-Pink-Medium);
-			background: RGBA(0, 0, 0, 0.03);
+			
+			background: RGBA(0, 0, 0, 0.05);
+			color:inherit;
 		}
 	}
 

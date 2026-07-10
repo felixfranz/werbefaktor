@@ -86,7 +86,7 @@
 		<div class="search-container">
 			<form role="search" method="get" class="search-form" action="/">
     <div class="search-wrapper">
-        <input type="search" class="search-field" placeholder="Search..." name="s">
+        <input type="search" class="search-field" placeholder="Suchen..." name="s">
         <button type="submit" class="search-submit">
             <span></span>
         </button>

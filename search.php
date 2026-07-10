@@ -15,14 +15,15 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title">
+				<h2>
 					<?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Search Results for: %s', 'new-base' ), '<span>' . get_search_query() . '</span>' );
 					?>
-				</h1>
+				</h2>
 			</header><!-- .page-header -->
 
+			<div class="search-result flex flex-col gap-s">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -45,7 +46,7 @@ get_header();
 
 		endif;
 		?>
-
+</div>
 	</main><!-- #main -->
 
 <?php

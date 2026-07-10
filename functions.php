@@ -548,3 +548,34 @@ class Category_Description_Walker extends Walker_Nav_Menu {
 function clean_wysiwyg($content) {
     return preg_replace('/<p>(?:\s|&nbsp;|<br\s*\/?>)*<\/p>/i', '', $content);
 }
+
+
+add_filter('get_the_excerpt', 'custom_search_excerpt');
+
+function custom_search_excerpt($excerpt) {
+    if (!is_search()) {
+        return $excerpt;
+    }
+
+    $post_type = get_post_type();
+
+    switch ($post_type) {
+        case 'product':
+            $excerpt = get_field('description'); // ACF field
+            break;
+
+        case 'project':
+            $excerpt = get_field('preview_text');
+            break;
+
+        case 'page':
+            $excerpt = get_field('preview_text');
+            break;
+
+        default:
+            // Fall back to the normal excerpt
+            break;
+    }
+
+    return wp_trim_words(wp_strip_all_tags($excerpt), 30);
+}
