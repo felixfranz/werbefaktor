@@ -16,7 +16,7 @@ get_header();
   <?php 
   $terms = get_terms( array(
     'taxonomy'   => 'project-category', // Ersetze dies mit deinem Taxonomy-Slug
-    'hide_empty' => false,                   // Zeigt auch Kategorien ohne Beiträge an
+    'hide_empty' => true,                   // Zeigt auch Kategorien ohne Beiträge an
 ) );
 
 ?>
@@ -103,7 +103,7 @@ if ( $child_query->have_posts() ) :
                   <?php echo($preview_text); ?>
                 </div>
                  <div class="button-container flex items-left"> 
-                  <a href="<?php the_permalink(); ?>" class="button button--blue">Mehr Informationen</a>
+                  <a href="<?php the_permalink(); ?>" class="button button--blue">Zum Projekt</a>
                 </div>
 
             </div>
