@@ -4,7 +4,7 @@
 if( get_row_layout() == 'banner_dark' ):  ?>
 
 
-        <section class="content-section banner-2by2 flex fullwidth bg-dark">
+        <section class="content-section banner-2by2 flex fullwidth bg-dark section--solid">
             
             <div class="flex flex-row inner-wrap wrap">
             

@@ -427,6 +427,16 @@ section.bg-light-gray{
     }
 }
 
+.section--solid{
+    &+.section--solid{
+        margin-top: var(--negative-spacing);
+    }
+}
+
+.section--solid:last-child{
+    margin-bottom: var(--negative-spacing);
+}
+
 // FULLWIDTH IMAGE WITH BLACK
 .fullwidth{
     .image-container{
@@ -1071,11 +1081,12 @@ ABFOLGE & Abfolge Small
         padding: var(--spacing-xl);
         position: relative;
         color: white;
+        transition: all 0.3s var(--ease);
         &::after{
             content: '';
             position: absolute;
             display: block;
-            bottom: 0;
+            bottom: 1px;
             left:50%;
             transform: translate(-13px, 20px);
             width: 0;
@@ -1127,6 +1138,12 @@ ABFOLGE & Abfolge Small
             &::after {
                     display: none;
                 }
+        }
+        // fancy hover? 
+        &:hover{
+            transform: scale(1.05);
+                transform-origin: top;
+                z-index: 2;
         }
         
     }

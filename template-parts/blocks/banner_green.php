@@ -12,7 +12,7 @@ if( get_row_layout() == 'section_banner_green' ):
         $button_link = $banner_green['button_link'];
 
         ?>
-        <section class="flex fullwidth banner banner__green">
+        <section class="flex fullwidth banner banner__green section--solid">
             <div class="inner-wrap flex flex-row wrap">
                 <div class="flex flex-col items-left items-justify-center col-66">
                     <?php  echo '<span class="banner__headline">' . $teaser_headline . '</span>'; ?>
