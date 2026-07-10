@@ -33,7 +33,7 @@ if( get_row_layout() == 'box_row' ):  ?>
             
 
             <?php if($button_text){ ?>
-                <div class="button-container flex items-left"> <a href="<?php echo($button_link); ?>" class="button button--on-color"><?php echo($button_text); ?></a></div>
+                <div class="button-container flex items-left"> <a href="<?php echo($button_link['url']); ?>" class="button button--on-color"><?php echo($button_text); ?></a></div>
             <?php } ?> 
 
 
