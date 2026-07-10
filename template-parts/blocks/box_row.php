@@ -1,36 +1,34 @@
 <?php 
 
-// Case: Flexibler Content  
-if( get_row_layout() == 'box_row' ):
+// Case: Box Row 
+if( get_row_layout() == 'box_row' ):  ?>
 
 
-        ?>
         <section class="content-section box-row flex fullwidth  ">
             
             <div class="flex flex-row gap-m inner-wrap wrap">
 
-        <?php 
+            <?php 
 
-
-        // check for rows (parent repeater)
-        if( have_rows('boxes') ): 
-            // loop through rows (parent repeater)
-            while( have_rows('boxes') ): the_row();
+            // check for rows (parent repeater)
+            if( have_rows('boxes') ): 
+                // loop through rows (parent repeater)
+                while( have_rows('boxes') ): the_row();
 
                 // get fields
-            $background = get_sub_field('box_color');
-            $headline = get_sub_field('headline');
-            $text = get_sub_field('text');
-            $button_text = get_sub_field('button_text');
-            $button_link = get_sub_field('button_link');
+                $background = get_sub_field('box_color');
+                $headline = get_sub_field('headline');
+                $text = get_sub_field('text');
+                $button_text = get_sub_field('button_text');
+                $button_link = get_sub_field('button_link');
 
-          
-
-        ?> <div class="flex box flex-col bg-<?php echo $background; ?> "> 
+            ?> 
+        
+        <div class="flex box flex-col bg-<?php echo $background; ?> "> 
             
             <div class="box-content flex flex-col gap-m">
-            <h2 class="underline"><?php echo($headline); ?></h2>
-            <div><?php echo($text); ?></div>
+                <h2 class="underline"><?php echo($headline); ?></h2>
+                <?php echo($text); ?>
             </div>
             
 
@@ -39,20 +37,19 @@ if( get_row_layout() == 'box_row' ):
             <?php } ?> 
 
 
-</div> <?php
+        </div> <?php // end box
 
-    // End loop.
-    endwhile; // end while repeater
+        // End loop.
+        endwhile; // end while repeater
 
+        endif; // end repeater ?>
 
-    endif; // end repeater ?>
-
-
-    </div>
-            
-        
+    </div> <?php // end inner-wrapper ?>
+   
     </section>
-    <?php
+
+
+<?php
 
 endif;
 

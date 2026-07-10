@@ -1,57 +1,57 @@
 <?php 
 
-// Case: Bewegungs Teaser  
-if( get_row_layout() == 'safety_teaser' ):
-          
-    
-        // get fields
-        $teaser_headline = get_field('safe-headline', 'option');
-        $teaser_text = get_field('safe-text_area','option', false, false, );
-        $button = get_field('component_button', 'option');
-
-        // get button options
-        $button_text = $button['button_text'];
-        $button_link = $button['button_link'];
-        $button_style = $button['button_style'];
-        $button_size = $button['button_size'];
-        
-        // options
-        $teaser_color = get_sub_field('teaser_farbe');
-
-        ?>
-        <section class="flex fullwidth bg-<?php echo $teaser_color; ?>">
-            <div class="flex flex-col items-center items-justify-center gap-l inner-wrap wrap col-66">
-                <?php  echo '<h1>' . $teaser_headline . '</h1>'; ?>
-                <?php  echo '<p>' . $teaser_text. '</p>'; ?>
-
-                <div class="flex flex-row gap-md items-center">
-
-                <?php 
-                
-                if( have_rows('safety-logos', 'option') ):
-
-                // Loop through rows.
-                while ( have_rows('safety-logos','option') ) : the_row(); 
-                $image = get_sub_field('safe-image');
-                 $size = 'medium';
-                  $thumb = $image['sizes'][ $size ];?>
+// Case: Client Row
+if( get_row_layout() == 'banner_clients' ): 
+ $headline = get_sub_field('banner_text');
+ $gallery = get_sub_field('client_logos');
+?>
 
 
-                            <div class="col-33"><img src="<?php echo $thumb; ?>" alt=""></div>
+        <section class="content-section clients-banner flex fullwidth  ">
+            
+            <div class="flex flex-row clients-banner-inner">
+                <div class="flex items-center col-33">
+                    <h3><?php echo($headline); ?></h3>
+                </div>
 
-                <?php  endwhile; // end while row
+                <div class="grid logo-grid col-auto">
 
-                endif;  // end if row ?>
+                    <?php 
+
+                    // check for rows (parent repeater)
+                    if ($gallery) : 
+                        // loop through rows (parent repeater)
+                        foreach ($gallery as $image) : 
+
+                        // get fields
+                        $image_url = $image['url'];
+                        
+
+                    ?> 
+                    <div class="grid-item flex items-center">
+                        <img src="<?php echo $image_url; ?>"/> 
+                    </div>
+                    
+                        
+                    <?php // end logo grid item
+
+                     endforeach; // end Bilder 
+
+                    endif; // end repeater ?>
 
                 </div>
-                <?php if($button_text){ ?>
-                   <div class="button-container"> <a href="<?php echo($button_link); ?>" class="button <?php echo($button_style); ?> button--<?php echo($button_size); ?>"><?php echo($button_text); ?></a></div>
-               <?php } ?>
             </div>
-        </section>
+        
+            
+
+ 
+
+    </div> <?php // end inner-wrapper ?>
+   
+    </section>
 
 
-<?php 
+<?php
 
 endif;
 

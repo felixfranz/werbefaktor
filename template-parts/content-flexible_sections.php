@@ -56,6 +56,12 @@ if( have_rows('page_sections') ):
 		// Case: Box Row
 		include("blocks/box_row.php");
 
+		// Case: Client Logos
+		include("blocks/banner_clients.php");
+
+		// Case: Banner 2by2
+		include("blocks/banner-2by2.php");
+
         
 
     // End loop.
