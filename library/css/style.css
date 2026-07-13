@@ -1647,6 +1647,10 @@ LAYOUT & GRID STYLES
   padding: var(--spacing-2xl) 0;
 }
 
+.page.wrap {
+  min-height: calc(100vh - 250px);
+}
+
 .page__header {
   padding: 24px 0;
   display: flex;
@@ -1867,6 +1871,13 @@ section.fullwidth {
 
 .content-section .wrap:has(> :only-child) {
   justify-content: center;
+}
+
+#main > .bg-light-gray:first-child {
+  margin-top: var(--negative-spacing);
+}
+#main > .bg-light-gray:last-child {
+  margin-bottom: var(--negative-spacing);
 }
 
 .flexible_header + section.bg-light-gray, .bg-transparent + section.bg-light-gray {

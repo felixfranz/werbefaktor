@@ -26,16 +26,10 @@ get_header();
 					the_widget( 'WP_Widget_Recent_Posts' );
 					?>
 
-					<div class="widget widget_categories">
+				
 
 
-					<?php
-					/* translators: %1$s: smiley */
-					$new_base_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'new-base' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$new_base_archive_content" );
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
 
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->

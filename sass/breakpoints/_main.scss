@@ -152,6 +152,10 @@ LAYOUT & GRID STYLES
     padding: var(--spacing-2xl) 0;
 }
 
+// force footer to the bottom
+.page.wrap{
+    min-height: calc(100vh - 250px);
+    }
 
 
 /////// HEADER
@@ -427,6 +431,15 @@ gap: var(--spacing-xs);
 }
 
 // ABSTÄNDE ANPASSEN NACH HEADER
+#main{
+    &>.bg-light-gray:first-child{
+        margin-top: var(--negative-spacing);
+    }
+    &>.bg-light-gray:last-child {
+        margin-bottom: var(--negative-spacing);
+    }
+}
+
 .flexible_header, .bg-transparent{
 
     & + section.bg-light-gray {
