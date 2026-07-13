@@ -40,6 +40,12 @@ get_header();
 
 			the_posts_navigation();
 
+	
+echo paginate_links([
+    'total' => $wp_query->max_num_pages,
+]);
+
+
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );

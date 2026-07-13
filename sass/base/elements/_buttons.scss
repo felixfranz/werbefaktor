@@ -7,7 +7,9 @@ input[type="submit"] {
 	background: var(--color__background-button);
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	margin-top: var(--spacing-m);
+	padding: var(--spacing-s) var(--spacing-m);
+	width: auto;
 
 	&:hover {
 		cursor: pointer;

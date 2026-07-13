@@ -6,12 +6,12 @@ html{
 
 
     --color__link: black;
-    --color__link-visited: blue;
-    --color__link-hover: var(--pink);
+    --color__link-visited: var(--colors-Blue-700);
+    --color__link-hover: var(--colors-Blue-700);
 
-    --color__border-button: red;
-    --color__background-button: green;
-    --color__border-button-hover: blue;
+    --color__border-button: var(--colors-Blue-900);
+    --color__background-button: var(--colors-Blue-400);
+    --color__border-button-hover: var(--colors-Blue-700);
     --color__border-button-focus: yellow;
 
 

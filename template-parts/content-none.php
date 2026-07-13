@@ -9,12 +9,12 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found flex flex-col gap-m">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'new-base' ); ?></h1>
+		<h2 class="page-title"><?php esc_html_e( 'Nothing Found', 'new-base' ); ?></h2>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content flex flex-col gap-m">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
@@ -42,6 +42,7 @@
 			?>
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'new-base' ); ?></p>
+
 			<?php
 			get_search_form();
 

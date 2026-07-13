@@ -118,6 +118,20 @@ p+p{
     font-size: var(--font-small);
 }
 
+.text, .preview-text{
+    p, h2, h3, h4{
+        &+p, &+ul{
+            margin-top: var(--spacing-l);
+        }
+
+        &+h2,
+        &+h3,
+        &+h4 {
+            margin-top: var(--spacing-xl);
+        }
+    }
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/

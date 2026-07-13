@@ -320,7 +320,9 @@ input[type=submit] {
   background: var(--color__background-button);
   color: rgba(0, 0, 0, 0.8);
   line-height: 1;
-  padding: 0.6em 1em 0.4em;
+  margin-top: var(--spacing-m);
+  padding: var(--spacing-s) var(--spacing-m);
+  width: auto;
 }
 button:hover,
 input[type=button]:hover,
@@ -581,11 +583,11 @@ html {
   --true-black: 000;
   --main-color: red;
   --color__link: black;
-  --color__link-visited: blue;
-  --color__link-hover: var(--pink);
-  --color__border-button: red;
-  --color__background-button: green;
-  --color__border-button-hover: blue;
+  --color__link-visited: var(--colors-Blue-700);
+  --color__link-hover: var(--colors-Blue-700);
+  --color__border-button: var(--colors-Blue-900);
+  --color__background-button: var(--colors-Blue-400);
+  --color__border-button-hover: var(--colors-Blue-700);
   --color__border-button-focus: yellow;
   --ease: cubic-bezier(.12, .845, .305,1);
   --ratio-square: 1;
@@ -966,6 +968,7 @@ html {
 }
 
 .search-submit {
+  margin: 0;
   width: 50px;
   border: none;
   background: #0073e6;
@@ -1618,6 +1621,13 @@ p + p {
 
 .text--small, .text--small p {
   font-size: var(--font-small);
+}
+
+.text p + p, .text p + ul, .text h2 + p, .text h2 + ul, .text h3 + p, .text h3 + ul, .text h4 + p, .text h4 + ul, .preview-text p + p, .preview-text p + ul, .preview-text h2 + p, .preview-text h2 + ul, .preview-text h3 + p, .preview-text h3 + ul, .preview-text h4 + p, .preview-text h4 + ul {
+  margin-top: var(--spacing-l);
+}
+.text p + h2, .text p + h3, .text p + h4, .text h2 + h2, .text h2 + h3, .text h2 + h4, .text h3 + h2, .text h3 + h3, .text h3 + h4, .text h4 + h2, .text h4 + h3, .text h4 + h4, .preview-text p + h2, .preview-text p + h3, .preview-text p + h4, .preview-text h2 + h2, .preview-text h2 + h3, .preview-text h2 + h4, .preview-text h3 + h2, .preview-text h3 + h3, .preview-text h3 + h4, .preview-text h4 + h2, .preview-text h4 + h3, .preview-text h4 + h4 {
+  margin-top: var(--spacing-xl);
 }
 
 /*********************

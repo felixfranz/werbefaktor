@@ -44,11 +44,12 @@ if ( $child_query->have_posts() ) :
                 
                     <?php endif; ?>
           </div>
-            <div class="preview-text col-66 flex flex-col gap-s">
-                <h3><?php the_title(); ?></h3>
-                <div>
+            <div class="preview-text col-66 flex flex-col gap-m">
+              <div class="text">
+                  <h3><?php the_title(); ?></h3>
                   <?php echo($preview_text); ?>
-                </div>
+              </div>
+              
                  <div class="button-container flex items-left"> 
                   <a href="<?php the_permalink(); ?>" class="button button--blue">Mehr Informationen</a>
                 </div>

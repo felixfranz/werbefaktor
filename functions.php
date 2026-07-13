@@ -577,5 +577,5 @@ function custom_search_excerpt($excerpt) {
             break;
     }
 
-    return wp_trim_words(wp_strip_all_tags($excerpt), 30);
+    return wp_trim_words(wp_strip_all_tags($excerpt), 20);
 }
