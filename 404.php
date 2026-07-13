@@ -12,12 +12,12 @@ get_header();
 
 	<main id="main" class="site-main">
 
-		<section class="error-404 not-found">
+		<section class="no-results not-found flex flex-col gap-m">
 			<header class="page-header">
 				<h1 class=><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'new-base' ); ?></h1>
 			</header><!-- .page-header -->
 
-			<div class="page-content">
+			<div class="page-content flex flex-col gap-m">
 				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'new-base' ); ?></p>
 
 					<?php

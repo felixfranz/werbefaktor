@@ -205,6 +205,12 @@ LAYOUT & GRID STYLES
         span{
             font-weight: 600;
         }
+        &:hover{
+            color: var(--colors-Blue-500);
+        }
+        &:active {
+            color: var(--colors-Blue-700);
+        }
     }
 }
 

@@ -443,6 +443,32 @@ button:disabled, button:disabled:hover {
   content: "before";
 }
 
+.page-content .search-form .search-submit {
+  border-radius: 8px;
+  min-width: 200px;
+  padding: 12px 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: var(--text-m);
+  text-decoration: none;
+  color: white;
+  z-index: 1;
+  position: relative;
+  flex-basis: auto;
+  width: auto;
+  align-self: flex-start;
+  transition: all 0.3s var(--ease);
+  background: var(--colors-Blue-500);
+}
+.page-content .search-form .search-submit:hover {
+  background: var(--colors-Blue-700);
+}
+.page-content .search-form .search-submit:active {
+  background: var(--colors-Blue-400);
+}
+
 input[type=text],
 input[type=email],
 input[type=url],
@@ -971,7 +997,7 @@ html {
   margin: 0;
   width: 50px;
   border: none;
-  background: #0073e6;
+  background: var(--colors-Blue-500);
   /* Blue background */
   color: #fff;
   cursor: pointer;
@@ -992,7 +1018,11 @@ html {
 }
 
 .search-submit:hover {
-  background: #005bb5;
+  background: var(--colors-Blue-700);
+}
+
+.search-submit:active {
+  background: var(--colors-Blue-400);
 }
 
 .page-overlay .page-overlay__container {
@@ -1689,6 +1719,12 @@ LAYOUT & GRID STYLES
 }
 .logo a span {
   font-weight: 600;
+}
+.logo a:hover {
+  color: var(--colors-Blue-500);
+}
+.logo a:active {
+  color: var(--colors-Blue-700);
 }
 
 .main-navigation {

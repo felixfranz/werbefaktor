@@ -11,7 +11,7 @@
 
 <section class="no-results not-found flex flex-col gap-m">
 	<header class="page-header">
-		<h2 class="page-title"><?php esc_html_e( 'Nothing Found', 'new-base' ); ?></h2>
+		<h1><?php esc_html_e( 'Nothing Found', 'new-base' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content flex flex-col gap-m">

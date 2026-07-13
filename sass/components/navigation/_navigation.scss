@@ -333,7 +333,7 @@
 	margin: 0;
 	width: 50px;
 	border: none;
-	background: #0073e6;
+	background: var(--colors-Blue-500);
 	/* Blue background */
 	color: #fff;
 	cursor: pointer;
@@ -354,7 +354,10 @@
 }
 
 .search-submit:hover {
-	background: #005bb5;
+	background: var(--colors-Blue-700);
+}
+.search-submit:active {
+	background: var(--colors-Blue-400);
 }
 
 
