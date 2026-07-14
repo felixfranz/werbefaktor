@@ -906,6 +906,9 @@ min-height: 350px;
         }
     }
    
+    .subline, h2{
+        max-width: 66%;
+    }
 }
 
 &.header--image_full, &.header--image_50{
