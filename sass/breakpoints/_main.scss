@@ -1867,6 +1867,10 @@ display: grid;
     display: block;
     aspect-ratio: var(--ratio-landscape);
     object-fit: cover;
+
+    &.grid-logo{
+        object-fit: contain;
+    }
 }
 
 // PRODUCT CARD
