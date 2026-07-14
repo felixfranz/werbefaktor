@@ -47,9 +47,6 @@ if( have_rows('page_sections') ):
 		// Case: Banner Projekte
 		include("blocks/banner_contact.php");
 
-		// Case: Images with Caption 
-		include("blocks/image_row.php");
-
 		// Case: Abfolge
 		include("blocks/abfolge-big.php");
 

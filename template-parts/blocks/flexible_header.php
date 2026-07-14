@@ -40,7 +40,7 @@ if( get_row_layout() == 'flexible_header' ):
                 
                 <div class="flex flex-col gap-s header__content">
 
-                    <?php if ($subheadline) { ?>
+                    <?php if ($headline) { ?>
                     <h2><?php echo $headline;?></h2>
                     <?php } ?>
 
