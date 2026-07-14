@@ -3,26 +3,27 @@
         // Case: Button.  
         if( get_row_layout() == 'image_grid' ):
 
-            $grid_style = 'style--images';
-            $image_grid_style = 'grid--3';
+
 
             $gallery = get_sub_field('grid_images');
-            $grid_style = get_sub_field('grid_style');
+            $image_grid_count = get_sub_field('grid_style');
+            $image_style = get_sub_field('image_style');
 
-            if ($grid_style == '') {
-                $grid_style = 'style--images';
-                $image_grid_style = 'image_grid-3';
+            if ($image_grid_count == '') {
+                $image_grid_count = 'image_grid-3';   
             }
-            if ($grid_style == 'style--logos') {
-                $image_grid_style = 'image_grid-4';
+
+            if ($image_style == '') {
+                $image_style = 'style--images';   
             }
+
 
             $content = "";
 
                 ?>
                  <?php if ($gallery) : ?>
 
-                       <div  class="image_grid <?php echo $image_grid_style; ?>" >
+                       <div  class="image_grid <?php echo $image_grid_count; ?>" >
                          
                                 <?php foreach ($gallery as $image) : 
 
@@ -33,7 +34,7 @@
                                     $content .= '<img src="'. esc_url($image['sizes']['large']) .'" data-slb-group="lighbox-1">';
                                     $content .= '</a>';                                    
                                     }  
-                                    if($grid_style == 'style--logos') {
+                                    if($image_style == 'style--logos') {
                                     // grid style without lightbox
                                     $content .= '<img src="'. esc_url($image['sizes']['large']) .'" class="grid_logo">';
                                     }
