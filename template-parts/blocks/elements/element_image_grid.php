@@ -11,10 +11,10 @@
 
             if ($grid_style == '') {
                 $grid_style = 'style--images';
-                $image_grid_style = 'grid--3';
+                $image_grid_style = 'image_grid-3';
             }
             if ($grid_style == 'style--logos') {
-                $image_grid_style = 'grid--4';
+                $image_grid_style = 'image_grid-4';
             }
 
             $content = "";
