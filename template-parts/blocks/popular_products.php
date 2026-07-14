@@ -1,7 +1,7 @@
 <?php 
 
-// Case: Bewegungs Teaser  
-if( get_row_layout() == 'section_popular_products' ):
+// Case: Bestseller Section
+if( get_row_layout() == 'section_bestseller' ):
 
     $tag_text = get_sub_field('tag_text');
     $tag_color = get_sub_field('tag_color');
