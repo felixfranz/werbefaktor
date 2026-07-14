@@ -2286,6 +2286,9 @@ section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   margin-top: var(--spacing-xl);
   background: var(--highlight-color);
 }
+.flexible_header.header--text_center .subheadline, .flexible_header.header--text_center h2, .flexible_header.header--image_full .subheadline, .flexible_header.header--image_full h2 {
+  max-width: 66%;
+}
 .flexible_header.header--image_full, .flexible_header.header--image_50 {
   margin-top: var(--negative-spacing);
 }
@@ -3108,6 +3111,9 @@ BREADCRUMBS
   display: block;
   aspect-ratio: var(--ratio-landscape);
   object-fit: cover;
+}
+.image_grid img.grid_logo {
+  object-fit: contain;
 }
 
 .product-card a {
