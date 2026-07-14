@@ -3,13 +3,18 @@
         // Case: Button.  
         if( get_row_layout() == 'image_grid' ):
 
-            
+            $grid_style = 'style--images';
+            $image_grid_style = 'grid--3';
 
             $gallery = get_sub_field('grid_images');
             $grid_style = get_sub_field('grid_style');
 
             if ($grid_style == '') {
                 $grid_style = 'style--images';
+                $image_grid_style = 'grid--3';
+            }
+            if ($grid_style == 'style--logos') {
+                $image_grid_style = 'grid--4';
             }
 
             $content = "";
@@ -17,7 +22,7 @@
                 ?>
                  <?php if ($gallery) : ?>
 
-                       <div  class="image_grid" >
+                       <div  class="image_grid <?php echo $image_grid_style; ?>" >
                          
                                 <?php foreach ($gallery as $image) : 
 

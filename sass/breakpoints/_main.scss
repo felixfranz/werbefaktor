@@ -1854,8 +1854,14 @@ display: grid;
 
 .image_grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-m);
+
+    &.image_grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    &.image_grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .grid_image{
