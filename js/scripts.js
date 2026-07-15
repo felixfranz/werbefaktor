@@ -665,7 +665,7 @@ if ($(".projects-list").length) {
       toggleLogic: 'and'
     },
     pagination: {
-      limit: 10 // impose a limit of 8 targets per page
+      limit: 100 // impose a limit of 8 targets per page
     },
     load: {
       filter: initialFilter
