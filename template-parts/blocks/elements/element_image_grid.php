@@ -14,7 +14,7 @@
             }
 
             if ($image_style == '') {
-                $image_style = 'style--images';   
+                $image_style = 'style--pictures';   
             }
 
 
@@ -29,7 +29,7 @@
 
                                     $content .= '<div class="grid_image">';
                                     // regular grid style with lightbox
-                                    if($image_style == 'style--images') {
+                                    if($image_style == 'style--pictures') {
                                     $content .= '<a class="gallery_image" data-slb-group="lighbox-2" href="'. $image['url'] .'">'; 
                                     $content .= '<img src="'. esc_url($image['sizes']['large']) .'" data-slb-group="lighbox-1">';
                                     $content .= '</a>';                                    
