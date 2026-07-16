@@ -39,6 +39,9 @@ input[type="submit"] {
 	align-self: flex-start;
 	transition: all 0.3s var(--ease); 
 	background: rgba(0, 0, 0, 0.15);
+	&:hover{
+		color: inherit
+	}
 
 }
 
