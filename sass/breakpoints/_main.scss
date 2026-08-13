@@ -154,7 +154,7 @@ LAYOUT & GRID STYLES
         justify-content: space-between;
         align-items: center;
     }
-    
+    transition: all 0.2s var(--ease);
 }
 
 .header__quick-contact{
@@ -174,8 +174,25 @@ LAYOUT & GRID STYLES
         color: var(--colors-Blue-300)
     }
     
-
 }
+
+.body--scrolled{
+    .top-header{
+        height: 0px;
+    }
+
+    .bottom-header{
+        border-bottom: 1px solid var(--colors-Gray-300);
+    }
+
+    .nav-toggle{
+        transition: all 0.3s ease;
+        background: var(--colors-Gray-200);
+        --toggle-text-color: var(--colors-Blue-950);
+    }
+}
+
+
 /////// LOGO
 .logo{
     z-index: 20;
@@ -1153,7 +1170,7 @@ ABFOLGE & Abfolge Small
 
 .block__step{
     width:100%;
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) var(--spacing-l) var(--spacing-3xl);
     justify-content: center;
     position: relative;
 

@@ -1683,6 +1683,9 @@ LAYOUT & GRID STYLES
   justify-content: space-between;
   align-items: center;
 }
+.top-header {
+  transition: all 0.2s var(--ease);
+}
 
 .header__quick-contact > span {
   display: inline-block;
@@ -1697,6 +1700,18 @@ LAYOUT & GRID STYLES
 }
 .header__quick-contact a:hover, .header__quick-contact a:hover span {
   color: var(--colors-Blue-300);
+}
+
+.body--scrolled .top-header {
+  height: 0px;
+}
+.body--scrolled .bottom-header {
+  border-bottom: 1px solid var(--colors-Gray-300);
+}
+.body--scrolled .nav-toggle {
+  transition: all 0.3s ease;
+  background: var(--colors-Gray-200);
+  --toggle-text-color: var(--colors-Blue-950);
 }
 
 .logo {
@@ -2487,7 +2502,7 @@ ABFOLGE & Abfolge Small
 
 .block__step {
   width: 100%;
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl) var(--spacing-l) var(--spacing-3xl);
   justify-content: center;
   position: relative;
 }
