@@ -20,7 +20,7 @@
 	</div>
 	<div class="product-container flex inner-container flex-row gap-m">
 
-			<div class="col-50 flex flex-col gap-m">
+			<div class="col-100 md:col-50 flex flex-col gap-m">
 				<div class="product__main-image image-container flex image-container--3-2">
 					<?php 
 					if( $images ): 
@@ -99,7 +99,7 @@
 				
 			</div>
 
-			<div class="col-50 flex flex-col gap-m">
+			<div class="col-100 md:col-50 flex flex-col gap-m">
 
 				<div class="product__header">
 					<h1 class="product__product-title"><?php echo($name); ?></h1>

@@ -1,14 +1,26 @@
-@media only screen and (min-width: 1030px) {
+@media (width >= 1025px) {
 
     html{
-        --flow-small: 20px;
-            --flow-medium: 40px;
-            --flow-big: 60px;
+        --negative-spacing: calc(-1 * var(--spacing-2xl));
     }
 
-        .wrap {
-            max-width: 1240px;
+    .wrap {
+        max-width: 1240px;
+    }
+
+/////// LOGO
+.logo {
+    font-size: 34px;
+    width: 200px;
+
+    a {
+
+        &:hover {
+            color: var(--colors-Blue-500);
         }
+
+    }
+}
 
 /////// HEADER
 
@@ -30,7 +42,9 @@ transition: height 0.4s var(--ease);
 .top-header{
     background: var(--colors-Blue-950);
     height: 50px;
-   
+    .header__menu-top {
+            display: flex;
+        }
 } 
 
 .bottom-header{
@@ -45,7 +59,6 @@ transition: height 0.4s var(--ease);
         justify-content: space-between;
     }
 }
-
 .search-container{
    width: 340px;
    background: white;
@@ -70,10 +83,7 @@ transition: height 0.4s var(--ease);
     }
 }
 
-/////// LOGO
-.logo {
 
-}
 
 //////////// NAV 
 
@@ -87,20 +97,190 @@ transition: height 0.4s var(--ease);
 }
 
 .nav-toggle {
-    transform: translateX(100%);
-    transition: all 0.2s var(--ease);
-    width: 120px;
-    height: 70px;
+    display: none;
+}
 
-        .type{
-            display: inline;
-            font-size: 1.6em;
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#main {
+    gap: var(--spacing-2xl);
+    position: relative;
+    margin-top: 150px;
+    padding: var(--spacing-2xl) 0;
+}
+
+  // COLUMNS
+  .md\:col-50,
+  .col-50 {
+      width: 50%;
+
+      flex-basis: 50%;
+  }
+
+  .md\:col-66,
+  .col-66 {
+      width: 66%;
+  }
+
+  .md\:col-33,
+  .col-33 {
+      width: 33%;
+  }
+
+  .md\:col-25,
+  .col-25 {
+      width: 25%;
+  }
+
+
+  .flex-row {
+      flex-direction: row;
+      flex-wrap: nowrap;
+  }
+
+.md\:gap-xs {
+    gap: var(--spacing-xs);
+}
+
+.md\:gap-s {
+    gap: var(--spacing-m);
+}
+
+.md\:gap-m {
+    gap: var(--spacing-xl);
+}
+
+.md\:gap-l {
+    gap: var(--spacing-xxl);
+}
+
+
+
+  // SINGLE PRODUCT PAGE
+  .product__green-box {
+      display: flex;
+  }
+
+//////////////////////
+///////// BANNER
+//////////////////////
+
+.banner {
+    padding: var(--spacing-2xl) 0;
+    min-height: 350px;
+    color: white;
+
+    .col-33 {
+        border-left: 1px solid white;
+        padding-left: var(--spacing-l);
+        justify-content: space-between;
+        border-top: none;
+        padding-top: 0;
+    }
+
+}
+
+.banner__headline {
+    font-family: var(--font-headline);
+    font-size: var(--headline-xl);
+    font-weight: 200;
+}
+
+.banner__text {
+    font-family: var(--font-headline);
+    font-size: var(--headline-l);
+    font-weight: 700;
+  
+}
+
+.banner__green {
+    background: url(../images/svg/vector-green.svg) left/contain no-repeat, var(--gradient-green);
+}
+
+.banner__purple {
+    background: url(../images/svg/vector-purple.svg) left/contain no-repeat, var(--gradient-purple);
+
+    .banner__text {
+        font-family: var(--font-text);
+        font-size: var(--text-m);
+        font-weight: 500;
+    }
+} 
+
+// BANNER 2BY2
+.banner-2by2 {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0;
+        width: 80%;
+
+
+        .grid-item {
+
+            &:nth-child(1) {
+                border-bottom: 1px solid white;
+                border-right: 1px solid white;
+            }
+
+            &:nth-child(2) {
+                border-bottom: 1px solid white;
+
+            }
+
+            &:nth-child(3) {
+                border-right: 1px solid white;
+            }
+
+            .box-content{
+                text-align: left;
+            }
         }
+
+    }
+}
+
+// Abfolge Small
+
+.abfolge-small {
+    width: 80%;
+}
+
+// LOGO GRID
+.clients-banner {
+    padding: 0;
+
+    .clients-banner-inner {
+        border-top: 1px solid var(--colors-Gray-300);
+        border-bottom: 1px solid var(--colors-Gray-300);
+
+        .col-33 {
+            flex: 0 0 33%;
+            border-right: 1px solid var(--colors-Gray-300);
+            border-bottom: none;
+            padding: var(--spacing-l);
+
+            h3 {
+                font-size: var(--text-l);
+            }
+        }
+
+        .col-auto {
+            flex: 1;
+        }
+    }
 }
 
 
 
 
-
 }
-

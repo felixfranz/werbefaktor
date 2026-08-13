@@ -20,9 +20,10 @@ if( get_row_layout() == 'hero_product_banner' ):
              $size = $variant;
 
              
-
+            if($fullsize){
              $image = $fullsize['image'];
              $image_url = $image['url'];
+            }
 
              ?>
             

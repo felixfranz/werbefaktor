@@ -25,7 +25,35 @@
             }
         }
 
+          .subcategory-grid,
+          .products-grid {
+              
+              gap: var(--spacing-xl);
+          }
+
+    .products-grid-4,
+    .post-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+        .l\:gap-xs {
+            gap: var(--spacing-xs);
+        }
+    
+        .l\:gap-s {
+            gap: var(--spacing-m);
+        }
+    
+        .l\:gap-m {
+            gap: var(--spacing-xl);
+        }
+    
+        .l\:gap-l {
+            gap: var(--spacing-xxl);
+        }
+
 }
+
 
 
 .wrap{
