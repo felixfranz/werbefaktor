@@ -3526,21 +3526,6 @@ DESKTOP
   .clients-banner .clients-banner-inner .col-auto {
     flex: 1;
   }
-  .logo-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1px;
-    /* Thickness of the border */
-    background: var(--colors-Gray-300);
-    /* Border color */
-    padding: 0px 1px 0px 0px;
-    /* Outer border */
-  }
-  .logo-grid .grid-item {
-    background: #fff;
-    padding: 20px;
-  }
 }
 /*********************
 LARGE VIEWING SIZE
