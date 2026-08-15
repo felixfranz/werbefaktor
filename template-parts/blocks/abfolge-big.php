@@ -5,7 +5,7 @@ if( get_row_layout() == 'abfolge' ):
 
 
         ?>
-        <section class="content-section abfolge-section items-center flex flex-col fullwidth ">
+        <section class="content-section abfolge-section items-center flex flex-col fullwidth section--solid">
             
         <?php 
 

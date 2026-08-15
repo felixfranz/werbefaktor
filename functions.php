@@ -355,6 +355,12 @@ class Category_Description_Walker extends Walker_Nav_Menu {
         $output .= esc_html($item->title);
         $output .= '</a>';
 
+        // add a button for items with children to toggle the submenu
+        $output .= '<button class="submenu-toggle" type="button" aria-expanded="false">';
+        $output .= '<span class="screen-reader-text">Untermenü öffnen</span>';
+        $output .= '</button>';
+
+
         // Only on top-level taxonomy items
         if ($depth === 0 && $item->object === 'product_category') {
 
@@ -384,7 +390,7 @@ class Category_Description_Walker extends Walker_Nav_Menu {
                     if (!empty($term->description)) {
                         $output .= '<div class="menu-description"><p class="text--small">';
                         $output .= wp_kses_post($term->description);
-                        $output .= '<p></div>';
+                        $output .= '</p></div>';
                     }
 
                     // Parent category link

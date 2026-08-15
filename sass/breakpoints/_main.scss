@@ -822,7 +822,7 @@ color: white;
 
 .hero_product--fullsize, .hero_product--fullscreen{
     position: relative;
-    padding: 30px 0 30px 30px;
+    padding: 30px 0;
     color: white;
 
     div { position: relative;  }
@@ -877,6 +877,9 @@ color: white;
         animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
         img{
             border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }   
 }
@@ -954,6 +957,7 @@ color: white;
     .subheadline{
         color: var(--highlight-color);
         font-size: var(--text-m);
+        max-width: 65ch;
     }
 
     &.header--text_center, &.header--text_left{
@@ -1049,6 +1053,7 @@ color: white;
     left: 50%;
     padding: 0;
     gap: 0;
+    flex-direction: column;
 
     .scroll_down{
         background: var(--highlight-color);
@@ -1097,7 +1102,7 @@ color: white;
 
     .header__content{
         order: 1;
-        width: 50vw;
+       // width: 50vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1105,13 +1110,9 @@ color: white;
         padding: var(--spacing-xl);
     }
 
-    
-
-    
-
     .header__background{
         order:2;
-        width: 50%;
+       // width: 50%;
         position: relative;
         .backdrop {
                 position: absolute;

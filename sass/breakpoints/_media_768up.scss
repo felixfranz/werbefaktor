@@ -1,5 +1,9 @@
 @media only screen and (min-width: 768px) {
 
+    .page-overlay {
+        display:none
+    }
+
     .subcategory-grid,
         .products-grid {
             grid-template-columns: repeat(3, 1fr);
@@ -44,5 +48,21 @@
     }
 }
 
+
+/*
+* PAGE HEADER FLEXIBLE
+*/
+.flexible_header {
+    &.header--image_50 {
+        flex-direction: row;
+        .header__background{
+            width: 50%;
+        }
+
+        .header__content {
+            width: 50%;
+        }
+    }
+}
     
 }

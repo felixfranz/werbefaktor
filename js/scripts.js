@@ -646,6 +646,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// SUB MENU TOGGLE
+document.addEventListener('DOMContentLoaded', function () {
+
+  document.querySelectorAll('.mega-menu > .submenu-toggle').forEach(function (toggle) {
+
+    toggle.addEventListener('click', function (event) {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const menuItem = toggle.closest('.mega-menu');
+
+      if (!menuItem) {
+        return;
+      }
+
+      const isOpen = menuItem.classList.toggle('is-open');
+
+      toggle.setAttribute(
+        'aria-expanded',
+        isOpen ? 'true' : 'false'
+      );
+
+    });
+
+  });
+
+});
+
 jQuery(document).ready(function ($) {
 //////////////////////////////////////////////////////
 // IMPULS FILTER --- MIX IT UP
