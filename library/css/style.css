@@ -785,6 +785,7 @@ html {
 .main-navigation ul.main-navigation__menu > li > a::after {
   content: "";
   display: inline-block;
+  display: none;
   top: -2px;
   position: relative;
   width: 6px;
@@ -899,7 +900,7 @@ html {
 .main-navigation ul.main-navigation__menu > li ul li.current-menu-item a,
 .main-navigation ul.main-navigation__menu > li ul li.current_page_item a,
 .main-navigation ul.main-navigation__menu > li ul li.current_page_ancestor a {
-  color: red;
+  color: black;
 }
 .main-navigation ul.main-navigation__menu > li {
   /* showing sub-menus */
@@ -1058,10 +1059,10 @@ html {
   color: var(--pink);
 }
 .page-overlay nav .main-navigation__container ul.main-navigation__menu > li.current-menu-item > a {
-  color: var(--dove-blue);
+  background: var(--colors-Gray-100);
 }
-.page-overlay nav .main-navigation__container ul.main-navigation__menu > li.current-page-ancestor > a {
-  color: var(--dove-blue);
+.page-overlay nav .main-navigation__container ul.main-navigation__menu > li.current-menu-ancestor > a, .page-overlay nav .main-navigation__container ul.main-navigation__menu > li.current-page-ancestor > a {
+  background: var(--colors-Gray-100);
 }
 .page-overlay nav .main-navigation__container ul.main-navigation__menu > li .sub-menu-container .sub-menu {
   padding-bottom: 10px;
@@ -1071,6 +1072,10 @@ html {
   font-size: var(--text-s);
   font-weight: 400;
   color: var(--colors-Gray-700);
+}
+.page-overlay nav .main-navigation__container ul.main-navigation__menu > li .sub-menu-container .sub-menu li.current-menu-item > a {
+  background: var(--colors-Gray-100);
+  color: black;
 }
 .page-overlay nav .wpml-ls-item {
   display: inline;
@@ -1139,6 +1144,7 @@ html {
 .page-overlay .sub-menu-container .mega-menu-sidebar {
   display: none;
 }
+
 .overlay__header {
   width: 100%;
   display: flex;
@@ -1284,6 +1290,7 @@ html {
 .body__menu_open .nav-toggle {
   transform: translateX(0);
 }
+
 .body__menu_open .nav-toggle span.bars {
   background: transparent;
 }
@@ -3286,9 +3293,13 @@ DESKTOP
   .bottom-header > div {
     justify-content: space-between;
   }
+  .bottom-header .search-container {
+    display: inline-block;
+  }
   .search-container {
-    width: 340px;
-    background: white;
+    max-width: 340px;
+    flex-grow: 1;
+    margin-left: var(--spacing-l);
   }
   .body--scrolled .top-header {
     height: 40px;
@@ -3443,6 +3454,13 @@ DESKTOP
     flex: 1;
   }
 }
+@media (width <= 1089px) {
+  .logo {
+    font-size: 20px;
+    width: 135px;
+    margin-top: 8px;
+  }
+}
 /*********************
 LARGE VIEWING SIZE
 *********************/
@@ -3458,6 +3476,9 @@ LARGE VIEWING SIZE
   }
   .main-navigation ul .wpml-ls-item a {
     font-size: 16px;
+  }
+  .main-navigation ul.main-navigation__menu > li > a:after {
+    display: inline-block;
   }
   .page-overlay .menu__mobile_menu .sub_menu-toggle {
     top: 20px;

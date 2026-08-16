@@ -65,6 +65,7 @@
 			&::after {
 					content: "";
 					display: inline-block;
+					display:none;
 					top: -2px;
 					position: relative;
 					width: 6px;
@@ -210,7 +211,7 @@
 			li.current-menu-item,
 			li.current_page_item,
 			li.current_page_ancestor {
-				a {color: red}
+				a {color: black;}
 			}
 		}
 
@@ -411,13 +412,13 @@
 
 				&.current-menu-item {
 					&>a {
-						color: var(--dove-blue);
+						background: var(--colors-Gray-100);
 					}
 				}
 
-				&.current-page-ancestor {
+				&.current-menu-ancestor, &.current-page-ancestor {
 					&>a {
-						color: var(--dove-blue);
+						background: var(--colors-Gray-100);
 					}
 
 				}
@@ -431,6 +432,12 @@
 								font-size: var(--text-s);
 								font-weight: 400;
 								color: var(--colors-Gray-700);
+							}
+							&.current-menu-item {
+								&>a {
+									background: var(--colors-Gray-100);
+									color: black;
+								}
 							}
 						}
 					}

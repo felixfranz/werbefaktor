@@ -14,22 +14,29 @@
         font-size: 16px;   
     }
 
-        /// OVERLAY
-        /// 
-        /// SUB MENU
-        .page-overlay {
-            .menu__mobile_menu {
-                .sub_menu-toggle {
-                    top: 20px;
-                }
+        .main-navigation ul.main-navigation__menu {
+            >li>a:after {
+                display: inline-block;
             }
         }
 
-          .subcategory-grid,
-          .products-grid {
-              
-              gap: var(--spacing-xl);
-          }
+
+    /// OVERLAY
+    /// 
+    /// SUB MENU
+    .page-overlay {
+        .menu__mobile_menu {
+            .sub_menu-toggle {
+                top: 20px;
+            }
+        }
+    }
+
+        .subcategory-grid,
+        .products-grid {
+            
+            gap: var(--spacing-xl);
+        }
 
     .products-grid-4,
     .post-grid-4 {
