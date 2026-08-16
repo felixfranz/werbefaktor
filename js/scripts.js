@@ -604,8 +604,33 @@ document.querySelectorAll("section a.scroll_down").forEach(link => {
   });
 });
 
+// ANIMATE ON SCROLL
+document.addEventListener('DOMContentLoaded', () => {
 
+  document.querySelectorAll('.logo-grid .grid-item img, .abfolge-small').forEach(element => {
+    element.classList.add('animate-on-scroll');
+  });
 
+  const elements = document.querySelectorAll('.animate-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  elements.forEach(element => {
+    observer.observe(element);
+  });
+
+});
+
+// SLIDER
 document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.js-swiper').forEach(slider => {

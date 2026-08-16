@@ -1186,7 +1186,7 @@ html {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1029px) {
   .mega-menu {
     position: relative;
   }
@@ -1199,7 +1199,7 @@ html {
     right: 0;
     width: 150px;
     height: 45px;
-    padding: 0 2.5% 0 0;
+    padding: 0 20px 0 0;
     border: 0;
     background: transparent;
     margin: 0;
@@ -1278,6 +1278,7 @@ html {
 .body--scrolled.body__menu_open .nav-toggle {
   background: var(--colors-Blue-950);
   --toggle-text-color: white;
+  border-bottom: none;
 }
 
 .body__menu_open .nav-toggle {
@@ -1562,6 +1563,7 @@ LAYOUT & GRID STYLES
   transition: all 0.3s ease;
   background: var(--colors-Gray-200);
   --toggle-text-color: var(--colors-Blue-950);
+  border-bottom: 1px solid var(--colors-Gray-300);
 }
 
 .logo {
@@ -2040,8 +2042,14 @@ section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
 .hero_product.hero-bg-green {
   --section-color: var(--colors-Green-600);
 }
+.hero_product.hero-bg-green .hero_text {
+  color: white;
+}
 .hero_product.hero-bg-blue {
   --section-color: var(--colors-Blue-700);
+}
+.hero_product.hero-bg-blue .hero_text {
+  color: white;
 }
 .hero_product.hero-bg-white {
   --section-color: var(--colors-Green-400);
@@ -2057,9 +2065,17 @@ section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   color: white;
 }
 
+.hero_product--fullsize {
+  padding: var(--spacing-l);
+}
+
+.hero_product--fullscreen {
+  padding: var(--spacing-l) 0;
+  margin-top: var(--negative-spacing);
+}
+
 .hero_product--fullsize, .hero_product--fullscreen {
   position: relative;
-  padding: 30px 0;
   color: white;
 }
 .hero_product--fullsize div, .hero_product--fullscreen div {
@@ -2086,7 +2102,7 @@ section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   top: 0;
   left: 0;
   height: 100%;
-  width: 80%;
+  width: 100%;
   border-radius: 8px;
   z-index: 0;
 }
@@ -2811,7 +2827,7 @@ BREADCRUMBS
 
 .sticky-border {
   position: sticky;
-  top: 90px;
+  top: 37px;
   width: 100%;
   z-index: 2;
 }
@@ -3131,6 +3147,17 @@ BREADCRUMBS
   color: var(--colors-Blue-700);
 }
 
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 #slb_viewer_wrap #slb_viewer_slb_default .slb_data_title,
 #slb_viewer_wrap #slb_viewer_slb_default .slb_group_status {
   font-family: var(--font-text-regular);
@@ -3164,9 +3191,6 @@ LARGER MOBILE DEVICES
 TABLET & SMALLER LAPTOPS
 *********************/
 @media only screen and (min-width: 768px) {
-  .page-overlay {
-    display: none;
-  }
   .subcategory-grid,
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -3229,6 +3253,9 @@ DESKTOP
   }
   .logo a:hover {
     color: var(--colors-Blue-500);
+  }
+  .page-overlay {
+    display: none;
   }
   .page__header {
     padding: 0;
@@ -3332,8 +3359,14 @@ DESKTOP
   .md\:gap-l {
     gap: var(--spacing-xxl);
   }
+  .sticky-border {
+    top: 90px;
+  }
   .product__green-box {
     display: flex;
+  }
+  .hero_product--fullsize .hero__background {
+    width: 80%;
   }
   .banner {
     padding: var(--spacing-2xl) 0;

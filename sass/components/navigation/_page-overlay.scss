@@ -75,7 +75,7 @@
 	display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1029px) {
 
 	.mega-menu {
 		position: relative;
@@ -94,7 +94,7 @@
 		width: 150px;
 		height: 45px;
 
-		padding: 0 2.5% 0 0;
+		padding: 0 20px 0 0;
 		border: 0;
 		background: transparent;
 		//background: red;
@@ -196,6 +196,7 @@
 .body--scrolled.body__menu_open .nav-toggle {
 background: var(--colors-Blue-950);
 	--toggle-text-color: white;
+	border-bottom: none;
 }
 .body__menu_open {
 

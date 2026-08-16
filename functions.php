@@ -343,6 +343,33 @@ class Category_Description_Walker extends Walker_Nav_Menu {
         // Preserve WordPress menu classes
         $classes = empty($item->classes) ? [] : (array) $item->classes;
 
+        // add current ancesteor class for product categories when viewing a child category
+        if (
+            $depth === 0 &&
+            $item->object === 'product_category' &&
+            is_tax('product_category')
+        ) {
+            $current_term = get_queried_object();
+
+            if (
+                $current_term &&
+                !is_wp_error($current_term)
+            ) {
+                $ancestor_ids = get_ancestors(
+                    $current_term->term_id,
+                    'product_category'
+                );
+
+                if (
+                    (int) $current_term->term_id === (int) $item->object_id ||
+                    in_array((int) $item->object_id, array_map('intval', $ancestor_ids), true)
+                ) {
+                    $classes[] = 'current-menu-ancestor';
+                    $classes[] = 'is-active';
+                }
+            }
+}
+
         $class_names = implode(
             ' ',
             array_map('sanitize_html_class', $classes)
@@ -414,10 +441,23 @@ class Category_Description_Walker extends Walker_Nav_Menu {
                     // Child categories
                     foreach ($children as $child) {
 
-                        $output .= '<li class="menu-item child-category-item">';
-                        $output .= '<a href="' . esc_url(get_term_link($child)) . '">';
+                       $current_url = trailingslashit(home_url(add_query_arg([], $GLOBALS['wp']->request)));
+                        $child_url   = trailingslashit(get_term_link($child));
+
+                        $is_current = ($current_url === $child_url);
+
+                        $output .= '<li class="menu-item child-category-item';
+
+                        if ($is_current) {
+                            $output .= ' current-menu-item';
+                        }
+
+                        $output .= '">';
+
+                        $output .= '<a href="' . esc_url($child_url) . '">';
                         $output .= esc_html($child->name);
                         $output .= '</a>';
+
                         $output .= '</li>';
                     }
 
@@ -532,11 +572,21 @@ class Category_Description_Walker extends Walker_Nav_Menu {
 						$title = $menu_item->post_title;
 					}
 
-					$output .= '<li class="menu-item">';
-					$output .= '<a href="' . esc_url($url) . '">';
-					$output .= esc_html($title);
-					$output .= '</a>';
-					$output .= '</li>';
+					$is_current = (trailingslashit($url) === trailingslashit(home_url(add_query_arg([], $GLOBALS['wp']->request))));
+
+                    $output .= '<li class="menu-item';
+
+                    if ($is_current) {
+                        $output .= ' current-menu-item';
+                    }
+
+                    $output .= '">';
+
+                    $output .= '<a href="' . esc_url($url) . '">';
+                    $output .= esc_html($title);
+                    $output .= '</a>';
+
+                    $output .= '</li>';
 				}
 
                 $output .= '</ul>';

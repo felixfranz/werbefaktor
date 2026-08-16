@@ -22,6 +22,10 @@
     }
 }
 
+        .page-overlay {
+            display: none
+        }
+
 /////// HEADER
 
 .page__header {
@@ -163,11 +167,22 @@ LAYOUT & GRID STYLES
 }
 
 
+.sticky-border {
+    top: 90px;
+}
+
 
   // SINGLE PRODUCT PAGE
   .product__green-box {
       display: flex;
   }
+
+  .hero_product--fullsize{
+    .hero__background {
+        width: 80%;
+    }
+  }
+
 
 //////////////////////
 ///////// BANNER
