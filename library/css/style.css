@@ -1577,6 +1577,7 @@ LAYOUT & GRID STYLES
   z-index: 20;
   font-size: 18px;
   line-height: 1;
+  margin-top: 0;
 }
 .logo a {
   text-decoration: none;
@@ -3454,7 +3455,7 @@ DESKTOP
     flex: 1;
   }
 }
-@media (width <= 1089px) {
+@media (width <= 1089px) and (width >= 1025px) {
   .logo {
     font-size: 20px;
     width: 135px;
