@@ -35,7 +35,7 @@ input[type="submit"] {
 	z-index: 1;
 	position: relative;
 	flex-basis: auto;
-	width: auto;
+	width: 100%;
 	align-self: flex-start;
 	transition: all 0.3s var(--ease); 
 	background: rgba(0, 0, 0, 0.15);
@@ -97,9 +97,7 @@ input[type="submit"] {
 font-size: var(--text-xl);
 }
 
-.button--medium {
-	
-}
+
 
 .button--small {
 	padding: var(--spacing-s) var(--spacing-s);

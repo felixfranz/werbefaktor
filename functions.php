@@ -635,3 +635,260 @@ function custom_search_excerpt($excerpt) {
 
     return wp_trim_words(wp_strip_all_tags($excerpt), 20);
 }
+
+// Glossar custom post type
+function register_glossar_cpt() {
+
+    register_post_type('glossar', [
+        'labels' => [
+            'name'          => 'Glossar',
+            'singular_name' => 'Glossar Eintrag',
+            'add_new_item'  => 'Glossar Eintrag hinzufügen',
+            'edit_item'     => 'Glossar Eintrag bearbeiten',
+            'new_item'      => 'Neuer Glossar Eintrag',
+            'view_item'     => 'Glossar Eintrag ansehen',
+        ],
+
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_rest'       => true,
+
+        'has_archive' => false,
+
+        // Important: we create the URLs ourselves.
+        'rewrite' => false,
+
+        'query_var' => false,
+
+        'supports' => [
+            'title',
+            'editor',
+            'thumbnail',
+            'excerpt',
+        ],
+    ]);
+}
+
+add_action('init', 'register_glossar_cpt');
+
+define('GLOSSAR_PAGE_ID', 3400); // ID of the original/default-language Glossar page.
+
+function glossar_add_rewrite_rules() {
+
+    $glossar_page_id = GLOSSAR_PAGE_ID;
+
+    /*
+     * Get all active WPML languages.
+     */
+    $languages = apply_filters(
+        'wpml_active_languages',
+        null,
+        [
+            'skip_missing' => 0,
+        ]
+    );
+
+    if (empty($languages)) {
+        return;
+    }
+
+    foreach ($languages as $language) {
+
+        $language_code = $language['code'];
+
+        /*
+         * Get the Glossar page translated into this language.
+         */
+        $translated_glossar_id = apply_filters(
+            'wpml_object_id',
+            $glossar_page_id,
+            'page',
+            true,
+            $language_code
+        );
+
+        if (!$translated_glossar_id) {
+            continue;
+        }
+
+        /*
+         * Get the actual permalink of the translated Glossar page.
+         *
+         * Example:
+         *
+         * /produktion/glossar/
+         * /production/glossary/
+         */
+        $glossar_url = get_permalink($translated_glossar_id);
+
+        if (!$glossar_url) {
+            continue;
+        }
+
+        /*
+         * Extract the URL path.
+         */
+        $path = parse_url($glossar_url, PHP_URL_PATH);
+
+        $path = trim($path, '/');
+
+        if (!$path) {
+            continue;
+        }
+
+        /*
+         * Create:
+         *
+         * /produktion/glossar/foo/
+         *
+         * /production/glossary/foo/
+         */
+        add_rewrite_rule(
+            '^' . preg_quote($path, '#') . '/([^/]+)/?$',
+            'index.php?glossar_entry=$matches[1]&glossar_language=' . $language_code,
+            'top'
+        );
+    }
+}
+
+add_action('init', 'glossar_add_rewrite_rules', 20);
+
+function glossar_query_vars($vars) {
+
+    $vars[] = 'glossar_entry';
+    $vars[] = 'glossar_language';
+
+    return $vars;
+}
+
+add_filter('query_vars', 'glossar_query_vars');
+
+function glossar_resolve_request($wp) {
+
+    if (empty($wp->query_vars['glossar_entry'])) {
+        return;
+    }
+
+    $slug = sanitize_title(
+        $wp->query_vars['glossar_entry']
+    );
+
+    $language = !empty($wp->query_vars['glossar_language'])
+        ? sanitize_key($wp->query_vars['glossar_language'])
+        : apply_filters('wpml_current_language', null);
+
+    /*
+     * Find the Glossar entry by slug.
+     */
+    $posts = get_posts([
+        'post_type'        => 'glossar',
+        'name'             => $slug,
+        'post_status'      => 'publish',
+        'posts_per_page'   => 1,
+        'suppress_filters' => false,
+    ]);
+
+    if (empty($posts)) {
+        return;
+    }
+
+    $post = $posts[0];
+
+    /*
+     * Make sure this post belongs to the requested language.
+     */
+    $post_language = apply_filters(
+        'wpml_element_language_code',
+        null,
+        [
+            'element_id'   => $post->ID,
+            'element_type' => 'post_glossar',
+        ]
+    );
+
+    if ($post_language !== $language) {
+        return;
+    }
+
+    /*
+     * Tell WordPress which post to load.
+     */
+    $wp->query_vars = [
+        'p'         => $post->ID,
+        'post_type' => 'glossar',
+    ];
+}
+
+add_action('parse_request', 'glossar_resolve_request');
+
+function glossar_post_type_link(
+    $post_link,
+    $post,
+    $leavename,
+    $sample
+) {
+
+    if ($post->post_type !== 'glossar') {
+        return $post_link;
+    }
+
+    /*
+     * Get the language of this Glossar entry.
+     */
+    $language = apply_filters(
+        'wpml_element_language_code',
+        null,
+        [
+            'element_id'   => $post->ID,
+            'element_type' => 'post_glossar',
+        ]
+    );
+
+    if (!$language) {
+        return $post_link;
+    }
+
+    /*
+     * Get the original/default Glossar page.
+     */
+    $glossar_page_id = GLOSSAR_PAGE_ID;
+
+    /*
+     * Get the Glossar page in the same language
+     * as the CPT entry.
+     */
+    $translated_glossar_id = apply_filters(
+        'wpml_object_id',
+        $glossar_page_id,
+        'page',
+        true,
+        $language
+    );
+
+    if (!$translated_glossar_id) {
+        return $post_link;
+    }
+
+    /*
+     * Get the actual translated Glossar URL.
+     */
+    $glossar_url = get_permalink($translated_glossar_id);
+
+    if (!$glossar_url) {
+        return $post_link;
+    }
+
+    /*
+     * Add the CPT slug.
+     */
+    return trailingslashit($glossar_url) . $post->post_name . '/';
+}
+
+add_filter(
+    'post_type_link',
+    'glossar_post_type_link',
+    10,
+    4
+);

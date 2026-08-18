@@ -1,7 +1,7 @@
 @media only screen and (min-width: 768px) {
 
 
-
+// GRID
     .subcategory-grid,
         .products-grid {
             grid-template-columns: repeat(3, 1fr);
@@ -60,6 +60,20 @@
         .header__content {
             width: 50%;
         }
+    }
+}
+
+.button{
+    width: auto;
+}
+
+.filter{
+    top:150px;
+}
+
+.body--scrolled {
+    .filter {
+        top: 90px;
     }
 }
     

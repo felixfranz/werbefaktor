@@ -1383,7 +1383,7 @@ BREADCRUMBS
 //////////////////////
 // PRODUCT SINGLE
 //////////////////////
-/// 
+
 
 .single-product .site-main{
     padding: var(--spacing-xl) 0;
@@ -1533,6 +1533,43 @@ BREADCRUMBS
     }
 }
 
+//////////////////////
+// GLOSSARY
+//////////////////////
+
+.glossar-container{
+display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.glossar-range{
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    background: var(--colors-Gray-100);
+    border-radius: 8px;
+    padding: var(--spacing-l);
+    .glossar-list{
+        font-size: var(--text-xl);
+        color: var(--colors-Gray-700);
+        display: flex;
+        gap: var(--spacing-s);
+        flex-direction: column;
+    }
+    .glossar-item{
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+        a{
+            text-decoration: none;
+            font-size: var(--text-m);
+            &:hover{
+                color: var(--colors-Blue-700);
+            }
+        }
+    }
+}
 
 
 //////////////////////
@@ -1949,6 +1986,7 @@ BREADCRUMBS
         &:hover {
             .details-link {
                 opacity: 1;
+                transform: translate(-50%, 0px);
             }
 
             .product-card__image-container {
@@ -2000,7 +2038,7 @@ BREADCRUMBS
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -10px);
     background: var(--colors-Green-300);
     padding: 5px 13px;
     border-radius: 5px;
@@ -2008,6 +2046,9 @@ BREADCRUMBS
     color: white;
     opacity: 0;
     transition: all 0.2s ease;
+    &:hover{
+        background: var(--colors-Green-200);
+    }
 }
 
 ////
@@ -2017,11 +2058,11 @@ BREADCRUMBS
 
 .filter{
     position: sticky;
-    top: 150px;
-            background-color: var(--colors-Gray-50);
-                background: RGBA(255, 255, 255, 1);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
+    top: 80px;
+    background-color: var(--colors-Gray-50);
+    background: RGBA(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: var(--spacing-s);
     z-index: 5;
     transition: all 0.5s var(--ease);
@@ -2048,7 +2089,7 @@ BREADCRUMBS
 
 .body--scrolled{
     .filter{
-        top: 90px;
+        top: 40px;
     }
 }
 

@@ -354,7 +354,7 @@ input[type=submit]:focus {
   z-index: 1;
   position: relative;
   flex-basis: auto;
-  width: auto;
+  width: 100%;
   align-self: flex-start;
   transition: all 0.3s var(--ease);
   background: rgba(0, 0, 0, 0.15);
@@ -1029,6 +1029,41 @@ html {
   background: var(--colors-Blue-400);
 }
 
+.page-overlay .search-container {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.page-overlay .search-container .search-wrapper {
+  max-width: 100%;
+}
+.page-overlay .search-container .search-field {
+  width: 100%;
+  border: none;
+  border-bottom: var(--colors-Gray-200) d 1px solid;
+  padding-left: 2.5%;
+}
+
+.mobile-menu-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--spacing-m) 2.5%;
+  border-top: 1px solid var(--colors-Gray-200);
+  list-style: none;
+}
+.mobile-menu-bottom li {
+  width: 50%;
+}
+.mobile-menu-bottom li a {
+  display: flex;
+  align-items: flex-start;
+  padding: 4px 0;
+  text-decoration: none;
+  font-size: var(--text-s);
+  color: var(--colors-Gray-700);
+}
+
 .page-overlay .page-overlay__container {
   display: flex;
   flex-wrap: wrap;
@@ -1077,29 +1112,13 @@ html {
   background: var(--colors-Gray-100);
   color: black;
 }
-.page-overlay nav .wpml-ls-item {
-  display: inline;
-  float: left;
-  padding: 0 10px 0 0;
-}
-.page-overlay nav .wpml-ls-item a {
-  border-radius: 16px;
-  font-size: 18px;
-}
-.page-overlay nav .wpml-ls-item a:hover {
-  color: var(--pink);
-}
-.page-overlay nav .wpml-ls-item-en {
-  display: inline;
-  float: left;
-}
-.page-overlay nav .wpml-ls-item-en::before {
-  content: "|";
-  display: inline;
-  float: left;
-  padding-top: 10px;
-  margin-right: 10px;
-  color: white;
+.page-overlay .mobile-search-link {
+  display: block;
+  text-align: left;
+  padding: 10px 2.5%;
+  font-size: var(--font-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--colors-Gray-200);
 }
 
 /* end .nav */
@@ -1161,12 +1180,16 @@ html {
 .overlay__header .overlay__header-buttons > span {
   height: 40px;
   width: 50px;
-  background: var(--colors-Gray-300);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .overlay__header .overlay__header-buttons > span a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: white;
 }
@@ -2688,6 +2711,40 @@ BREADCRUMBS
   --tag-color: var(--colors-Purple-500);
 }
 
+.glossar-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.glossar-range {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  background: var(--colors-Gray-100);
+  border-radius: 8px;
+  padding: var(--spacing-l);
+}
+.glossar-range .glossar-list {
+  font-size: var(--text-xl);
+  color: var(--colors-Gray-700);
+  display: flex;
+  gap: var(--spacing-s);
+  flex-direction: column;
+}
+.glossar-range .glossar-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+}
+.glossar-range .glossar-item a {
+  text-decoration: none;
+  font-size: var(--text-m);
+}
+.glossar-range .glossar-item a:hover {
+  color: var(--colors-Blue-700);
+}
+
 .site-footer {
   background: var(--colors-Blue-900);
   width: 100vw;
@@ -3042,6 +3099,7 @@ BREADCRUMBS
 }
 .product-card a:hover .details-link {
   opacity: 1;
+  transform: translate(-50%, 0px);
 }
 .product-card a:hover .product-card__image-container {
   background: black;
@@ -3084,7 +3142,7 @@ BREADCRUMBS
   position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -10px);
   background: var(--colors-Green-300);
   padding: 5px 13px;
   border-radius: 5px;
@@ -3093,10 +3151,13 @@ BREADCRUMBS
   opacity: 0;
   transition: all 0.2s ease;
 }
+.details-link:hover {
+  background: var(--colors-Green-200);
+}
 
 .filter {
   position: sticky;
-  top: 150px;
+  top: 80px;
   background-color: var(--colors-Gray-50);
   background: RGBA(255, 255, 255, 1);
   backdrop-filter: blur(20px);
@@ -3126,7 +3187,7 @@ BREADCRUMBS
 }
 
 .body--scrolled .filter {
-  top: 90px;
+  top: 40px;
 }
 
 .post-list {
@@ -3243,6 +3304,15 @@ TABLET & SMALLER LAPTOPS
   }
   .flexible_header.header--image_50 .header__content {
     width: 50%;
+  }
+  .button {
+    width: auto;
+  }
+  .filter {
+    top: 150px;
+  }
+  .body--scrolled .filter {
+    top: 90px;
   }
 }
 /*********************

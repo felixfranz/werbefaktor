@@ -44,8 +44,31 @@
 				)
 			);
 			?>
+			<!-- <a class="mobile-search-link" href="#">Suche</a> -->
 
 			</nav>
+			<div class="search-container">
+			<form role="search" method="get" class="search-form" action="/">
+    			<div class="search-wrapper">
+					<input type="search" class="search-field" placeholder="Suchen..." name="s">
+					<button type="submit" class="search-submit"><span></span></button>
+				</div>
+			</form>
+		</div>
+
+			<nav class="mobile-menu page-overlay__mobile-menu">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-header-top',
+					'menu_class'           => 'mobile-menu-bottom',
+					'container'            => 'div',
+					'container_class'      => 'mobile-menu-bottom__container',
+				)
+			);
+			?>
+
+		</nav><!-- .main-navigation -->
 
 	</div>	
 
