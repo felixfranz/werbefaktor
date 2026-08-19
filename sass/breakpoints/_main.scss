@@ -517,7 +517,7 @@ section.bg-light-gray{
     margin-bottom: var(--negative-spacing);
 }
 
-.related_products{
+section + .related_products{
     margin-top: var(--negative-spacing);
 }
 
@@ -1535,6 +1535,9 @@ BREADCRUMBS
     &.section-tag--pink {
         --tag-color: var(--colors-Purple-500);
     }
+        &.section-tag--blue {
+            --tag-color: var(--colors-Blue-500);
+        }
 }
 
 //////////////////////

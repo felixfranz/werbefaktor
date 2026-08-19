@@ -8,7 +8,7 @@ if( get_row_layout() == 'section_products_grid' ):
 
 
 if( $product_selection ): ?>
-			<section class="related_products  flex flex-col gap-m">
+			<section class="products-grid-container  flex flex-col gap-m">
 
 				<div class="products-grid products-grid-4">
 				<?php foreach( $product_selection as $post ): 

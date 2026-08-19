@@ -278,7 +278,7 @@ if(have_rows('varianten')) :
 			if( $related_products ): ?>
 			<section class="related_products section-with-tag flex flex-col gap-m">
 
-			<div class="section-tag section-tag--pink"><span>Für Sie</span></div>
+			<div class="section-tag section-tag--blue"><span>Für Sie</span></div>
 
 			<h3 class="section-title">Für Sie empfohlene Produkte</h3>
 				<div class="products-grid products-grid-4">

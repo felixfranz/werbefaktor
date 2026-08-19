@@ -16,7 +16,7 @@ if( get_row_layout() == 'section_new_products' ):
 
 
 if( $product_selection ): ?>
-			<section class="related_products section-with-tag flex flex-col gap-m">
+			<section class="products-grid-container section-with-tag flex flex-col gap-m">
 
 			<div class="section-tag section-tag--<?php echo $tag_color;?>"><span><?php echo($tag_text); ?></span></div>
 

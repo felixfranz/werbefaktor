@@ -25,10 +25,10 @@ get_header();
 
                 <header class="glossar-entry-header">
 
-                    <h1>
-						TEST
+                    <h2>
+					
                         <?php the_title(); ?>
-                    </h1>
+                    </h2>
 
                 </header>
 

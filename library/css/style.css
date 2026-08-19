@@ -340,7 +340,7 @@ input[type=submit]:focus {
   border-color: var(--color__border-button-focus);
 }
 
-.button {
+.button, input[type=submit] {
   border-radius: 8px;
   min-width: 200px;
   padding: 12px 16px;
@@ -359,8 +359,20 @@ input[type=submit]:focus {
   transition: all 0.3s var(--ease);
   background: rgba(0, 0, 0, 0.15);
 }
-.button:hover {
+.button:hover, input[type=submit]:hover {
   color: inherit;
+}
+
+input[type=submit] {
+  background: var(--colors-Blue-500);
+}
+input[type=submit]:hover {
+  background: var(--colors-Blue-700);
+  color: white;
+}
+input[type=submit]:active {
+  background: var(--colors-Blue-400);
+  color: white;
 }
 
 .button.green_outline {
@@ -470,6 +482,14 @@ button:disabled, button:disabled:hover {
 }
 .page-content .search-form .search-submit:active {
   background: var(--colors-Blue-400);
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 0 0 1em;
+  padding: 10px;
+  font-size: var(--text-m);
+  border: 2px solid #00a0d2;
+  border-radius: 8px;
 }
 
 input[type=text],
@@ -1855,7 +1875,7 @@ section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   margin-bottom: var(--negative-spacing);
 }
 
-.related_products {
+section + .related_products {
   margin-top: var(--negative-spacing);
 }
 
@@ -2713,6 +2733,9 @@ BREADCRUMBS
 }
 .section-tag.section-tag--pink {
   --tag-color: var(--colors-Purple-500);
+}
+.section-tag.section-tag--blue {
+  --tag-color: var(--colors-Blue-500);
 }
 
 .glossar-container {

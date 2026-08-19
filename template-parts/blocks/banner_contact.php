@@ -13,9 +13,9 @@ if( get_row_layout() == 'banner_contact' ):
 
 
         ?>
-       <section class="related_products section-with-tag flex flex-col gap-m">
+       <section class="banner_contact section-with-tag flex flex-col gap-m">
 
-			<div class="section-tag section-tag--pink"><span><?php echo($tag_text); ?></span></div>
+			<div class="section-tag section-tag--blue"><span><?php echo($tag_text); ?></span></div>
             <div class="inner-wrap flex flex-col col-66 wrap">
                 <div class="flex flex-col">
                     <?php  echo '<h3>' . $teaser_headline . '</h3>'; ?>
