@@ -19,7 +19,7 @@ $ranges = [
 ];
 
 $query = new WP_Query([
-    'post_type'        => 'glossar',
+    'post_type'        => 'glossar_item',
     'posts_per_page'   => -1,
     'orderby'          => 'title',
     'order'            => 'ASC',
