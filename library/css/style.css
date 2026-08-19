@@ -357,7 +357,7 @@ input[type=submit]:focus {
   width: 100%;
   align-self: flex-start;
   transition: all 0.3s var(--ease);
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.1);
 }
 .button:hover, input[type=submit]:hover {
   color: inherit;
@@ -801,6 +801,8 @@ html {
   font-size: var(--font-text);
   font-weight: 500;
   transition: all 0.3s var(--ease);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .main-navigation ul.main-navigation__menu > li > a::after {
   content: "";
@@ -1009,11 +1011,14 @@ html {
   max-width: 400px;
 }
 
-.search-field {
+input[type=search].search-field {
   flex: 1;
   padding: 12px 15px;
   border-right: none;
-  border-radius: 0 !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0;
   outline: none;
 }
 
@@ -1031,6 +1036,10 @@ html {
   justify-content: center;
   font-size: 16px;
   transition: background 0.3s ease;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 5px;
 }
 .search-submit span {
   display: inline-block;
@@ -2966,6 +2975,16 @@ BREADCRUMBS
 .subcategory-card .button, .product-card .button, .post-card .button {
   align-self: auto;
 }
+.subcategory-card .button span, .product-card .button span, .post-card .button span {
+  opacity: 0;
+  transition: all 0.2s var(--ease);
+  transform: translateX(-10px);
+  margin-left: 5px;
+}
+.subcategory-card .button:hover span, .product-card .button:hover span, .post-card .button:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 .subcategory-slider {
   aspect-ratio: 4/3;
@@ -3210,6 +3229,7 @@ BREADCRUMBS
 }
 .filter-button.mixitup-control-active {
   background: var(--colors-Purple-700);
+  background: var(--colors-Gray-500);
   color: white;
 }
 

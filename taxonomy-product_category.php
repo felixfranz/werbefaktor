@@ -146,7 +146,7 @@ if ($current_term->parent) {
                         <a class="subcategory-button button button--subtle button--small"
                             href="<?php echo esc_url($term_link); ?>"
                         >
-                            Zu den Produkten › 
+                            Zu den Produkten <span>›</span> 
                         </a>
 
                     </div>

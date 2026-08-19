@@ -1812,6 +1812,16 @@ display: grid;
 
     .button{
         align-self: auto;
+        span{
+            opacity: 0;
+            transition: all 0.2s var(--ease);
+            transform: translateX(-10px);
+            margin-left: 5px;
+        }
+        &:hover span{
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 }
 
@@ -1915,6 +1925,7 @@ display: grid;
 .subcategory-slider .swiper-pagination-bullet-active {
    background: var(--colors-Gray-500);
 }
+
 
 
 // LOGO GRID
@@ -2090,7 +2101,9 @@ display: grid;
     }
     &.mixitup-control-active{
         background: var(--colors-Purple-700);
+        background: var(--colors-Gray-500);;
         color: white;
+
     }
 }
 
