@@ -3425,6 +3425,11 @@ DESKTOP
   .body--scrolled .bottom-header {
     height: 52px;
     padding: 0px 0 0;
+    border: none;
+  }
+  .body--scrolled .main-navigation ul.main-navigation__menu > li > a {
+    border-bottom: none;
+    top: 2px;
   }
   .body--scrolled .logo {
     margin-top: 8px;

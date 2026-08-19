@@ -83,6 +83,12 @@ transition: height 0.4s var(--ease);
     .bottom-header{
         height: 52px;
         padding: 0px 0 0;
+        border:none;
+    }
+
+    .main-navigation ul.main-navigation__menu>li>a{
+        border-bottom: none;
+        top: 2px;
     }
 
     .logo {
