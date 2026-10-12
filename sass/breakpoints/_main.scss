@@ -968,43 +968,48 @@ color: white;
 
 .single-project{
     .flexible_header{
-        --highlight-color: var(--colors-Purple-500)
+        --highlight-color: var(--colors-Purple-500);  
+
+        &.header--image_full .subheadline {
+                color: white;
+            }
     }
 }
 
 .flexible_header{
-    padding: var(--spacing-xl) 0 var(--spacing-2xl);
-    --highlight-color: var(--colors-Green-300);
+        padding: var(--spacing-xl) 0 var(--spacing-2xl);
+       --highlight-color: var(--colors-Green-300);
 
-    .subheadline{
-        color: var(--highlight-color);
-        font-size: var(--text-m);
-        max-width: 65ch;
-    }
-
-    &.header--text_center, &.header--text_left{
-    position: relative;
-   
-    &::after{
-        width: 100vw;
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        content: '';
-        transform: translateX(-50%);
-        border-bottom: 8px solid var(--highlight-color);
+        .subheadline{
+            color: var(--highlight-color);
+            font-size: var(--text-m);
+            max-width: 65ch;
         }
-    }
+
+        &.header--text_center, &.header--text_left{
+        position: relative;
+   
+        &::after{
+            width: 100vw;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            content: '';
+            transform: translateX(-50%);
+            border-bottom: 8px solid var(--highlight-color);
+            }
+        }
     
-   &.header--text_left{
-    .scroll_down{
-        display: none;
-    }
-   } 
+        &.header--text_left{
+            .scroll_down{
+                display: none;
+            }
+        } 
 
 
-&.header--text_center, &.header--image_full{
-    justify-content: center;
+    &.header--text_center, &.header--image_full{
+        justify-content: center;
+
     &>div{
         position: relative;
         text-align: center;
@@ -1337,9 +1342,12 @@ ABFOLGE & Abfolge Small
             &.bg-green{
                 background: var(--gradient-green);
             }
-        &.bg-purple {
-            background: var(--gradient-purple);
-        }
+            &.bg-purple {
+                background: var(--gradient-purple);
+            }
+            &.bg-brown {
+                background: var(--gradient-brown);
+            }
         }
     }
 }
@@ -1578,6 +1586,14 @@ display: grid;
     }
 }
 
+.single-glossar_item{
+    h1{
+        font-size: var(--headline-l);
+    }
+    h2{
+        font-size: var(--headline-m);
+    }
+}
 
 //////////////////////
 ///////// FOOOTER
@@ -1934,6 +1950,7 @@ display: grid;
     .clients-banner-inner{
         border-top: 1px solid var(--colors-Gray-300);
         border-bottom: 1px solid var(--colors-Gray-300);
+        border-left:1px solid var(--colors-Gray-300);
         .col-33{
             flex:0 0 100%;
             border-bottom: 1px solid var(--colors-Gray-300);
@@ -1962,6 +1979,10 @@ display: grid;
     .grid-item{
         background: #fff;
         padding: 20px;
+        justify-content: center;
+        img{
+            align-self: center;
+        }
     }
 }
 
@@ -2134,14 +2155,37 @@ display: grid;
 ///////
 /// SEARCH
 /// 
-.search-result{
-    a{
-        color: var(--colors-Blue-500);
-        &:hover{
-            color:var(--colors-Blue-700)
-        }
+
+.tag{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    padding: 5px;
+    font-size: var(--text-xs);
+    border-top-left-radius: 5px;
+    &.tag_product{
+        background: var(--colors-Blue-500);
+        color: white;
+    }
+    &.tag_page, &.tag_glossar_item {
+        background: var(--colors-Green-300);
+    }
+
+    &.tag_project {
+        background: var(--colors-Purple-500);
+        color: white;
+    }
+    &.tag_project {
+        background: var(--colors-Purple-500);
+        color: white;
     }
 }
+
+.product-card a:hover .tag{
+    opacity: 0.3;
+}
+
 
 ///////
 /// ANIMATE ON SCROLL  
@@ -2164,11 +2208,11 @@ display: grid;
 #slb_viewer_wrap{
     #slb_viewer_slb_default{
         
-         .slb_data_title,
-            .slb_group_status{
-                font-family: var(--font-text-regular);
-                font-size: var(--text-m);
-            }
+        .slb_data_title,
+        .slb_group_status{
+            font-family: var(--font-text-regular);
+            font-size: var(--text-m);
+        }
     }
 }
 
@@ -2186,3 +2230,35 @@ display: grid;
         grid-template-columns: 1fr;
     }
 }
+
+// EXPERIMENTAL OVERRIDES
+.sub-menu-container{
+    border: 1px solid var(--colors-Gray-300);
+}
+
+.main-navigation ul.main-navigation__menu>li .sub-menu-container .mega-menu-sidebar{
+    background: var(--colors-Gray-100);
+    p{
+        color: var(--colors-Blue-950);
+        margin-top: 5px;
+    }
+    .parent-category-link{
+        border-top: 1px solid var(--colors-Gray-400);
+    a{
+        color: var(--colors-Blue-950);
+        font-weight: 500;
+        &:hover{
+            color: var(--colors-Blue-500)
+        }
+        &::after{
+            content:'›';
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            transform: translateY(-5px);
+            background: url(../images/icons/icon-arrow-black.svg) center center / 12px 12px no-repeat;
+        }
+    }
+    }
+}
+

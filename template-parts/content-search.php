@@ -9,15 +9,45 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+<?php 
+$the_id		= get_the_id();
+$post_type =  get_post_type_object(get_post_type( $the_id )); 
+$post_type_slug = get_post_type( $the_id ); 
+$post_type_name =  $post_type->labels->singular_name;
+if($post_type_slug == "page"){
+	$post_type_name = "Information";
+}
 
-	</header><!-- .entry-header -->
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class('product-card flex flex-col gap-m'); ?>>
+
+	<a href="<?php the_permalink(); ?>" class="flex flex-col gap-s">
 
 
-	<div class="entry-summary">
-		<p><?php echo get_the_excerpt(); ?></p>
-	</div><!-- .entry-summary -->
+			<div class="product-card__image-container">
+					<?php if (has_post_thumbnail()) : ?>
+						<?php the_post_thumbnail('medium'); ?>
+					
+					
+						<?php else :  ?>
+						<div class="image-placeholder">
 
-</article><!-- #post-<?php the_ID(); ?> -->
+						</div>
+					
+						<?php endif; ?>
+					<div class="details-link text--small">Details</div>  
+					<div class="tag tag_<?php echo($post_type_slug); ?>">
+							<?php echo($post_type_name); ?>
+					</div>
+					
+			</div>
+		
+		<div class="product-card__content flex flex-col gap-s">
+			<h2><?php the_title(); ?> <?php echo($post_type_name); ?></h2>
+			<p class="text--small product-card__description"><?php // echo get_the_excerpt(); ?></p>
+		</div>
+		
+	</a>
+
+</article> <!-- #post-<?php the_ID(); ?> -->

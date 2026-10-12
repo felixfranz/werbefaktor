@@ -4,10 +4,11 @@
 if( get_row_layout() == 'banner_clients' ): 
  $headline = get_sub_field('banner_text');
  $gallery = get_sub_field('client_logos');
+// $gallery = array_slice($gallery, 0, 6);
 ?>
 
 
-        <section class="content-section clients-banner flex fullwidth  ">
+        <section class="content-section clients-banner flex">
             
             <div class="flex flex-row clients-banner-inner">
                 

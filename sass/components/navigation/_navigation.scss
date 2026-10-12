@@ -185,29 +185,29 @@
 
 		}
 
-		ul,
 		ul {
+
 			display: grid;
 			grid-template-columns: repeat(3, minmax(180px, 1fr));
-			gap: 0;
-			
+			align-self: flex-start;
+			gap: 1px;
 			margin: 0;
 			padding: var(--spacing-m) var(--spacing-m) var(--spacing-m) 0 ;
 			list-style: none;
 
 			a {
 				font-size: var(--text-s);
-					display: block;
-					padding: 6px 18px;
-					border-radius: 18px;
-					text-decoration: none;
-					color: inherit;
-					transition: opacity 0.2s ease;
-					&:hover{
-						background: var(--colors-Gray-100);
-					}
+				display: block;
+				padding: 6px 18px;
+				border-radius: 18px;
+				text-decoration: none;
+				color: inherit;
+				transition: opacity 0.2s ease;
+				&:hover{
+					background: var(--colors-Gray-100);
 				}
-	
+			}
+
 
 			/* highlight sub-menu current page */
 			li.current-menu-item,

@@ -23,27 +23,26 @@ get_header();
 				</h2>
 			</header><!-- .page-header -->
 
-			<div class="search-result flex flex-col gap-s">
+			<section class="search-result products-grid-container  flex flex-col gap-m">
+				
+			<div class="products-grid products-grid-4">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
 				get_template_part( 'template-parts/content', 'search' );
 
 			endwhile;
+			
+			echo '</div>';
 
 			the_posts_navigation();
 
 	
-echo paginate_links([
-    'total' => $wp_query->max_num_pages,
-]);
+			echo paginate_links([
+				'total' => $wp_query->max_num_pages,
+			]);
 
 
 		else :
@@ -52,7 +51,7 @@ echo paginate_links([
 
 		endif;
 		?>
-</div>
+</section>
 	</main><!-- #main -->
 
 <?php
