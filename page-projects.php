@@ -21,7 +21,7 @@ get_header();
 
 ?>
 
-  <div class="filter flex flex-row gap-s">
+  <div class="filter flex flex-row gap-xs">
 						
 							<button class="filter-button" type="button" data-filter="all" class="mixitup-control-active"><?php echo _e('Alle Projekte', 'werbefaktor')?></button>
 <?php 
@@ -50,12 +50,12 @@ $args = array(
 $child_query = new WP_Query( $args );
 
 if ( $child_query->have_posts() ) : 
-    echo '<section class="flex flex-col post-list projects-list">';
+    echo '<section class="flex flex-col gap-m post-list projects-list">';
     while ( $child_query->have_posts() ) : $child_query->the_post(); 
     $preview_text = get_field("preview_text");
     $terms = get_the_terms( get_the_ID(), 'project-category' );
     ?>
-        <article class="flex flex-row post-preview gap-m mix <?php
+        <article class="flex flex-col post-preview gap-s mix <?php
 						
 						// Projekt Kategorien als Klassen reinschreiben
 						if ( $terms && ! is_wp_error( $terms ) ) : 
@@ -84,7 +84,7 @@ if ( $child_query->have_posts() ) :
 								endif;
 						
 						?>">
-          <div class="preview-image col-33">
+          <div class="preview-image">
             <?php if (has_post_thumbnail()) : ?>
                     <?php the_post_thumbnail('large'); ?>
                   
@@ -96,7 +96,7 @@ if ( $child_query->have_posts() ) :
                 
                     <?php endif; ?>
           </div>
-            <div class="preview-text col-66 flex flex-col gap-s">
+            <div class="preview-text flex flex-col gap-s">
                 <h3><?php the_title(); ?></h3>
                 <div>
 

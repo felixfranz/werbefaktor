@@ -8,6 +8,7 @@ if( get_row_layout() == 'flexible_header' ):
         $variant = get_sub_field('variant');
         $headline = get_sub_field('headline');
         $subheadline = get_sub_field('subheadline');
+        $subheadline_color_override = get_sub_field('subheadline_color_override');
         $text = get_sub_field('text');
         
         $image = '';
@@ -45,7 +46,7 @@ if( get_row_layout() == 'flexible_header' ):
                     <?php } ?>
 
                     <?php if ($subheadline) {
-                        echo '<h3 class="subheadline">'.$subheadline.'</h3>';
+                        echo '<h3 class="subheadline '.$subheadline_color_override.'">'.$subheadline.'</h3>';
                     } ?>
 
                     <?php if($text) { ?>

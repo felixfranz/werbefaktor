@@ -65,7 +65,7 @@
 
 			<div class="logo header__logo">
 			
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> <span>werbe</span>faktor </a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> <h1>werbefaktor</h1></a>
 
 			</div><!-- .site-branding -->
 

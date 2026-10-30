@@ -8,19 +8,7 @@
         max-width: 1240px;
     }
 
-/////// LOGO
-.logo {
-    font-size: 34px;
-    width: 200px;
 
-    a {
-
-        &:hover {
-            color: var(--colors-Blue-500);
-        }
-
-    }
-}
 
         .page-overlay {
             display: none
@@ -92,8 +80,7 @@ transition: height 0.4s var(--ease);
     }
 
     .logo {
-        margin-top: 8px;
-        font-size: 24px;
+
         a{
             transform: translateY(0px);
         }
@@ -145,6 +132,7 @@ LAYOUT & GRID STYLES
   .md\:col-66,
   .col-66 {
       width: 66%;
+      flex-basis: 66%;;
   }
 
   .md\:col-33,
@@ -311,10 +299,8 @@ LAYOUT & GRID STYLES
 
 }
 
-@media (width <=1089px) and (width >= 1025px) {
-    .logo {
-        font-size: 20px;
-        width: 135px;
-        margin-top: 8px;
+@media (width <=1150px) and (width >= 1025px) {
+    .main-navigation ul.main-navigation__menu>li>a{
+        padding: 6px 12px;
     }
 }

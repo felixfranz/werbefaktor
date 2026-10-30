@@ -668,7 +668,7 @@ function custom_search_excerpt($excerpt) {
  * ------------------------------------------------------------
  */
 
-define('MY_GLOSSAR_PAGE_ID', 3400);
+define('MY_GLOSSAR_PAGE_ID', 2403);
 
 
 /**
@@ -959,3 +959,34 @@ add_filter(
     4
 );
 
+////////////////////////////
+// SORT SEARCH BY POST TYPE
+////////////////////////////
+
+
+function mytheme_custom_search_post_type_order( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
+        return;
+    }
+
+    add_filter( 'posts_orderby', 'mytheme_search_post_type_orderby', 10, 2 );
+}
+
+function mytheme_search_post_type_orderby( $orderby, $query ) {
+    if ( ! $query->is_search() || ! $query->is_main_query() ) {
+        return $orderby;
+    }
+
+    global $wpdb;
+
+    return "
+        CASE {$wpdb->posts}.post_type
+            WHEN 'product' THEN 1
+            WHEN 'project' THEN 2
+            WHEN 'page' THEN 3
+            ELSE 4
+        END ASC,
+        {$wpdb->posts}.post_title ASC
+    ";
+}
+add_action( 'pre_get_posts', 'mytheme_custom_search_post_type_order' );

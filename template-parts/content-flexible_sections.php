@@ -38,6 +38,9 @@ if( have_rows('page_sections') ):
 		// Case: Hero Products
 		include("blocks/hero_products.php");
 
+		// Case: Hero Slider
+		include("blocks/hero_products_slider.php");
+
 		// Case: Banner Grün
 		include("blocks/banner_green.php");
 

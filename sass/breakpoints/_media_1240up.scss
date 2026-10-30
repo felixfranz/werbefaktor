@@ -20,6 +20,31 @@
             }
         }
 
+        /////// LOGO
+        .logo {
+            height: 27px;
+    
+            a {
+    
+                height: 27px;
+                width: 186px;
+                text-decoration: none;
+                display: inline-block;
+                background: url("../images/svg/logo-sprite.svg") 0 0 / 186px no-repeat;
+                overflow: hidden;
+    
+                &:hover {
+                    background-position: 0 -26.5px;
+                }
+    
+    
+                &:active {
+                    background-position: 0 -53px;
+                }
+    
+            }
+        }
+
 
     /// OVERLAY
     /// 

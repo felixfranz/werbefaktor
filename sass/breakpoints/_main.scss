@@ -106,7 +106,7 @@ p+p{
 
 .text, .preview-text{
     p, h2, h3, h4{
-        &+p, &+ul{
+        &+p, &+ul, &+.wpcf7{
             margin-top: var(--spacing-l);
         }
 
@@ -115,6 +115,10 @@ p+p{
         &+h4 {
             margin-top: var(--spacing-xl);
         }
+    }
+
+    h3+p{
+        margin-top: var(--spacing-s);
     }
 }
 
@@ -197,19 +201,32 @@ LAYOUT & GRID STYLES
 /////// LOGO
 .logo{
     z-index: 20;
-    font-size: 18px;
-    line-height: 1;
     margin-top:0;
+    height: 19px;
+    align-self: center;
     a{
+        height: 19px;
+        width: 138px;
         text-decoration: none;
         display: inline-block;
-     
-        span{
-            font-weight: 600;
+        background:  url("../images/svg/logo-sprite.svg") 0 0 / 135.49px no-repeat;
+        overflow: hidden;
+
+        &:hover {
+            background-position: 0 -19.5px;
         }
+        
+        
         &:active {
-            color: var(--colors-Blue-700);
+            background-position: 0 -39px;
         }
+    
+        h1{
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+
     }
 }
 
@@ -521,6 +538,11 @@ section + .related_products{
     margin-top: var(--negative-spacing);
 }
 
+.content-section + .products-grid-container{
+    margin-top: var(--negative-spacing);
+    padding-top: 0;
+}
+
 // FULLWIDTH IMAGE WITH BLACK
 .fullwidth{
     .image-container{
@@ -786,6 +808,11 @@ color: white;
 //////////////////////
 /// 
 
+.hero-slider{
+    width:100%;
+    position: relative;
+}
+
 .hero_product{
     .section-tag{
         background: rgba(255, 255, 255, .25);
@@ -984,6 +1011,12 @@ color: white;
             color: var(--highlight-color);
             font-size: var(--text-m);
             max-width: 65ch;
+            &.black{
+                color: var(--colors-Blue-950);
+            }
+            &.white{
+                color: white;
+            }
         }
 
         &.header--text_center, &.header--text_left{
@@ -2103,30 +2136,47 @@ display: grid;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: var(--spacing-s);
+    padding-left:0;
     z-index: 5;
     transition: all 0.5s var(--ease);
     margin-bottom: var(--negative-spacing);
 }
 
-.filter-button{
+
+
+.filter-button {
+    margin-top: 5px;
     border: none;
-    background: var(--colors-Gray-200);
-    border-radius: 8px;
+    background: white;
+    border: 1px solid var(--colors-Gray-300);
+    border-radius: 5px;
     padding: var(--spacing-s) var(--spacing-m);
     transition: all 0.2s var(--ease);
-    &:hover{
-        background: var(--colors-Gray-300);
-    }
-    &:active {
-        background: var(--colors-Gray-400);
-    }
-    &.mixitup-control-active{
-        background: var(--colors-Purple-700);
-        background: var(--colors-Gray-500);;
-        color: white;
 
+    &.mixitup-control-active {
+            background: var(--colors-Gray-100);
+        }
+
+    &:focus {
+        background: var(--colors-Gray-100);
+        border: 1px solid var(--colors-Gray-300);
     }
+
+    &:hover {
+        background: var(--colors-Gray-200);
+        border: 1px solid var(--colors-Gray-400);
+    }
+
+    &:active {
+        border: 1px solid var(--colors-Gray-300);
+    }
+
+   
+
+
 }
+
+
 
 .body--scrolled{
     .filter{
@@ -2151,6 +2201,8 @@ display: grid;
         }
     }
 }
+
+
 
 ///////
 /// SEARCH

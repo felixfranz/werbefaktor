@@ -3,9 +3,9 @@
 // Case: Bestseller Section
 if( get_row_layout() == 'section_bestseller' ):
 
-    $tag_text = get_sub_field('tag_text');
+    $tag_text = get_sub_field('tag_bestseller');
     $tag_color = get_sub_field('tag_color');
-    $teaser_headline = get_sub_field('headline');
+    $teaser_headline = get_sub_field('headline_bestseller');
     $product_selection = get_sub_field('product_selection');
 
     $data = array(

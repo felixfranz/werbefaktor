@@ -12,16 +12,36 @@ input[type="week"],
 input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
-input[type="color"],
-textarea, select {
+input[type="color"]{
 	color: var(--color__text-input);
 	border: 1px solid var(--color__border-input);
 	border-radius: 8px;
-	padding: 5px;
+	padding: 5px 8px;
 	height: 42px;
 	font-size: var(--text-s);
 
 	&:focus, &:focus-visible {
+		color: var(--color__text-input-focus);
+		border: 1px solid var(--color__border-input-focus);
+	}
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel']{
+	width: 100%;
+}
+
+textarea,
+select {
+	color: var(--color__text-input);
+	border: 1px solid var(--color__border-input);
+	border-radius: 8px;
+	padding: 5px 8px;
+	font-size: var(--text-s);
+
+	&:focus,
+	&:focus-visible {
 		color: var(--color__text-input-focus);
 		border: 1px solid var(--color__border-input-focus);
 	}
@@ -34,6 +54,7 @@ select {
 
 textarea {
 	width: 100%;
+	font-family: var(--font-text-regular);
 }
 
 .field {

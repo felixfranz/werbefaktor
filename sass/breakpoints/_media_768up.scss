@@ -31,6 +31,13 @@
     }
 }
 
+// Projects GRID
+.post-list.projects-list {
+    display: grid;
+    gap: var(--spacing-m);
+    grid-template-columns: repeat(2, 1fr);
+}
+
 // IMAGE GRID
 
 .image_grid {
@@ -67,9 +74,7 @@
     width: auto;
 }
 
-.filter{
-    top:150px;
-}
+
 
 .body--scrolled {
     .filter {
