@@ -297,6 +297,11 @@ LAYOUT & GRID STYLES
     }
 }
 
+// Projects GRID
+.post-list.projects-list {
+    gap: var(--spacing-l);
+}
+
 }
 
 @media (width <=1150px) and (width >= 1025px) {

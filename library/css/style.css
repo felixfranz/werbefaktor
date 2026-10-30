@@ -3691,6 +3691,9 @@ DESKTOP
   .clients-banner .clients-banner-inner .col-auto {
     flex: 1;
   }
+  .post-list.projects-list {
+    gap: var(--spacing-l);
+  }
 }
 @media (width <= 1150px) and (width >= 1025px) {
   .main-navigation ul.main-navigation__menu > li > a {
@@ -3755,6 +3758,9 @@ LARGE VIEWING SIZE
   }
   .l\:gap-l {
     gap: var(--spacing-xxl);
+  }
+  .post-list.projects-list {
+    gap: var(--spacing-xl);
   }
 }
 .wrap {
