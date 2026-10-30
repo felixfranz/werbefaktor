@@ -3567,6 +3567,7 @@ DESKTOP
   .body--scrolled .main-navigation ul.main-navigation__menu > li > a {
     border-bottom: none;
     top: 2px;
+    border-radius: 0;
   }
   .body--scrolled .logo a {
     transform: translateY(0px);
