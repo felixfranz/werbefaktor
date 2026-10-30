@@ -3014,6 +3014,10 @@ BREADCRUMBS
   border-bottom: 8px solid var(--colors-Blue-400);
 }
 
+.taxonomy-header-production + .sticky-border span {
+  border-bottom: 8px solid var(--colors-Green-300);
+}
+
 .subcategory-grid, .products-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

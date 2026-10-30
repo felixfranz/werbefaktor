@@ -1837,6 +1837,13 @@ display: grid;
     }
 }
 
+.taxonomy-header-production{
+
+    &+.sticky-border span {
+        border-bottom: 8px solid var(--colors-Green-300);
+    }
+}
+
 
 .subcategory-grid, .products-grid {
     display: grid;

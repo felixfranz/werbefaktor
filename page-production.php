@@ -9,9 +9,25 @@ Template Name: Produktion
  */
 
 get_header();
+$page_intro = get_field("page_intro");
 ?>
 
 	<main id="main" class="site-main page__site-main">
+
+  <section class="taxonomy-header fullwidth taxonomy-header-production">
+    <div class="inner-wrap wrap flex flex-col gap-m">
+
+        <h1><?php the_title(); ?></h1>
+
+        <?php if ($page_intro) : ?>
+            <div class="taxonomy-intro text-content">
+               <?php echo wp_kses_post($page_intro); ?>
+            </div>
+        <?php endif; ?>
+</div>
+
+</section>
+<div class="sticky-border fullwidth"><span></span></div>
 
   <?php
 global $post;
