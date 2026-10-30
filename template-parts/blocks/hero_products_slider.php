@@ -6,7 +6,7 @@ if( get_row_layout() == 'hero_product_slider' ):
      if( have_rows('hero_slides') ):
 
          ?>
-        <section class="swiper js-swiper hero-slider"  data-loop="true"  data-pagination="true" data-navigation="true">
+        <section class="swiper js-swiper hero-slider"  data-autoplay="true" data-delay="5000" data-loop="true"  data-pagination="true" data-navigation="true">
             <div class="swiper-wrapper">
         <?php
 
@@ -130,8 +130,7 @@ if( get_row_layout() == 'hero_product_slider' ):
         
          <div class="swiper-pagination test"></div>
 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+     
     </section>
 
 

@@ -635,7 +635,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.js-swiper').forEach(slider => {
 
-    const autoplay = slider.dataset.autoplay;
+    const autoplay = slider.dataset.autoplay === 'true';
+    const delay = parseInt(slider.dataset.delay) || 5000;
     const pagination = slider.dataset.pagination === 'true';
     const navigation = slider.dataset.navigation === 'true';
     const loop = slider.dataset.loop === 'true';
@@ -646,7 +647,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       autoplay: autoplay
         ? {
-          delay: parseInt(autoplay, 10),
+         // delay: parseInt(autoplay, 10),
+         delay: delay,
           disableOnInteraction: false
         }
         : false,
