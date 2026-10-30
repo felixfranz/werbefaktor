@@ -2131,6 +2131,21 @@ section + .related_products {
 .hero-slider {
   width: 100%;
   position: relative;
+  padding-bottom: 20px;
+}
+.hero-slider .swiper-pagination {
+  bottom: 0 !important;
+}
+.hero-slider .swiper-pagination .swiper-pagination-bullet:hover {
+  background-color: var(--colors-Blue-400);
+  opacity: 1;
+}
+.hero-slider .swiper-pagination .swiper-pagination-bullet:active {
+  background: var(--colors-Blue-700);
+  opacity: 1;
+}
+.hero-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--colors-Blue-500);
 }
 
 .hero_product .section-tag {

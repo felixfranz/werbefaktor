@@ -811,6 +811,26 @@ color: white;
 .hero-slider{
     width:100%;
     position: relative;
+    padding-bottom: 20px;
+    .swiper-pagination{
+       // transform: translateY(40px);
+       bottom: 0 !important;
+    .swiper-pagination-bullet{
+        &:hover{
+            background-color: var(--colors-Blue-400);
+            opacity: 1;
+        }
+        &:active{
+            background: var(--colors-Blue-700);
+            opacity: 1;
+        }
+    }
+
+    .swiper-pagination-bullet-active{
+        background: var(--colors-Blue-500);
+    }
+    }
+
 }
 
 .hero_product{
