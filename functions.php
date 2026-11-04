@@ -599,7 +599,7 @@ class Category_Description_Walker extends Walker_Nav_Menu {
     }
 }
 
-// REWRITE URLS TO MATCH TYPO3 STRUCTURE
+
 
 function clean_wysiwyg($content) {
     return preg_replace('/<p>(?:\s|&nbsp;|<br\s*\/?>)*<\/p>/i', '', $content);
@@ -990,3 +990,24 @@ function mytheme_search_post_type_orderby( $orderby, $query ) {
     ";
 }
 add_action( 'pre_get_posts', 'mytheme_custom_search_post_type_order' );
+
+
+/**
+ * Enforce the same product_category URL base
+ * in all languages.
+ */
+add_filter('register_taxonomy_args', function($args, $taxonomy) {
+
+    if ($taxonomy !== 'product_category') {
+        return $args;
+    }
+
+    $args['rewrite'] = [
+        'slug'         => 'category',
+        'with_front'   => false,
+        'hierarchical' => true,
+    ];
+
+    return $args;
+
+}, 20, 2);

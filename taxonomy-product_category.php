@@ -3,43 +3,60 @@ get_header();
 
 $current_term = get_queried_object();
 
-// Custom taxonomy field (ACF)
-$term_description_raw = get_field(
-    'page_text',
-    'product_category_' . $current_term->term_id
-);
-
-$term_description = preg_replace('/<p>(?:\s|&nbsp;|<br\s*\/?>)*<\/p>/i', '', $term_description_raw);
-
-// Custom taxonomy field (ACF)
-$term_description_additional_raw = get_field(
-    'page_text_additional',
-    'product_category_' . $current_term->term_id
-);
-
-$term_description_additional = clean_wysiwyg($term_description_additional_raw);
-
+// Validate taxonomy term
 if (
-    ! $current_term ||
-    ! isset($current_term->term_id)
+    !($current_term instanceof WP_Term) ||
+    $current_term->taxonomy !== 'product_category'
 ) {
     get_footer();
     return;
 }
-$parent = '';
-$is_top_level = ($current_term->parent == 0);
 
-if ($current_term->parent) {
+// ACF fields for the current translated taxonomy term
+$term_description_raw = get_field('page_text', $current_term);
+$term_description_raw = is_string($term_description_raw)
+    ? $term_description_raw
+    : '';
+
+$term_description = preg_replace(
+    '/<p>\s*(?:&nbsp;|\s|<br\s*\/?>)*<\/p>/i',
+    '',
+    $term_description_raw
+);
+
+// Additional ACF content
+$term_description_additional_raw = get_field(
+    'page_text_additional',
+    $current_term
+);
+
+$term_description_additional_raw =
+    is_string($term_description_additional_raw)
+        ? $term_description_additional_raw
+        : '';
+
+$term_description_additional = function_exists('clean_wysiwyg')
+    ? clean_wysiwyg($term_description_additional_raw)
+    : $term_description_additional_raw;
+
+// Parent taxonomy term
+$parent = '';
+$parent_id = 0;
+
+$is_top_level = ((int) $current_term->parent === 0);
+
+if (!$is_top_level) {
 
     $parent_term = get_term(
         $current_term->parent,
         'product_category'
     );
 
-    $parent = $parent_term->slug;
-    $parent_id = $parent_term->id;
+    if ($parent_term instanceof WP_Term) {
+        $parent = $parent_term->slug;
+        $parent_id = $parent_term->term_id;
+    }
 }
-
 ?>
 
 <main id="main" class="taxonomy-product-category">
@@ -87,13 +104,14 @@ if ($current_term->parent) {
                 <?php
                 $term_link = get_term_link($term);
 
-                $description = category_description($term->term_id);
+                $description = term_description($term->term_id, 'product_category');
 
                 // ACF Gallery field
-                $gallery = get_field(
-                    'category_gallery',
-                    'product_category_' . $term->term_id
-                );
+                $gallery = get_field('category_gallery', $term);
+
+                if (!is_array($gallery)) {
+                    $gallery = [];
+                }
 
                 ?>
 
@@ -109,11 +127,46 @@ if ($current_term->parent) {
                             >
                             <div class="swiper-wrapper">
 
-                                <?php foreach ($gallery as $image) : ?>
+                              <?php foreach ($gallery as $image) : ?>
+
+                                    <?php
+                                    $image_url = '';
+
+                                    if (is_array($image)) {
+
+                                        // ACF Image Array
+                                        $image_url = $image['sizes']['large']
+                                            ?? $image['url']
+                                            ?? '';
+
+                                    } elseif (is_numeric($image)) {
+
+                                        // Attachment ID
+                                        $image_url = wp_get_attachment_image_url(
+                                            (int) $image,
+                                            'large'
+                                        );
+
+                                    } elseif (is_string($image)) {
+
+                                        // Image URL
+                                        $image_url = $image;
+                                    }
+
+                                    if (!$image_url) {
+                                        continue;
+                                    }
+                                    ?>
+
                                     <div class="swiper-slide">
-                                        <img src="<?php echo esc_url($image['sizes']['large']); ?>">
+                                        <img
+                                            src="<?php echo esc_url($image_url); ?>"
+                                            alt=""
+                                            loading="lazy"
+                                        >
                                     </div>
-                                <?php endforeach; // end Bilder Test ?>
+
+                                <?php endforeach; ?>
 
                             </div>
                              <div class="swiper-pagination test"></div>
