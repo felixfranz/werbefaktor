@@ -420,11 +420,20 @@ class Category_Description_Walker extends Walker_Nav_Menu {
                         $output .= '</p></div>';
                     }
 
+                    if ($term && !is_wp_error($term)) {
+                        $overview_link = get_field(
+                            'menu_overview_link_text',
+                            $term
+                        );
+                    }
+
+                    
+
                     // Parent category link
                     $output .= '<div class="menu-item parent-category-link">';
                     $output .= '<a href="' . esc_url(get_term_link($term)) . '">';
                     //$output .= 'View All ' . esc_html($term->name);
-					$output .= $menu_overview_link_text;
+					$output .= $overview_link;
                     $output .= '</a>';
                     $output .= '</div>';
 
@@ -530,6 +539,12 @@ class Category_Description_Walker extends Walker_Nav_Menu {
                     'menu-description',
                     $item->object_id
                 );
+
+                $menu_overview_link_text = get_field(
+                'menu_overview_link_text',
+                $item->object_id
+            );
+
 
                 if (!empty($menu_description)) {
 
