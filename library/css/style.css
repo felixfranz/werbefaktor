@@ -1907,6 +1907,10 @@ section.fullwidth {
   margin-top: var(--negative-spacing);
 }
 
+.flexible_header + section {
+  margin-top: var(--negative-spacing);
+}
+
 section.bg-light-gray + .bg-white, section.bg-light-gray + .bg-transparent {
   margin-top: var(--negative-spacing);
 }

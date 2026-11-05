@@ -522,6 +522,10 @@ gap: var(--spacing-xs);
 
 } 
 
+.flexible_header + section{
+    margin-top: var(--negative-spacing);
+}
+
 section.bg-light-gray{
     & + .bg-white, & + .bg-transparent{
         margin-top: var(--negative-spacing);
