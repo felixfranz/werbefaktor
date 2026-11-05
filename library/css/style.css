@@ -1601,6 +1601,10 @@ LAYOUT & GRID STYLES
   padding: var(--spacing-xl) 0;
 }
 
+#main:has(#breadcrumbs) {
+  padding: var(--spacing-m) 0 var(--spacing-xl);
+}
+
 .page.wrap {
   min-height: calc(100vh - 250px);
 }
@@ -2233,7 +2237,7 @@ section + .related_products {
   background: var(--gradient-blue);
 }
 .hero_product--fullsize .hero__background.bg-light-gray, .hero_product--fullscreen .hero__background.bg-light-gray {
-  background: var(--colors-Gray-100);
+  background: var(--colors-Gray-50);
 }
 .hero_product--fullsize .hero__image-container, .hero_product--fullscreen .hero__image-container {
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
@@ -2504,10 +2508,10 @@ ABFOLGE & Abfolge Small
   justify-content: center;
   position: relative;
 }
-.block__step:nth-child(odd) {
+.block__step:nth-child(even) {
   background: var(--colors-Gray-100);
 }
-.block__step:nth-child(odd) .abfolge_icon {
+.block__step:nth-child(even) .abfolge_icon {
   background: var(--colors-Gray-100);
 }
 
@@ -2682,6 +2686,10 @@ BREADCRUMBS
 .single-product .site-main h1 {
   font-size: var(--headline-m);
   font-weight: 600;
+}
+
+.product {
+  gap: var(--spacing-xl);
 }
 
 .product__gallery {
@@ -3602,6 +3610,9 @@ DESKTOP
     margin-top: 150px;
     padding: var(--spacing-2xl) 0;
   }
+  #main:has(#breadcrumbs) {
+    padding: var(--spacing-m) 0 var(--spacing-2xl);
+  }
   .md\:col-50,
   .col-50 {
     width: 50%;
@@ -3638,6 +3649,9 @@ DESKTOP
   }
   .sticky-border {
     top: 90px;
+  }
+  .product {
+    gap: var(--spacing-2xl);
   }
   .product__green-box {
     display: flex;

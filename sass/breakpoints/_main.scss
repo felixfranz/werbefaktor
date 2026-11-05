@@ -140,6 +140,10 @@ LAYOUT & GRID STYLES
     padding: var(--spacing-xl) 0;
 }
 
+#main:has(#breadcrumbs) {
+    padding: var(--spacing-m) 0 var(--spacing-xl);
+}
+
 // force footer to the bottom
 .page.wrap{
     min-height: calc(100vh - 250px);
@@ -931,7 +935,7 @@ color: white;
         }
 
         &.bg-light-gray {
-            background: var(--colors-Gray-100);
+            background: var(--colors-Gray-50);
         }
     }
 
@@ -1255,7 +1259,7 @@ ABFOLGE & Abfolge Small
     justify-content: center;
     position: relative;
 
-    &:nth-child(odd){
+    &:nth-child(even){
         background: var(--colors-Gray-100);
         .abfolge_icon{
             background: var(--colors-Gray-100);;
@@ -1456,6 +1460,10 @@ BREADCRUMBS
         font-size: var(--headline-m);
         font-weight: 600;
     }
+}
+
+.product{
+    gap: var(--spacing-xl);
 }
 
 .product__gallery{

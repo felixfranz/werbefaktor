@@ -122,6 +122,10 @@ LAYOUT & GRID STYLES
     padding: var(--spacing-2xl) 0;
 }
 
+#main:has(#breadcrumbs){
+    padding: var(--spacing-m) 0 var(--spacing-2xl);
+}
+
   // COLUMNS
   .md\:col-50,
   .col-50 {
@@ -175,6 +179,11 @@ LAYOUT & GRID STYLES
 
 
   // SINGLE PRODUCT PAGE
+
+  .product {
+      gap: var(--spacing-2xl);
+  }
+
   .product__green-box {
       display: flex;
   }
