@@ -30,8 +30,8 @@
                                     $content .= '<div class="grid_image">';
                                     // regular grid style with lightbox
                                     if($image_style == 'style--pictures') {
-                                    $content .= '<a class="gallery_image" data-slb-group="lighbox-2" href="'. $image['url'] .'">'; 
-                                    $content .= '<img src="'. esc_url($image['sizes']['large']) .'" data-slb-group="lighbox-1">';
+                                    $content .= '<a class="gallery_image" data-slb-group="lightbox-1" href="'. $image['url'] .'">'; 
+                                    $content .= '<img src="'. esc_url($image['sizes']['large']) .'" data-slb-group="lightbox-1">';
                                     $content .= '</a>';                                    
                                     }  
                                     if($image_style == 'style--logos') {
