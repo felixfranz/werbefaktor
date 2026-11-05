@@ -776,7 +776,7 @@ html {
 .menu-top li {
   margin-left: var(--spacing-l);
 }
-.menu-top li:last-child {
+.menu-top li.wpml-ls-item:last-child {
   margin-left: var(--spacing-s);
 }
 .menu-top li a {
