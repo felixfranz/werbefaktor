@@ -2062,6 +2062,10 @@ display: grid;
 
 .grid_image{
     aspect-ratio: var(--ratio-landscape);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
 }
 
 .image_grid img {
@@ -2071,6 +2075,10 @@ display: grid;
     object-fit: cover;
 
     &.grid_logo{
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
         object-fit: contain;
     }
 }

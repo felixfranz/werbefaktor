@@ -3212,6 +3212,10 @@ BREADCRUMBS
 
 .grid_image {
   aspect-ratio: var(--ratio-landscape);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
 }
 
 .image_grid img {
@@ -3221,6 +3225,10 @@ BREADCRUMBS
   object-fit: cover;
 }
 .image_grid img.grid_logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 
