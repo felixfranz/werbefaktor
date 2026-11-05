@@ -2509,10 +2509,10 @@ ABFOLGE & Abfolge Small
   position: relative;
 }
 .block__step:nth-child(even) {
-  background: var(--colors-Gray-100);
+  background: var(--colors-Gray-50);
 }
 .block__step:nth-child(even) .abfolge_icon {
-  background: var(--colors-Gray-100);
+  background: var(--colors-Gray-50);
 }
 
 .abfolge_icon {

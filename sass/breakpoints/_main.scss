@@ -1260,9 +1260,9 @@ ABFOLGE & Abfolge Small
     position: relative;
 
     &:nth-child(even){
-        background: var(--colors-Gray-100);
+        background: var(--colors-Gray-50);
         .abfolge_icon{
-            background: var(--colors-Gray-100);;
+            background: var(--colors-Gray-50);;
         }
     }
 }
